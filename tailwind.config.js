@@ -9,7 +9,7 @@ module.exports = {
           100: '#334756',
           200: '#2C394B',
         },
-        tertiary: '#FF4C29'
+        tertiary: '#FF4C29',
       },
       fontFamily: {
         logo: ['Lobster'],
