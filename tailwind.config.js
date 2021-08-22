@@ -12,9 +12,13 @@ module.exports = {
         tertiary: '#FF4C29'
       },
       fontFamily: {
-        header: ['Lobster'],
+        logo: ['Lobster'],
+        header: ['Montserrat'],
         body: ['Roboto']
       },
+      height: {
+        semiScreen: 'calc(100vh - 4rem)',
+      }
     },
     variants: {
       extend: {},
