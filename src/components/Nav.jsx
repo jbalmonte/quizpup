@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React, { useRef } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 import MenuDrawer from './MenuDrawer'
 import UserAvatar from './UserAvatar'
 import auth from '../auth'
@@ -59,8 +59,18 @@ function Nav() {
                         <UserAvatar onClick={e => menuDrawerRef.current.classList.toggle('hidden')} name="Joshua" src="" />
                         : (
                             <div>
-                                <button type="button" className="button mr-2">Log in</button>
-                                <button type="button" className="button bg-yellow-500 text-gray-50">Sign up</button>
+                                <Link to="/login" >
+                                    <button type="button" className="button mr-2">
+                                        Log in
+                                    </button>
+                                </Link>
+
+                                <Link to="/register">
+                                    <button type="button" className="button active-button">
+                                        Sign up
+                                    </button>
+                                </Link>
+
                             </div>
                         )
                 }
