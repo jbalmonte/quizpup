@@ -20,3 +20,19 @@
 .active-nav-link {
     @apply bg-gray-600 text-white rounded-md p-2 mx-4 flex
 }
+
+.input {
+    @apply content-center text-base px-4 py-2 rounded-lg focus:outline-none focus:border-green-400
+}
+
+.active-category{
+    @apply bg-green-500 text-gray-50
+}
+
+.category {
+    @apply h-4/5 rounded-md px-3 flex items-center  hover:bg-green-500 hover:text-gray-50
+}
+
+.category-content {
+    @apply bg-green-300 rounded-lg h-screen flex items-center justify-between mt-3 px-2 text-lg font-semibold shadow font-header text-primary
+}

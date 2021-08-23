@@ -10,11 +10,11 @@ import React from 'react';
 function App() {
   return (
     <UserContextProvider>
-      <Router>
+      <Router >
         <Nav />
         <Switch>
           <Route path="/" exact component={Home} />
-          <PrivateRoute path="/quizzes" exact component={Quizzes} />
+          <Route path="/quizzes" exact component={Quizzes} />
           <PrivateRoute path="/leaderboards" exact component={Leaderboards} />
           <PrivateRouteForms path="/login" exact component={Login} />
           <PrivateRouteForms path="/register" exact component={Register} />

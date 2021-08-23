@@ -56,7 +56,7 @@ function Nav() {
                 {
                     auth.isAuthenticated() ?
 
-                        <UserAvatar onClick={e => menuDrawerRef.current.classList.toggle('hidden')} name="Joshua" src="" />
+                        <UserAvatar onClick={e => menuDrawerRef.current.classList.toggle('hidden')} />
                         : (
                             <div>
                                 <Link to="/login" >
