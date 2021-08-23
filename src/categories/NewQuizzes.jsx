@@ -1,9 +1,14 @@
 import React from 'react'
+import Card from '../components/Card'
 
 const NewQuizzes = () => {
     return (
         <div className="category-content">
-            New quizzes
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            <Card />
         </div>
     )
 }
