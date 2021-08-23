@@ -34,5 +34,5 @@
 }
 
 .category-content {
-    @apply bg-green-300 rounded-lg h-screen flex items-center justify-between mt-3 px-2 text-lg font-semibold shadow font-header text-primary
+    @apply bg-green-300 rounded-lg h-screen flex justify-between mt-3 py-4 px-10 text-lg font-semibold shadow font-header text-primary
 }
