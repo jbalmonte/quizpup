@@ -5,9 +5,9 @@ import mountain from '../images/mountain.jpg'
 const Card = () => {
 
     return (
-        <div className="overflow-hidden h-48 bg-white shadow-sm text-secondary-200 flex font-body rounded-lg text-left mb-5 w-8/12">
+        <div className="overflow-hidden h-48 bg-white shadow-sm text-secondary-200 flex font-body rounded-lg text-left mb-5 w-full">
 
-            <img src={mountain} alt="Mountain" className="object-fill bg-cover w-1/3 overflow-hidden z-0" />
+            <img src={mountain} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
 
             <div className="h-full ml-5 flex flex-col justify-evenly relative">
                 <h1 className="text-3xl pt-2 pb-1 font-serif border-b border-gray-300">Assessment in ComSci</h1>

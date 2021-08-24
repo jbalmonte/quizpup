@@ -31,5 +31,5 @@ body{
 }
 
 .category-content {
-    @apply rounded-lg mt-3 py-14 px-6 text-lg text-primary bg-green-500
+    @apply rounded-lg mt-3 py-5 px-6 text-lg text-primary
 }
