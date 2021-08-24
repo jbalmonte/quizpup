@@ -9,6 +9,8 @@ const AllQuizes = () => {
             <Card />
             <Card />
             <Card />
+            <Card />
+            <Card />
         </div>
     )
 }

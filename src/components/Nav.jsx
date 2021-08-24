@@ -14,7 +14,7 @@ function Nav() {
 
             <MenuDrawer ref={menuDrawerRef} />
 
-            <nav className="flex justify-between h-16 bg-secondary-200 text-gray-100 items-center py-6 px-12 shadow-lg hover:cursor-pointer">
+            <nav className="flex justify-between h-16 bg-secondary-200 text-gray-100 items-center py-6 px-12 shadow-lg hover:cursor-pointer sticky top-0 z-50">
                 <Link to="/" exact>
                     <div className="flex text-left">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6  -mt-1 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
