@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 
 const Categories = () => {
     return (
-        <div className="bg-green-300 rounded-lg h-14 flex items-center justify-around py-1 px-1 text-lg shadow font-body text-primary font-medium">
+        <div className="bg-green-300 rounded-lg h-14 flex items-center justify-evenly py-1 px-1 text-lg shadow font-body text-primary font-medium">
 
             <NavLink to="/quizzes/" exact activeClassName="active-category" className="category">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-6 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
