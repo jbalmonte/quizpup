@@ -11,11 +11,11 @@ body{
 }
 
 .nav-link {
-    @apply hover:bg-gray-600 hover:text-white rounded-md p-2 mx-4 flex
+    @apply hover:bg-gray-900 hover:text-white rounded-md p-2 mx-4 flex
 }
 
 .active-nav-link {
-    @apply bg-gray-600 text-white rounded-md p-2 mx-4 flex
+    @apply bg-gray-900 text-white rounded-md p-2 mx-4 flex
 }
 
 .input {

@@ -25,7 +25,7 @@ const Quizzes = () => {
                     </div>
 
 
-                    <div className=" py-5 text-lg">
+                    <div className=" py-5 text-base">
                         <ul className="text-center">
                             <li className="flex items-center py-2 hover:bg-green-300 px-2  ">
                                 <IoDocumentTextSharp />
@@ -74,6 +74,12 @@ const Quizzes = () => {
                             </li>
 
                         </ul >
+                        <div className="mt-44 text-center text-gray-400 text-xs">
+                            <span>
+                                Copyright © 2021-2022
+                            </span>
+
+                        </div>
                     </div >
                 </div >
 

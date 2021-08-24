@@ -9,18 +9,18 @@ const Login = () => {
     const user = useUserContext()
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >
-            <div className="absolute bg-gradient-to-b from-green-700 to-green-500 opacity-75 inset-0 z-0"></div>
+            <div className="absolute bg-green-100 inset-0 z-0"></div>
 
             <div className=" h-semiScreen sm:flex sm:flex-row mx-0 justify-center">
                 <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                     <div className="self-start hidden lg:flex flex-col  text-white">
                         {/* <img src="" className="mb-3" /> */}
-                        <h1 className="mb-3 font-bold text-5xl font-header">Hi 👋 Welcome Back!</h1>
-                        <p className="pr-3">There are lot of quizzes that you don't want to miss out! Come and join us again because you could be the next Quizpup Superstar</p>
+                        <h1 className="mb-3 font-bold text-5xl font-header text-primary">Hi 👋 Welcome Back!</h1>
+                        <p className="pr-3 text-secondary-200">There are lot of quizzes that you don't want to miss out! Come and join us again because you could be the next Quizpup Superstar</p>
                     </div>
                 </div>
-                <div className="flex justify-center self-center  z-10">
-                    <div className="p-12 bg-white mx-auto rounded-2xl w-100 ">
+                <div className="flex justify-center self-center z-10">
+                    <div className="p-12 bg-white mx-auto rounded-2xl w-100  shadow">
                         <div className="mb-4">
                             <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
                             <p className="text-gray-500">Please sign in to your account.</p>
