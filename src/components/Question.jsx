@@ -4,12 +4,11 @@ import Choice from "./Choice"
 
 const Question = ({ itemNo }) => {
     return (
-        <div className="my-4">
-            <fieldset className="border border-gray-400 w-3/4 mx-auto rounded-lg p-3">
-                <legend className="text-secondary-100 text-left px-3">Q {itemNo}</legend>
-                <div className="text-center flex">
-                    <label htmlFor="question1" className="flex items-center leading-normal bg-grey-lighter rounded-l-lg border border-r-0 border-gray-300 px-3 whitespace-no-wrap text-secondary-100 ">{itemNo}</label>
-                    <input type="text" placeholder="Enter the question..." name="question1" id="question1" className="text-base px-4 py-2 border border-gray-300 rounded-r-lg focus:outline-none focus:border-green-400 w-11/12" />
+        <div className="my-5">
+            <fieldset className=" text-gray-50 bg-secondary-200 w-3/4 mx-auto rounded-lg p-3">
+                <div className="text-center flex mt-2">
+                    <label htmlFor="question1" className="bg-green-500 text-gray-50 flex items-center leading-normal rounded-l-lg border border-r-0 border-green-500 px-3 whitespace-no-wrap ">Q{itemNo}</label>
+                    <input type="text" placeholder="Enter the question..." name="question1" id="question1" className="text-base px-4 py-2 border border-l-0 border-gray-300 rounded-r-lg focus:outline-none focus:border-green-400 w-11/12" />
                 </div>
                 <div className="text-right my-3 mr-2">
                     <button type="button" className="text-right text-sm font-medium hover:text-green-600 hover:bg-gray-50 rounded-md">
@@ -24,9 +23,12 @@ const Question = ({ itemNo }) => {
                 <Choice />
                 <Choice />
 
-                <p className="text-right">Answer:
+                <hr className="block" />
+
+                <div className="text-right mt-3">
+                    <span className="text-gray-200">Answer: </span>
                     <span className="bg-tertiary text-gray-50 px-2 py-1 rounded-md ml-3 shadow text-center">Joshua</span>
-                </p>
+                </div>
             </fieldset>
         </div>
     )
