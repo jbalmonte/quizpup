@@ -1,4 +1,4 @@
-import { Home, Quizzes, Leaderboards, Login, Register } from './pages';
+import { Home, Quizzes, Leaderboards, Login, Register, CreateQuiz } from './pages';
 import Nav from './components/Nav'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // eslint-disable-next-line
@@ -18,6 +18,7 @@ function App() {
           <Route path="/leaderboards" exact component={Leaderboards} />
           <UserPrivateRoute path="/login" exact component={Login} />
           <UserPrivateRoute path="/register" exact component={Register} />
+          <Route path="/createQuiz" exact component={CreateQuiz} />
         </Switch>
 
       </Router>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import { AllQuizzes, BestQuizzes, HotQuizzes, NewQuizzes, } from '../categories'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
@@ -20,12 +20,14 @@ const Quizzes = () => {
 
                 <div className="fixed left-3" style={{ width: "16.5rem" }}>
 
-                    <div className="bg-green-300 hover:bg-secondary-200    hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-700 ease-linear">
-                        <UserAvatar size={10} fSize="text-sm" />
-                        <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
-                            placeholder="Create a quiz..." />
-                        <IoAddCircleSharp className="text-2xl text-green-600" />
-                    </div>
+                    <Link to="/createQuiz">
+                        <div className="bg-green-300 hover:bg-secondary-200 hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-500 ease-linear">
+                            <UserAvatar size={10} fSize="text-sm" />
+                            <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
+                                placeholder="Create a quiz..." />
+                            <IoAddCircleSharp className="text-2xl text-green-600" />
+                        </div>
+                    </Link>
 
 
                     <div className=" py-5 text-base">
