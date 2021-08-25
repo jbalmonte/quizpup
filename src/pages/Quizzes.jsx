@@ -3,7 +3,7 @@ import { Route, Link, useHistory } from 'react-router-dom'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
 import UserAvatar from '../components/UserAvatar'
-import QuizzesByCategory from './QuizzesByCategory'
+import QuizByCategory from './QuizByCategory'
 import Categories from '../components/Categories'
 
 const Quizzes = () => {
@@ -98,8 +98,8 @@ const Quizzes = () => {
                 <Categories history={history} />
 
 
-                <Route exact path="/quizzes" component={QuizzesByCategory} />
-                <Route exact path="/quizzes/:category" component={QuizzesByCategory} />
+                <Route exact path="/quizzes" component={QuizByCategory} />
+                <Route exact path="/quizzes/:category" component={QuizByCategory} />
 
 
             </div>

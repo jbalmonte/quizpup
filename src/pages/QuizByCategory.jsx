@@ -1,7 +1,7 @@
 import React from 'react'
 import Card from '../components/Card'
 
-const QuizzesByCategory = ({ match: { params }, history }) => {
+const QuizByCategory = ({ match: { params }, history }) => {
 
     return (
         <div className="category-content">
@@ -28,4 +28,4 @@ const QuizzesByCategory = ({ match: { params }, history }) => {
     )
 }
 
-export default QuizzesByCategory
+export default QuizByCategory
