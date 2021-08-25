@@ -14,22 +14,22 @@ const Card = ({ difficulty }) => {
             <img src={mountain} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
 
             <div className="h-full ml-5 flex flex-col justify-evenly w-2/3">
-                <h1 className="text-xl pt-2 pb-1 font-medium">Math in the Modern World
+                <h1 className="text-xl pt-2 pb-1 font-medium pointer-events-none">Math in the Modern World
 
                 </h1>
-                <p className="text-xs text-gray-500 pb-1">Lorem ipsum dolor sit amet consectetur adipisicingadipisicing adipisicing adipisicing elit. Molestiae recusandae ex ea impedi</p>
+                <p className="text-xs text-gray-500 pb-1 pointer-events-none ">Lorem ipsum dolor sit amet consectetur adipisicingadipisicing adipisicing adipisicing elit. Molestiae recusandae ex ea impedi</p>
 
                 <div className=" flex justify-between items-end py-1">
                     <div className="flex items-end p-0">
                         <UserAvatar size={8} fSize="text-xs" />
                         <div>
-                            <p className="ml-2 my-auto text-xs text-gray-600">Joshua Balmonte</p>
-                            <p className="ml-2 my-auto text-xs text-gray-400">2 monts ago</p>
+                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">Joshua Balmonte</p>
+                            <p className="ml-2 my-auto text-xs text-gray-400 pointer-events-none">2 monts ago</p>
                         </div>
                     </div>
-                    <div className="mr-5">
-                        <p className="text-sm flex items-center text-secondary-100">
-                            <FaStar className={`mr-1 mb-1 text-yellow-400`} />4.5
+                    <div className="mr-5 transform hover:scale-110 transition-transform ease-out duration-100">
+                        <p className="text-sm flex items-center text-secondary-100 pointer-events-none">
+                            <FaStar className={`mr-1 mb-1 text-yellow-400 cursor-pointer`} />4.5
                         </p>
 
                     </div>
