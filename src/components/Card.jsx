@@ -35,7 +35,7 @@ const Card = ({ difficulty }) => {
                     </div>
 
                 </div>
-                <div className={`h-5 w-14 shadow-lg absolute left-0 z-10 top-0 flex items-center justify-center text-xs text-gray-50 ${difficulty !== 'Medium' && 'tracking-wider'} ${badge[difficulty]}`}>
+                <div className={`pointer-events-none h-5 w-14 shadow-lg absolute left-0 z-10 top-0 flex items-center justify-center text-xs text-gray-50 ${difficulty !== 'Medium' && 'tracking-wider'} ${badge[difficulty]}`}>
                     <span className="">
                         {difficulty}
                     </span>

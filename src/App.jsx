@@ -6,7 +6,6 @@ import PrivateRoute from './components/PrivateRoute'
 import UserPrivateRoute from './components/UserPrivateRoute';
 import UserContextProvider from './context/UserContext';
 import React from 'react';
-
 function App() {
   return (
     <UserContextProvider>
@@ -14,7 +13,7 @@ function App() {
         <Nav />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/quizzes" exact component={Quizzes} />
+          <Route path="/quizzes" component={Quizzes} />
           <Route path="/leaderboards" exact component={Leaderboards} />
           <UserPrivateRoute path="/login" exact component={Login} />
           <UserPrivateRoute path="/register" exact component={Register} />

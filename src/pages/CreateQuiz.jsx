@@ -1,5 +1,6 @@
 import React from 'react'
-import { IoAdd } from 'react-icons/io5'
+import { IoAdd, IoArrowBackSharp } from 'react-icons/io5'
+import { Link } from 'react-router-dom'
 import Question from '../components/Question'
 
 
@@ -9,7 +10,13 @@ const CreateQuiz = () => {
 
     return (
         <div className="bg-green-100 p-3">
-            <div className="bg-gray-50 w-1/2 border rounded-2xl mx-auto mb-5 py-3 px-5">
+            <div className="bg-gray-50 w-1/2 border rounded-2xl mx-auto mb-5 py-3 px-5 relative">
+
+                <Link to="/quizzes">
+                    <div className="absolute text-5xl text-secondary-100 top-6 rounded-full border-2 transform hover:scale-105 hover:text-primary border-primary">
+                        <IoArrowBackSharp />
+                    </div>
+                </Link>
                 <h1 className="text-4xl my-4 pb-2 font-semibold text-primary mx-auto text-center w-1/2">Create Quiz</h1>
 
                 <div className="py-3 mx-auto">
@@ -30,15 +37,15 @@ const CreateQuiz = () => {
                         </div>
 
                         <div className="my-4 flex items-stretch justify-center">
-                            <label htmlFor="difficulty" className="font-medium text-secondary-200 tracking-wide uppercase mr-2">Difficulty: </label>
+                            <label htmlFor="difficulty" className="font-medium text-secondary-200 tracking-wide uppercase mr-5">Difficulty: </label>
                             <div className="flex ml-16 items-center">
-                                <input type="radio" name="difficulty" id="easy" value="Easy" className=" h-6 w-6 text-green-500 " />
+                                <input type="radio" name="difficulty" id="easy" value="Easy" className=" h-5 w-5 text-green-500 " />
                                 <label htmlFor="easy" className="mr-5 ml-2">Easy</label>
 
-                                <input type="radio" name="difficulty" id="medium" value="Medium" className="h-6 w-6 text-green-500" />
+                                <input type="radio" name="difficulty" id="medium" value="Medium" className="h-5 w-5 text-green-500" />
                                 <label htmlFor="easy" className="mr-5 ml-2">Medium</label>
 
-                                <input type="radio" name="difficulty" id="hard" value="Hard" className="h-6 w-6 text-green-500 " />
+                                <input type="radio" name="difficulty" id="hard" value="Hard" className="h-5 w-5 text-green-500 " />
                                 <label htmlFor="easy" className="mr-5 ml-2">Hard</label>
                             </div>
                         </div>
