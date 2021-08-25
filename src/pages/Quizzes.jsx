@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { AllQuizzes, BestQuizzes, HotQuizzes, NewQuizzes, } from '../categories'
 import { FaHistory } from 'react-icons/fa'
-import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp } from 'react-icons/io5'
+import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
 import Categories from '../components/Categories'
 import UserAvatar from '../components/UserAvatar'
 
@@ -17,16 +17,25 @@ const Quizzes = () => {
             </div> */}
 
             <div className="col-span-1" >
+
                 <div className="fixed left-3" style={{ width: "16.5rem" }}>
-                    <div className="bg-green-300 rounded-lg h-14 flex items-center justify-evenly px-3 shadow ">
+
+                    <div className="bg-green-300 hover:bg-secondary-200    hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-700 ease-linear">
                         <UserAvatar size={10} fSize="text-sm" />
                         <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
                             placeholder="Create a quiz..." />
+                        <IoAddCircleSharp className="text-2xl text-green-600" />
                     </div>
 
 
                     <div className=" py-5 text-base">
                         <ul className="text-center">
+                            <li className="flex items-center py-2 hover:bg-green-300 px-2  border-r-4 border-green-500">
+                                <IoHome />
+                                <span className="ml-3">
+                                    Home Feed
+                                </span>
+                            </li>
                             <li className="flex items-center py-2 hover:bg-green-300 px-2  ">
                                 <IoDocumentTextSharp />
                                 <span className="ml-3">
@@ -74,7 +83,7 @@ const Quizzes = () => {
                             </li>
 
                         </ul >
-                        <div className="mt-44 text-center text-gray-400 text-xs">
+                        <div className="mt-36 text-center text-gray-500 text-xs">
                             <span>
                                 Copyright © 2021-2022
                             </span>

@@ -2,7 +2,6 @@ import React from "react"
 import UserAvatar from './UserAvatar'
 import mountain from '../images/mountain.jpg'
 import { FaStar } from "react-icons/fa"
-import { BsArrowRightShort } from 'react-icons/bs'
 const Card = ({ difficulty }) => {
     const badge = {
         Easy: 'bg-yellow-500',

@@ -16,24 +16,24 @@ const Leaderboards = () => {
                     <h1 className="p-2 text-center mx-auto font-header font-medium text-3xl mb-5 uppercase">Top Players of the Week</h1>
                 </div>
                 <div className="flex items-center justify-center">
-                    <table className="border-collapse border border-green-600 w-3/4 text-primary">
+                    <table className="border-collapse border border-primary w-3/4 text-secondary-200">
                         <thead className="font-header">
                             <tr>
-                                <th className="border border-green-600">Rank</th>
-                                <th className="col-span-5 border border-green-600">Player</th>
-                                <th className="border border-green-600 p-4" >QPoints</th>
+                                <th className="border border-primary">Rank</th>
+                                <th className="col-span-5 border border-primary">Player</th>
+                                <th className="border border-primary p-4" >QPoints</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 [...Array(50)].map((_, i) => (
                                     <tr key={i + 1}>
-                                        <td className="border border-green-600 p-3 text-center">
+                                        <td className="border border-primary p-3 text-center">
                                             <div className={`${i < 3 && top3[i + 1]}`}>
                                                 {i + 1}
                                             </div>
                                         </td>
-                                        <td className="p-1 ml-5 border-green-600 border">
+                                        <td className="p-1 ml-5 border-primary border">
                                             <div className="flex items-center justify-center">
                                                 <UserAvatar size={8} fSize="text-xs" />
                                                 <span className="ml-3 inline-block">
@@ -41,7 +41,7 @@ const Leaderboards = () => {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="border border-green-600 p-1 text-center">15000</td>
+                                        <td className="border border-primary p-1 text-center">15000</td>
                                     </tr>
                                 ))
 
@@ -59,24 +59,24 @@ const Leaderboards = () => {
                     <h1 className="p-2 text-center mx-auto font-header font-medium text-3xl mb-5 uppercase">Top Players of the Season</h1>
                 </div>
                 <div className="flex items-center justify-center">
-                    <table className="border-collapse border border-green-600 w-3/4 text-primary">
+                    <table className="border-collapse border border-primary w-3/4 text-secondary-200">
                         <thead className="font-header">
                             <tr>
-                                <th className="border border-green-600">Rank</th>
-                                <th className="col-span-5 border border-green-600">Player</th>
-                                <th className="border border-green-600 p-4" >QPoints</th>
+                                <th className="border border-primary">Rank</th>
+                                <th className="col-span-5 border border-primary">Player</th>
+                                <th className="border border-primary p-4" >QPoints</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
                                 [...Array(50)].map((_, i) => (
                                     <tr key={i + 1}>
-                                        <td className="border border-green-600 p-3 text-center">
+                                        <td className="border border-primary p-3 text-center">
                                             <div className={`${i < 3 && top3[i + 1]}`}>
                                                 {i + 1}
                                             </div>
                                         </td>
-                                        <td className="p-1 ml-5 border-green-600 border">
+                                        <td className="p-1 ml-5 border-primary border">
                                             <div className="flex items-center justify-center">
                                                 <UserAvatar size={8} fSize="text-xs" />
                                                 <span className="ml-3 inline-block">
@@ -84,7 +84,7 @@ const Leaderboards = () => {
                                                 </span>
                                             </div>
                                         </td>
-                                        <td className="border border-green-600 p-1 text-center">15000</td>
+                                        <td className="border border-primary p-1 text-center">15000</td>
                                     </tr>
                                 ))
 
