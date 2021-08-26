@@ -9,7 +9,7 @@ import Categories from '../components/Categories'
 const Quizzes = ({ match: { params }, history }) => {
 
     return (
-        <div className="bg-green-100 font-body text-center grid grid-cols-5 pt-3">
+        <div className=" font-body text-center grid grid-cols-5 pt-3">
 
             <div className="col-span-1" >
 

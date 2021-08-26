@@ -11,13 +11,13 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/quizzes" exact component={Quizzes} />
         <Route path="/quizzes/:id" render={
           props => {
             if (!isNaN(+props.match.params.id)) return <Quiz {...props} />
             else if (["all", "hot", "new", "best"].includes(props.match.params.id)) return <Quizzes {...props} />
             else return "404 NOT FOUND"
           }} />
-        <Route path="/quizzes" component={Quizzes} />
         <Route path="/createQuiz" exact component={CreateQuiz} />
         <Route path="/leaderboards" exact component={Leaderboards} />
         <UserPrivateRoute path="/login" exact component={Login} />

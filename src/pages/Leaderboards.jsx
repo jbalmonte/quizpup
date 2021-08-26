@@ -8,7 +8,7 @@ const Leaderboards = () => {
         3: "text-gray-50 bg-yellow-800 rounded-full"
     }
     return (
-        <div className="grid grid-cols-2 gap-6 bg-green-100">
+        <div className="grid grid-cols-2 gap-6 ">
 
             <div className="col-span-1 py-5 mx-auto w-full">
 

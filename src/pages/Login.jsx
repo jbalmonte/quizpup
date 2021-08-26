@@ -9,7 +9,7 @@ const Login = () => {
     const user = useUserContext()
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >
-            <div className="absolute bg-green-100 inset-0 z-0"></div>
+            <div className="absolute  inset-0 z-0"></div>
 
             <div className=" h-semiScreen sm:flex sm:flex-row mx-0 justify-center">
                 <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">

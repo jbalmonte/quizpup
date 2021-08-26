@@ -11,7 +11,7 @@ const CreateQuiz = () => {
     const history = useHistory()
 
     return (
-        <div className="bg-green-100 p-3">
+        <div className=" p-3">
             <div className="bg-gray-50 w-1/2 border rounded-2xl mx-auto mb-5 py-3 px-5 relative">
 
 
