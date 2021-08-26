@@ -1,13 +1,12 @@
 import React from 'react'
-import { Route, Link, useHistory } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
 import UserAvatar from '../components/UserAvatar'
 import QuizByCategory from './QuizByCategory'
 import Categories from '../components/Categories'
 
-const Quizzes = () => {
-    const history = useHistory()
+const Quizzes = ({ match: { params }, history }) => {
 
     return (
         <div className="bg-green-100 font-body text-center grid grid-cols-5 pt-3">
@@ -16,14 +15,13 @@ const Quizzes = () => {
 
                 <div className="fixed left-3" style={{ width: "16.5rem" }}>
 
-                    <Link to="/createQuiz">
-                        <div className="bg-green-300 hover:bg-secondary-200 hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-500 ease-linear">
-                            <UserAvatar size={10} fSize="text-sm" />
-                            <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
-                                placeholder="Create a quiz..." />
-                            <IoAddCircleSharp className="text-2xl text-green-600" />
-                        </div>
-                    </Link>
+                    <button onClick={() => history.push("/createQuiz")} className="bg-green-300 hover:bg-secondary-200 hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-500 ease-linear">
+                        <UserAvatar size={10} fSize="text-sm" />
+                        <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
+                            placeholder="Create a quiz..." />
+                        <IoAddCircleSharp className="text-2xl text-green-600" />
+                    </button>
+
 
 
                     <div className=" py-5 text-base">

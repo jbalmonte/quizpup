@@ -1,7 +1,7 @@
-const Quiz = () => {
+const Quiz = (id) => {
     return (
-        <div>
-
+        <div className="bg-green-100">
+            Single Quiz here
         </div>
     )
 }
