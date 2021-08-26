@@ -6,3 +6,4 @@ export { default as Register } from "./Register";
 export { default as CreateQuiz } from "./CreateQuiz";
 export { default as QuizCategory } from "./QuizByCategory";
 export { default as Quiz } from "./Quiz";
+export { default as TakeQuiz } from "./TakeQuiz";

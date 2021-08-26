@@ -5,8 +5,10 @@ import { BsPen } from 'react-icons/bs'
 import { FaStar } from "react-icons/fa"
 import { HiPencil } from 'react-icons/hi'
 import Review from "../components/Review"
+import { useHistory } from "react-router-dom"
 
 const Quiz = (id) => {
+    const history = useHistory()
     return (
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full">
 
@@ -40,14 +42,13 @@ const Quiz = (id) => {
                         </div>
 
 
-                        <div className="">
-                            <button className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg p-1 px-2">
-                                <BsPen className="inline-flex mr-1  text-lg" />
-                                <span>
-                                    Take Quiz
-                                </span>
-                            </button>
-                        </div>
+                        <button onClick={() => history.push('/takeQuiz/1')} className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg p-1 px-2">
+                            <BsPen className="inline-flex mr-1  text-lg" />
+                            <span>
+                                Take Quiz
+                            </span>
+                        </button>
+
                     </div>
 
                 </div>

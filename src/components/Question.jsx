@@ -5,7 +5,7 @@ import Choice from "./Choice"
 const Question = ({ itemNo }) => {
     return (
         <div className="my-6">
-            <fieldset className=" text-primary border  shadow bg-gray-200 w-3/4 mx-auto rounded-lg p-4 ">
+            <fieldset className=" text-primary border  shadow bg-gray-300 w-3/4 mx-auto rounded-lg p-4 ">
                 <div className="text-center flex mt-3">
                     <label htmlFor="question1" className="bg-green-500 text-gray-50 flex items-center leading-normal rounded-l-lg border border-r-0 border-green-500 px-3 whitespace-no-wrap ">Q{itemNo}</label>
                     <input type="text" placeholder="Enter your question here" name=" question1" id="question1" className="text-base px-4 py-2 border border-l-0 border-gray-400 rounded-r-lg focus:outline-none focus:border-green-400 w-11/12" />
