@@ -2,6 +2,7 @@ import React from 'react'
 import { FcCalculator, FcClock, FcDocument, FcIdea, FcInfo } from 'react-icons/fc'
 import { AiOutlineNumber } from 'react-icons/ai'
 import { FaFistRaised } from 'react-icons/fa'
+import { MdNavigateNext } from 'react-icons/md'
 const TakeQuiz = (id) => {
 
 
@@ -11,14 +12,14 @@ const TakeQuiz = (id) => {
             <div className="col-span-2 shadow bg-gray-50 rounded-md  pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>
 
                 <div className="flex items-center">
-                    <div className="rounded-full bg-quaternary w-1/12 shadow h-12 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
+                    <div className="rounded-full bg-quaternary w-12 shadow h-10 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
                         <span className="mr-1">Q</span>
                         <span>1</span>
                     </div>
                     <h1 className="text-3xl">What is your name? </h1>
                 </div>
 
-                <div className="mt-10 grid grid-cols-2 mx-10 gap-5">
+                <div className="grid grid-cols-1 m-10 gap-2 w-1/2 mx-auto">
 
                     <div className="text-center flex col-span-1">
                         <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
@@ -35,13 +36,36 @@ const TakeQuiz = (id) => {
                             <input type="radio" name="question1" id="question1B" className="w-4 h-4" />
                         </span>
                         <label htmlFor="question1B" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
-                            Choice A
+                            Choice B
+                        </label>
+                    </div>
+
+                    <div className="text-center flex col-span-1">
+                        <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
+                            <input type="radio" name="question1" id="question1C" className="w-4 h-4" />
+                        </span>
+                        <label htmlFor="question1C" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
+                            Choice C
+                        </label>
+                    </div>
+
+                    <div className="text-center flex col-span-1">
+                        <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
+                            <input type="radio" name="question1" id="question1D" className="w-4 h-4" />
+                        </span>
+                        <label htmlFor="question1D" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
+                            Choice D
                         </label>
                     </div>
 
 
                 </div>
-
+                <div className="text-right hover:text-green-500">
+                    <button className="border border-green-500 text-green-500 py-1 pl-2 transition-colors duration-150 ease-linear rounded-lg hover:bg-green-500 hover:text-gray-50">
+                        <span>Next</span>
+                        <MdNavigateNext className="inline-flex text-2xl self-start items-start" />
+                    </button>
+                </div>
             </div>
 
             <div className="shadow h-full col-span-1 rounded-md bg-gray-50 p-5">
