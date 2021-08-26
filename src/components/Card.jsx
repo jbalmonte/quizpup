@@ -2,14 +2,18 @@ import React from "react"
 import UserAvatar from './UserAvatar'
 import mountain from '../images/mountain.jpg'
 import { FaStar } from "react-icons/fa"
+import { useHistory } from "react-router-dom"
 const Card = ({ difficulty }) => {
+
+    const history = useHistory()
+
     const badge = {
         Easy: 'bg-yellow-500',
         Medium: 'bg-blue-600',
         Hard: 'bg-red-700'
     }
     return (
-        <div className="relative overflow-hidden h-48 bg-gray-50 shadow-sm hover:shadow-md text-secondary-200 flex font-body rounded-lg text-left col-span-1 w-full">
+        <div onClick={() => history.push("/quizzes/1")} className="relative overflow-hidden h-48 bg-gray-50 shadow-sm hover:shadow-md text-secondary-200 flex font-body rounded-lg text-left col-span-1 w-full">
 
             <img src={mountain} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
 
@@ -27,9 +31,11 @@ const Card = ({ difficulty }) => {
                             <p className="ml-2 my-auto text-xs text-gray-400 pointer-events-none">2 monts ago</p>
                         </div>
                     </div>
-                    <div className="mr-5 transform hover:scale-110 transition-transform ease-out duration-100">
-                        <p className="text-sm flex items-center text-secondary-100 pointer-events-none">
-                            <FaStar className={`mr-1 mb-1 text-yellow-400 cursor-pointer`} />4.5
+                    <div className="mr-5">
+                        <p className="text-xs flex items-center text-secondary-100 pointer-events-none">
+                            <FaStar className={`mr-1 mb-1 text-yellow-400 cursor-pointer`} />4.5 (
+                            <span className="text-gray-500">132</span>
+                            )
                         </p>
 
                     </div>
