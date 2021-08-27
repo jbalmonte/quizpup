@@ -1,62 +1,61 @@
-import React from 'react'
+// @ts-nocheck
+import React, { useRef, useState } from 'react'
 import { FcCalculator, FcClock, FcDocument, FcIdea, FcInfo } from 'react-icons/fc'
 import { AiOutlineNumber } from 'react-icons/ai'
 import { FaFistRaised } from 'react-icons/fa'
 import { MdNavigateNext } from 'react-icons/md'
 const TakeQuiz = (id) => {
 
+    const selected = useRef()
+    const toggleAnswer = e => {
+        if (selected.current) selected.current.classList.remove('answer')
+        e.target.classList.toggle('answer')
+        selected.current = e.target
+    }
 
     return (
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full">
 
             <div className="col-span-2 shadow bg-gray-50 rounded-md  pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>
 
-                <div className="flex items-center">
-                    <div className="rounded-full bg-quaternary w-12 shadow h-10 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
-                        <span className="mr-1">Q</span>
-                        <span>1</span>
+                <div className="flex justify-between items-center">
+                    <div className="flex items-center">
+                        <div className="rounded-full bg-quaternary w-12 shadow h-10 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
+                            <span className="mr-1">Q</span>
+                            <span>1</span>
+                        </div>
+
+                        <h1 className="text-4xl">What is your name? </h1>
                     </div>
-                    <h1 className="text-3xl">What is your name? </h1>
+                    <p>1/15</p>
                 </div>
 
                 <div className="grid grid-cols-1 m-10 gap-2 w-1/2 mx-auto">
 
-                    <div className="text-center flex col-span-1">
-                        <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
-                            <input type="radio" name="question1" id="question1A" className="w-4 h-4" />
+                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
+                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
+                            Joshua
                         </span>
-                        <label htmlFor="question1A" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
-                            Choice A
-                        </label>
+                    </div>
+                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
+                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
+                            Johnny
+                        </span>
+                    </div>
+                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
+                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
+                            Mark
+                        </span>
+                    </div>
+                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
+                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
+                            Allisa
+                        </span>
                     </div>
 
 
-                    <div className="text-center flex col-span-1">
-                        <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
-                            <input type="radio" name="question1" id="question1B" className="w-4 h-4" />
-                        </span>
-                        <label htmlFor="question1B" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
-                            Choice B
-                        </label>
-                    </div>
 
-                    <div className="text-center flex col-span-1">
-                        <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
-                            <input type="radio" name="question1" id="question1C" className="w-4 h-4" />
-                        </span>
-                        <label htmlFor="question1C" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
-                            Choice C
-                        </label>
-                    </div>
 
-                    <div className="text-center flex col-span-1">
-                        <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
-                            <input type="radio" name="question1" id="question1D" className="w-4 h-4" />
-                        </span>
-                        <label htmlFor="question1D" className="text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" >
-                            Choice D
-                        </label>
-                    </div>
 
 
                 </div>
@@ -66,7 +65,7 @@ const TakeQuiz = (id) => {
                         <MdNavigateNext className="inline-flex text-2xl self-start items-start" />
                     </button>
                 </div>
-            </div>
+            </div >
 
             <div className="shadow h-full col-span-1 rounded-md bg-gray-50 p-5">
                 <div className="flex items-baseline mb-8 justify-between">
