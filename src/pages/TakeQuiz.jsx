@@ -3,69 +3,25 @@ import React, { useRef, useState } from 'react'
 import { FcCalculator, FcClock, FcDocument, FcIdea, FcInfo } from 'react-icons/fc'
 import { AiOutlineNumber } from 'react-icons/ai'
 import { FaFistRaised } from 'react-icons/fa'
-import { MdNavigateNext } from 'react-icons/md'
+import TakeQuizQuestion from '../components/TakeQuizQuestion'
+
 const TakeQuiz = (id) => {
 
-    const selected = useRef()
-    const toggleAnswer = e => {
-        if (selected.current) selected.current.classList.remove('answer')
-        e.target.classList.toggle('answer')
-        selected.current = e.target
-    }
+    const [state, setState] = useState(0)
 
+    const questions = [
+        { item: 1, question: "What is your name?", choices: ["Joshua", "Johnny", "Mark", "Allisa"] },
+        { item: 2, question: "What is your age?", choices: [18, 19, 20, 29] },
+        { item: 3, question: "Where do you live?", choices: ["Cainta", "Rizal", "Manila"] }
+    ]
+
+    const next = () => setState(prev => prev + 1)
     return (
-        <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full">
-
-            <div className="col-span-2 shadow bg-gray-50 rounded-md  pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>
-
-                <div className="flex justify-between items-center">
-                    <div className="flex items-center">
-                        <div className="rounded-full bg-quaternary w-12 shadow h-10 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
-                            <span className="mr-1">Q</span>
-                            <span>1</span>
-                        </div>
-
-                        <h1 className="text-4xl">What is your name? </h1>
-                    </div>
-                    <p>1/15</p>
-                </div>
-
-                <div className="grid grid-cols-1 m-10 gap-2 w-1/2 mx-auto">
-
-                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
-                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
-                            Joshua
-                        </span>
-                    </div>
-                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
-                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
-                            Johnny
-                        </span>
-                    </div>
-                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
-                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
-                            Mark
-                        </span>
-                    </div>
-                    <div className="h-11 col-span-1 inline-flex text-center border border-gray-400  rounded-md" onClick={toggleAnswer} >
-                        <span className="px-4 my-auto border-green-400 w-full pointer-events-none" >
-                            Allisa
-                        </span>
-                    </div>
+        <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full place-content-center">
 
 
+            <TakeQuizQuestion question={questions[state]} next={next} />
 
-
-
-
-                </div>
-                <div className="text-right hover:text-green-500">
-                    <button className="border border-green-500 text-green-500 py-1 pl-2 transition-colors duration-150 ease-linear rounded-lg hover:bg-green-500 hover:text-gray-50">
-                        <span>Next</span>
-                        <MdNavigateNext className="inline-flex text-2xl self-start items-start" />
-                    </button>
-                </div>
-            </div >
 
             <div className="shadow h-full col-span-1 rounded-md bg-gray-50 p-5">
                 <div className="flex items-baseline mb-8 justify-between">
