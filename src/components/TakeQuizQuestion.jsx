@@ -15,6 +15,7 @@ const TakeQuizQuestion = ({ question: { item, question, choices }, next }) => {
         selected.current = e.target
     }
     return (
+
         <div className="col-span-2 border-purple-600 text-secondary-200 bg-gray-50 rounded-md border pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>
 
             <div className="flex justify-between items-center">
@@ -45,7 +46,6 @@ const TakeQuizQuestion = ({ question: { item, question, choices }, next }) => {
                 }
 
 
-
             </div>
             <div className="text-right hover:text-green-600">
                 <button onClick={handleNext} className="border border-primary hover:border-green-600 text-secondary-200 py-1 pl-2 transition-colors duration-150 ease-linear rounded-lg hover:bg-green-600 hover:text-gray-50">
@@ -53,7 +53,7 @@ const TakeQuizQuestion = ({ question: { item, question, choices }, next }) => {
                     <MdNavigateNext className="inline-flex text-2xl self-start items-start" />
                 </button>
             </div>
-        </div >
+        </div>
 
 
     )

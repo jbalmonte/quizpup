@@ -35,5 +35,5 @@ body{
 }
 
 .answer {
-    @apply bg-gradient-to-r from-green-600 via-purple-600 to-red-500  border-secondary-100 h-12 text-white shadow-sm
+    @apply bg-gradient-to-r from-green-600 via-purple-600 to-red-500  border-secondary-100 text-white shadow-sm
 }
