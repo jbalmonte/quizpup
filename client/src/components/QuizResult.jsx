@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from 'react'
 import result from '../images/result.svg'
 import CountUp from 'react-countup'
 import Confetti from 'react-confetti'
-import { IoArrowBackOutline } from 'react-icons/io5'
 import { useHistory } from 'react-router-dom'
 
 const QuizResult = () => {
