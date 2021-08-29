@@ -19,8 +19,12 @@ class Auth {
   }
 
   login(email, password) {
-    this.authenticated = true
-    return Users.find(user => user.email === email)
+    let message = ""
+    const user = Users.find(user => user.email === email && user.password === password)
+    if (user) this.authenticated = true
+    else message = "Incorrect email or password"
+
+    return new Promise(resolve => setTimeout(() => resolve({ user, message }), 5000))
   }
 
   logout() {

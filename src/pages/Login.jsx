@@ -1,16 +1,35 @@
 // @ts-nocheck
-import React from 'react'
+import React, { useState, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import Alert from '../components/Alert'
+import ReactLoading from 'react-loading'
+import { useAuth } from '../context/AuthContext'
 
 
 const Login = () => {
 
+    const { login } = useAuth()
+    const email = useRef()
+    const password = useRef()
+
     const { state } = useLocation()
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState('')
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+        setLoading(true)
+        try {
+            await login(email.current.value, password.current.value)
+        } catch (err) {
+            setError(err.message)
+        }
+        setLoading(false)
+    }
+
 
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >
-            <div className="absolute  inset-0 z-0"></div>
 
             <div className=" h-semiScreen sm:flex sm:flex-row mx-0 justify-center">
                 <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
@@ -25,23 +44,25 @@ const Login = () => {
                             <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
                             <p className="text-gray-500">Please sign in to your account.</p>
                         </div>
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
 
                             {
                                 state?.message ?
                                     <Alert type='SUCCESS' message={state.message} /> :
-                                    <Alert type='INFO' message="Please fill out all the fields" />
+                                    error ?
+                                        <Alert type='ERROR' message={error} setError={setError} /> :
+                                        <Alert type='INFO' message="Please fill out all the fields" />
                             }
 
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-gray-700 tracking-wide">Username</label>
-                                <input className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" required placeholder="Username" />
+                                <label className="text-sm font-medium text-gray-700 tracking-wide">Email</label>
+                                <input ref={email} className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" required placeholder="mail@gmail.com" />
                             </div>
                             <div className="space-y-2">
                                 <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
                                     Password
                                 </label>
-                                <input className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="password" required placeholder="Enter your password" />
+                                <input ref={password} className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="password" required placeholder="Enter your password" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
@@ -58,8 +79,18 @@ const Login = () => {
                             </div>
                             <div>
                                 <button type="submit"
-                                    className="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                                    Sign in
+                                    className="w-full h-12 bg-green-400  hover:bg-green-500 text-gray-100  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+
+                                    <div className="w-3/4 mx-auto flex justify-center items-center h-full text-center ">
+                                        {
+                                            loading ?
+                                                <ReactLoading type="spinningBubbles" height='50%' width='15%' color={"white"} className="mb-2" />
+                                                :
+                                                <span className="mx-auto">
+                                                    Sign in
+                                                </span>
+                                        }
+                                    </div>
                                 </button>
                             </div>
                         </form>
