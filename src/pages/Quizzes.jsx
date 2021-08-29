@@ -5,8 +5,11 @@ import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp
 import UserAvatar from '../components/UserAvatar'
 import QuizByCategory from './QuizByCategory'
 import Categories from '../components/Categories'
+import { useAuth } from '../context/AuthContext'
 
 const Quizzes = ({ match: { params }, history }) => {
+    // @ts-ignore
+    const { currentUser } = useAuth()
 
     return (
         <div className=" font-body text-center grid grid-cols-5 pt-3">
@@ -16,7 +19,7 @@ const Quizzes = ({ match: { params }, history }) => {
                 <div className="fixed left-3" style={{ width: "16.5rem" }}>
 
                     <button onClick={() => history.push("/createQuiz")} className="bg-green-300 hover:bg-secondary-200 hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-500 ease-linear">
-                        <UserAvatar size={10} fSize="text-sm" />
+                        <UserAvatar size={10} fSize="text-sm" user={currentUser} />
                         <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
                             placeholder="Create a quiz..." />
                         <IoAddCircleSharp className="text-2xl text-green-600" />

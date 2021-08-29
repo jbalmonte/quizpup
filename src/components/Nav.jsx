@@ -3,11 +3,12 @@ import React, { useRef } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import MenuDrawer from './MenuDrawer'
 import UserAvatar from './UserAvatar'
-import auth from '../auth'
+import { useAuth } from '../context/AuthContext'
 
 function Nav() {
 
     const menuDrawerRef = useRef()
+    const { currentUser, isAuthenticated } = useAuth()
 
     return (
         <>
@@ -62,9 +63,12 @@ function Nav() {
                     <div className="w-1/3   inline-flex justify-end">
 
                         {
-                            auth.isAuthenticated() ?
-                                <div className="ml-28 pl-5">
-                                    <UserAvatar onClick={e => menuDrawerRef.current.classList.toggle('hidden')} />
+                            isAuthenticated ?
+                                <div className="pl-5 flex rounded-full items-center justify-evenly bg-gray-600 ">
+                                    <span className="p-2 text-xl font-medium">
+                                        {currentUser.QPoints}
+                                    </span>
+                                    <UserAvatar onClick={e => menuDrawerRef.current.classList.toggle('hidden')} user={currentUser} />
                                 </div>
                                 : (
                                     <div>
