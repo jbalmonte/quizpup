@@ -1,12 +1,9 @@
 // @ts-nocheck
 import React from 'react'
-import auth from '../auth'
-import { useUserContext } from '../context/UserContext'
 
 
 
 const Login = () => {
-    const user = useUserContext()
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >
             <div className="absolute  inset-0 z-0"></div>
@@ -50,8 +47,7 @@ const Login = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" onClick={() =>
-                                    user.login("admin2", 1234)}
+                                <button type="submit"
                                     className="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                                     Sign in
                                 </button>

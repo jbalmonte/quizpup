@@ -1,9 +1,8 @@
 import React from 'react'
-import { useUserContext } from '../context/UserContext'
 
 // @ts-ignore
 const UserAvatar = ({ onClick = undefined, size = 12, fSize = "", className = "" }) => {
-    const user = useUserContext().currentUser
+    const user = { src: "", name: 'Quizpup' }
 
     return (
         <div className={`h-${size} w-${size} bg-tertiary rounded-full text-center cursor-pointer text-gray-50 font-header flex items-center justify-center ${className}`} onClick={onClick}>

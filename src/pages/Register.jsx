@@ -1,6 +1,38 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
+import { useAuth } from '../context/AuthContext'
+import ReactLoading from 'react-loading'
+
 
 const Register = () => {
+
+    const email = useRef()
+    const fullName = useRef()
+    const password = useRef()
+
+    const [loading, setLoading] = useState(false)
+
+    const [error, setError] = useState("")
+
+    const { register } = useAuth()
+
+    const handleSubmit = async e => {
+        e.preventDefault()
+        try {
+            setError('')
+            setLoading(true)
+            // @ts-ignore
+            await register(email.current.value, password.current.value)
+        } catch {
+            setError('Problem creating an account')
+        }
+        setLoading(false)
+    }
+
+
+    const handleChange = (input, e) => {
+
+    }
+
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body">
             <div className="absolute inset-0 z-0"></div>
@@ -21,20 +53,20 @@ const Register = () => {
                             <p className="text-gray-500">Please sign up to your account.</p>
                         </div>
 
-                        <form className="space-y-5">
-                            <div className="space-y-1">
-                                <label className="text-sm font-medium text-gray-700 tracking-wide">Username</label>
-                                <input className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" placeholder="@juan_dela_cruz223" />
-                            </div>
+                        <form className="space-y-5" onSubmit={handleSubmit}>
                             <div className="space-y-1">
                                 <label className="text-sm font-medium text-gray-700 tracking-wide">Email</label>
-                                <input className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="email" required placeholder="mail@gmail.com" />
+                                <input ref={email} className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="email" required placeholder="mail@gmail.com" />
+                            </div>
+                            <div className="space-y-1">
+                                <label className="text-sm font-medium text-gray-700 tracking-wide">Full Name</label>
+                                <input ref={fullName} className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" placeholder="Juan Dela Cruz" />
                             </div>
                             <div className="space-y-1">
                                 <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
                                     Password
                                 </label>
-                                <input className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="password" required placeholder="Enter your password" />
+                                <input ref={password} className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="password" required placeholder="Enter your password" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
@@ -45,7 +77,8 @@ const Register = () => {
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" className="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                <button disabled={loading} type="submit" className="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                                    <ReactLoading type="bubbles" color={"white"} height={'20%'} width={'20%'} />
                                     Sign up
                                 </button>
                             </div>

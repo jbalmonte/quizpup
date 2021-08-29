@@ -2,12 +2,11 @@ import { Home, Quizzes, Leaderboards, Login, Register, CreateQuiz, Quiz, TakeQui
 import Nav from './components/Nav'
 import { Route, Switch } from 'react-router-dom'
 // eslint-disable-next-line
-import UserPrivateRoute from './components/UserPrivateRoute';
-import UserContextProvider from './context/UserContext';
+import { AuthContextProvider } from './context/AuthContext';
 import React from 'react';
 function App() {
   return (
-    <UserContextProvider>
+    <AuthContextProvider>
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
@@ -21,10 +20,10 @@ function App() {
         <Route path="/createQuiz" exact component={CreateQuiz} />
         <Route path="/takeQuiz/:id" exact component={TakeQuiz} />
         <Route path="/leaderboards" exact component={Leaderboards} />
-        <UserPrivateRoute path="/login" exact component={Login} />
-        <UserPrivateRoute path="/register" exact component={Register} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
       </Switch>
-    </UserContextProvider>
+    </AuthContextProvider>
   );
 }
 
