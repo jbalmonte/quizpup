@@ -1,6 +1,6 @@
 // @ts-nocheck
 import React, { useContext, useState, useEffect } from 'react'
-
+import auth from '../auth'
 
 const AuthContext = React.createContext();
 
@@ -8,8 +8,8 @@ export function AuthContextProvider({ children }) {
     const [currentUser, setCurrentUser] = useState()
 
 
-    const register = async (email, password) => {
-
+    const register = async (email, fullName, password) => {
+        const { status, message } = await auth.register(email, fullName, password)
     }
 
     const login = async (username, password) => {

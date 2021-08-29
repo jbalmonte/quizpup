@@ -1,23 +1,23 @@
-import axios from 'axios'
+import Users from './db/Users'
+import User from './models/User'
 
 class Auth {
   constructor() {
     this.authenticated = false;
   }
 
-  async register(email, fullName, password) {
-    const user = await axios.post('/users/register', {
-      email,
-      fullName,
-      password
-    })
+  register(email, fullName, password) {
+    setTimeout(() => {
+      if (Users.filter(user => user.email === email)) return { status: 400, message: 'Email is already taken' }
 
-    console.log(user)
-
+      Users.push(new User(email, fullName, password))
+      return { status: 200 }
+    }, 3000);
   }
 
-  async login(email, password) {
-
+  login(email, password) {
+    this.authenticated = true
+    return Users.find(user => user.email === email)
   }
 
   logout() {

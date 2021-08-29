@@ -77,9 +77,20 @@ const Register = () => {
                                 </div>
                             </div>
                             <div>
-                                <button disabled={loading} type="submit" className="w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                                    <ReactLoading type="bubbles" color={"white"} height={'20%'} width={'20%'} />
-                                    Sign up
+                                <button disabled={loading} type="submit" className="w-full h-12 bg-green-400  hover:bg-green-500 text-gray-100  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+
+                                    <div className="w-3/4 mx-auto flex justify-center items-center h-full text-center ">
+
+                                        {
+                                            loading ?
+                                                <ReactLoading type="spinningBubbles" height='50%' width='15%' color={"white"} className="mb-2" />
+                                                :
+                                                <span className="mx-auto">
+                                                    Sign up
+                                                </span>
+                                        }
+                                    </div>
+
                                 </button>
                             </div>
                         </form>
