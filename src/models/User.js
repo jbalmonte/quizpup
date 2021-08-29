@@ -4,10 +4,10 @@ class User {
     }
 
     get email() {
-        return this.__email
+        return this._email
     }
     set email(email) {
-        this.__email = email
+        this._email = email
     }
 
     get fullName() {

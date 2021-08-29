@@ -7,12 +7,15 @@ class Auth {
   }
 
   register(email, fullName, password) {
-    setTimeout(() => {
-      if (Users.filter(user => user.email === email)) return { status: 400, message: 'Email is already taken' }
+    const result = { status: 200, message: null }
 
-      Users.push(new User(email, fullName, password))
-      return { status: 200 }
-    }, 3000);
+    if (Users.find(user => user.email === email)) {
+      result.status = 400
+      result.message = 'Email is already taken'
+    }
+    else Users.push(new User(email, fullName, password))
+
+    return new Promise(resolve => setTimeout(() => resolve(result), 5000))
   }
 
   login(email, password) {

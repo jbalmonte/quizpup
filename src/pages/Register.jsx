@@ -1,41 +1,39 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import ReactLoading from 'react-loading'
-
+import { useLocation } from 'react-router-dom'
+import Alert from '../components/Alert'
 
 const Register = () => {
 
     const email = useRef()
     const fullName = useRef()
     const password = useRef()
+    // @ts-ignore
+    const [error, setError] = useState("")
 
     const [loading, setLoading] = useState(false)
 
-    const [error, setError] = useState("")
 
     const { register } = useAuth()
 
     const handleSubmit = async e => {
         e.preventDefault()
+
         try {
-            setError('')
             setLoading(true)
             // @ts-ignore
-            await register(email.current.value, password.current.value)
-        } catch {
-            setError('Problem creating an account')
+            await register(email.current.value, fullName.current.value, password.current.value)
+        } catch (err) {
+            setError(err.message)
         }
         setLoading(false)
     }
 
 
-    const handleChange = (input, e) => {
-
-    }
-
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body">
-            <div className="absolute inset-0 z-0"></div>
+
 
             <div className=" h-semiScreen sm:flex sm:flex-row mx-0 justify-center">
                 <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
@@ -48,12 +46,20 @@ const Register = () => {
 
                 <div className="flex justify-center self-center  z-10">
                     <div className="px-12 py-10 bg-white mx-auto rounded-2xl w-100  shadow">
-                        <div className="mb-4">
+                        <div className="mb-3">
                             <h3 className="font-semibold text-2xl text-gray-800">Sign Up </h3>
                             <p className="text-gray-500">Please sign up to your account.</p>
                         </div>
 
-                        <form className="space-y-5" onSubmit={handleSubmit}>
+                        <form className="space-y-3" onSubmit={handleSubmit}>
+
+
+                            {
+                                error ?
+                                    <Alert type='ERROR' message={error} setError={setError} /> :
+                                    <Alert type='INFO' message="Please fill out all the fields" />
+
+                            }
                             <div className="space-y-1">
                                 <label className="text-sm font-medium text-gray-700 tracking-wide">Email</label>
                                 <input ref={email} className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="email" required placeholder="mail@gmail.com" />
@@ -70,7 +76,7 @@ const Register = () => {
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
-                                    <input id="terms_and_conditions" name="terms_and_conditions" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />
+                                    <input required id="terms_and_conditions" name="terms_and_conditions" type="checkbox" className="h-4 w-4 bg-blue-500 focus:ring-blue-400 border-gray-300 rounded" />
                                     <label htmlFor="terms_and_conditions" className="ml-2 block text-sm text-gray-800">
                                         I agree to <span className="underline"> Terms and Conditions</span>
                                     </label>

@@ -1,9 +1,13 @@
 // @ts-nocheck
 import React from 'react'
-
+import { useLocation } from 'react-router-dom'
+import Alert from '../components/Alert'
 
 
 const Login = () => {
+
+    const { state } = useLocation()
+
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >
             <div className="absolute  inset-0 z-0"></div>
@@ -11,8 +15,7 @@ const Login = () => {
             <div className=" h-semiScreen sm:flex sm:flex-row mx-0 justify-center">
                 <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">
                     <div className="self-start hidden lg:flex flex-col  text-white">
-                        {/* <img src="" className="mb-3" /> */}
-                        <h1 className="mb-3 font-bold text-5xl font-header text-primary">Hi 👋 Welcome Back!</h1>
+                        <h1 className="mb-3 font-bold text-5xl font-header text-primary">Hello Welcome Back!</h1>
                         <p className="pr-3 text-secondary-200">There are lot of quizzes that you don't want to miss out! Come and join us again because you could be the next Quizpup Superstar</p>
                     </div>
                 </div>
@@ -22,7 +25,14 @@ const Login = () => {
                             <h3 className="font-semibold text-2xl text-gray-800">Sign In </h3>
                             <p className="text-gray-500">Please sign in to your account.</p>
                         </div>
-                        <form className="space-y-5">
+                        <form className="space-y-4">
+
+                            {
+                                state?.message ?
+                                    <Alert type='SUCCESS' message={state.message} /> :
+                                    <Alert type='INFO' message="Please fill out all the fields" />
+                            }
+
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-gray-700 tracking-wide">Username</label>
                                 <input className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" required placeholder="Username" />
@@ -56,7 +66,6 @@ const Login = () => {
                         <div className="pt-5 text-center text-gray-400 text-xs">
                             <span>
                                 Copyright © 2021-2022
-                                {/* <a href="https://codepen.io/uidesignhub" rel="" target="_blank" title="Ajimon" className="text-green hover:text-green-500 ">AJI</a> */}
                             </span>
 
                         </div>
