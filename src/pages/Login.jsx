@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import Alert from '../components/Alert'
 import ReactLoading from 'react-loading'
@@ -27,6 +27,8 @@ const Login = () => {
         setLoading(false)
     }
 
+    //When the login redirected to quizzes page, unmount the loading component
+    useEffect(() => () => setLoading(false), [])
 
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >

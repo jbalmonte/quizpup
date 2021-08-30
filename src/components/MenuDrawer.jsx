@@ -8,12 +8,12 @@ const MenuDrawer = React.forwardRef((props, ref) => {
     const { logout } = useAuth()
     const handleLogout = e => {
         //close MenuDrawer
-        e.target.closest('div').remove()
+        e.target.closest('div').classList.add('hidden')
         logout()
         history.push('/')
     }
     return (
-        <div className="w-32 py-1 shadow-md z-50 text-center hidden absolute right-28 top-8 bg-gray-100 font-body text-secondary-100" ref={ref}>
+        <div className="w-32 py-1 shadow-md z-50 text-center hidden fixed right-24 top-12 bg-gray-100 font-body text-secondary-100" ref={ref}>
             <ul >
                 <li className="py-1 hover:bg-gray-400 hover:text-gray-50">
                     <Link to="/account">Account</Link>

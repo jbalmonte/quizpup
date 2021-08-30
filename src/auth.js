@@ -9,6 +9,7 @@ class Auth {
   register(email, fullName, password) {
     const result = { status: 200, message: null }
 
+    // @ts-ignore
     if (Users.find(user => user.email === email)) {
       result.status = 400
       result.message = 'Email is already taken'
@@ -20,6 +21,7 @@ class Auth {
 
   login(email, password) {
     let message = ""
+    // @ts-ignore
     const user = Users.find(user => user.email === email && user.password === password)
     if (user) {
       this.authenticated = true

@@ -1,6 +1,5 @@
 function setLocalStorage(key, value) {
     try {
-        console.log(key, value)
         window.localStorage.setItem(key, JSON.stringify(value));
     } catch (e) {
         console.log(e)
