@@ -1,4 +1,5 @@
-import React, { useRef, useState } from 'react'
+// @ts-nocheck
+import React, { useRef, useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext'
 import ReactLoading from 'react-loading'
 import Alert from '../components/Alert'
@@ -8,20 +9,19 @@ const Register = () => {
     const email = useRef()
     const fullName = useRef()
     const password = useRef()
-    // @ts-ignore
-    const [error, setError] = useState("")
 
+    const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
 
-    // @ts-ignore
     const { register } = useAuth()
+
+
 
     const handleSubmit = async e => {
         e.preventDefault()
 
         try {
             setLoading(true)
-            // @ts-ignore
             await register(email.current.value, fullName.current.value, password.current.value)
         } catch (err) {
             setError(err.message)
@@ -29,10 +29,10 @@ const Register = () => {
         setLoading(false)
     }
 
+    useEffect(() => () => setLoading(false), [])
 
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body">
-
 
             <div className=" h-semiScreen sm:flex sm:flex-row mx-0 justify-center">
                 <div className="flex-col flex  self-center p-10 sm:max-w-5xl xl:max-w-2xl  z-10">

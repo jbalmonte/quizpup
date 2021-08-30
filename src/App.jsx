@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext';
 import React from 'react';
 import PrivateRoute from './components/PrivateRoute';
+import { PublicRoute } from './components/PublicRoute';
 function App() {
   return (
     <AuthContextProvider>
@@ -16,8 +17,8 @@ function App() {
         <PrivateRoute path="/createQuiz" exact component={CreateQuiz} />
         <PrivateRoute path="/takeQuiz/:id" exact component={TakeQuiz} />
         <PrivateRoute path="/leaderboards" exact component={Leaderboards} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/register" exact component={Register} />
+        <PublicRoute path="/login" exact component={Login} />
+        <PublicRoute path="/register" exact component={Register} />
       </Switch>
     </AuthContextProvider>
   );

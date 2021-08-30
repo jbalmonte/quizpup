@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import landing from '../images/bg_landing.svg'
 
 const Home = () => {
 
@@ -16,7 +15,7 @@ const Home = () => {
                     </button>
                 </Link>
             </div>
-            <img src={landing} alt="BG" className="bg-cover w-1/3 " />
+            <img src="/images/bg_landing.svg" alt="BG" className="bg-cover w-1/3 " />
         </main >
 
     )

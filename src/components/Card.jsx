@@ -1,16 +1,17 @@
 // @ts-nocheck
 import React from "react"
-import UserAvatar from './UserAvatar'
 import Users from '../db/Users'
-import Mountain from '../images/mountain.jpg'
+import UserAvatar from './UserAvatar'
 import { FaStar } from "react-icons/fa"
 import { useHistory } from "react-router-dom"
+import { getDateDiff } from "../services/getDateDiff"
 
 const Card = ({ quiz: { id, title, description, image, difficulty, creator, overallRating, dateCreated } }) => {
 
     const history = useHistory()
 
     const user = Users.find(user => user.id === creator)
+
     const badge = {
         Easy: 'bg-yellow-500',
         Medium: 'bg-blue-600',
@@ -20,12 +21,13 @@ const Card = ({ quiz: { id, title, description, image, difficulty, creator, over
         <div onClick={() => history.push(`/quizzes/${id}`)} className="relative overflow-hidden h-48 bg-gray-50 shadow-sm hover:shadow-md text-secondary-200 flex font-body rounded-lg text-left col-span-1 w-full">
 
             {/* hard coded for now */}
-            <img src={Mountain} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
+            <img src={`/images/${image}`} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
 
             <div className="h-full ml-5 flex flex-col justify-evenly w-2/3">
                 <h1 className="text-xl pt-2 pb-1 font-medium pointer-events-none">{title}</h1>
                 <p className="text-xs text-gray-500 pb-1 pointer-events-none pr-3">
-                    {description}
+
+                    {description.replace(/^(.{1,140})((\W\w.{1,})|$)/, (_, a, b) => `${a} ${b && '...'}`)}
                 </p>
 
                 <div className=" flex justify-between items-end py-1">
@@ -34,8 +36,7 @@ const Card = ({ quiz: { id, title, description, image, difficulty, creator, over
                         <div>
                             <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">{user.fullName}</p>
                             <p className="ml-2 my-auto text-xs text-gray-400 pointer-events-none">
-                                {/* hard coded for now */}
-                                2 minutes ago
+                                {getDateDiff(dateCreated)}
                             </p>
                         </div>
                     </div>
