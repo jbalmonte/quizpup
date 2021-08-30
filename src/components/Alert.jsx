@@ -1,9 +1,10 @@
 import React from 'react'
 import { FcInfo } from 'react-icons/fc'
 
-const Alert = ({ type, message, setError = null }) => {
+const Alert = ({ type, message, setError = null, setSuccess = null }) => {
     const color = type === 'SUCCESS' ? 'green' : type === 'INFO' ? 'blue' : 'red'
     const handleClick = e => {
+        setSuccess && setSuccess("")
         e.target.closest('div').classList.add('invisible');
         setError && setError("");
     }

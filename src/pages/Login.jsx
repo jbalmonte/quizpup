@@ -15,6 +15,7 @@ const Login = () => {
     const { state } = useLocation()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState(state.message)
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -49,11 +50,11 @@ const Login = () => {
                         <form className="space-y-4" onSubmit={handleSubmit}>
 
                             {
-                                state?.message ?
-                                    <Alert type='SUCCESS' message={state.message} /> :
-                                    error ?
-                                        <Alert type='ERROR' message={error} setError={setError} /> :
-                                        <Alert type='INFO' message="Please fill out all the fields" />
+                                success ? <Alert type='SUCCESS' message={success} setSuccess={setSuccess} /> :
+                                    <Alert
+                                        type={error ? 'ERROR' : 'INFO'}
+                                        message={error || 'Please fill out all the fields'}
+                                        setError={error && setError} />
                             }
 
                             <div className="space-y-2">
