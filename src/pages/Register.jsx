@@ -1,7 +1,6 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import ReactLoading from 'react-loading'
-import { useLocation } from 'react-router-dom'
 import Alert from '../components/Alert'
 
 const Register = () => {
@@ -14,6 +13,7 @@ const Register = () => {
 
     const [loading, setLoading] = useState(false)
 
+    // @ts-ignore
     const { register } = useAuth()
 
     const handleSubmit = async e => {

@@ -1,5 +1,5 @@
-import Users from './db/Users'
-import User from './models/User'
+import Users from '../db/Users'
+import User from '../models/User'
 
 class Auth {
   constructor() {

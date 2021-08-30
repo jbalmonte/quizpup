@@ -1,9 +1,11 @@
 import User from '../models/User'
+import { generateUserID } from '../services/idGenerator'
+
 
 const Users = [
-    new User("joshua@gmail.com", "Joshua Balmonte", "123456"),
-    new User("mathew@gmail.com", "Mathew John", "352"),
-    new User("jacob@gmail.com", "Jacob Smith", "password", "", 5000),
+    new User({ id: generateUserID(), email: "joshua@gmail.com", fullName: "Joshua Balmonte", password: "123456" }),
+    new User({ id: generateUserID(), email: "mathew@gmail.com", fullName: "Mathew John", password: "352" }),
+    new User({ id: generateUserID(), email: "jacob@gmail.com", fullName: "Jacob Smith", password: "password", QPoints: 5000 }),
 ]
 
 export default Users

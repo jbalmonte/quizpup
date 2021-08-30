@@ -2,8 +2,8 @@
 
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
-import auth from '../auth'
-import { setLocalStorage, getLocalStorage } from '../localStorage/index'
+import auth from '../services/auth'
+import { setLocalStorage, getLocalStorage } from '../services/localStorage'
 
 const AuthContext = React.createContext(0);
 

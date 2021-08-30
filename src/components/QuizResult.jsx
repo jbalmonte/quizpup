@@ -26,7 +26,8 @@ const QuizResult = () => {
         <div className="col-span-3 flex text-secondary-200 bg-gray-50 rounded-lg font-body overflow-hidden">
             <div className=" bg-gradient-to-l from-purple-600 to-quaternary pb-2">
                 <img src={result} alt="Result" className="object-cover w-50 h-96 mt-10 " onLoad={() =>
-                    // @ts-ignore wait for the image to load before start the result text animation
+                    // @ts-ignore 
+                    //wait for the image to load before start the result text animation
                     resultRef.current.classList.remove('hidden')} />
             </div>
 
@@ -41,9 +42,7 @@ const QuizResult = () => {
                         <div className="hidden items-center flex flex-col" ref={scoreRef}>
                             <p className="text-7xl">
                                 {
-                                    // <span className="hidden" >
                                     <CountUp start={0} end={15} delay={0.5} duration={2.5} />
-                                    //</span>
                                 }
 
                             </p>

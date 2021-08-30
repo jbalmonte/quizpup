@@ -15,7 +15,7 @@ const Login = () => {
     const { state } = useLocation()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
-    const [success, setSuccess] = useState(state.message)
+    const [success, setSuccess] = useState(state?.message ?? '')
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -59,13 +59,13 @@ const Login = () => {
 
                             <div className="space-y-2">
                                 <label className="text-sm font-medium text-gray-700 tracking-wide">Email</label>
-                                <input ref={email} className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" required placeholder="mail@gmail.com" />
+                                <input ref={email} autoComplete="username" className=" w-full text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="text" required placeholder="mail@gmail.com" />
                             </div>
                             <div className="space-y-2">
                                 <label className="mb-5 text-sm font-medium text-gray-700 tracking-wide">
                                     Password
                                 </label>
-                                <input ref={password} className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="password" required placeholder="Enter your password" />
+                                <input ref={password} autoComplete="current-password" className="w-full content-center text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400" type="password" required placeholder="Enter your password" />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
