@@ -6,6 +6,7 @@ import Confetti from 'react-confetti'
 import { useHistory } from 'react-router-dom'
 
 const QuizResult = () => {
+    const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()
     const history = useHistory()
@@ -24,11 +25,13 @@ const QuizResult = () => {
     return (
         <div className="col-span-3 flex text-secondary-200 bg-gray-50 rounded-lg font-body overflow-hidden">
             <div className=" bg-gradient-to-l from-purple-600 to-quaternary pb-2">
-                <img src={result} alt="Result" className="object-cover w-50 h-96 mt-10 " />
+                <img src={result} alt="Result" className="object-cover w-50 h-96 mt-10 " onLoad={() =>
+                    // @ts-ignore wait for the image to load before start the result text animation
+                    resultRef.current.classList.remove('hidden')} />
             </div>
 
 
-            <div className="pt-8 px-8 pb-6 text-purple-700 w-9/12 relative">
+            <div className="pt-8 px-8 pb-6 text-purple-700 w-9/12 relative hidden" ref={resultRef}>
                 <h1 className="font-header text-5xl mb-10">
                     Result:
                 </h1>
