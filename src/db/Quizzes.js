@@ -402,7 +402,7 @@ const Quizzes = [
         "overallRating": { average: 3.5, count: 59 }
     }, {
         "id": 33,
-        "title": "Multi-channelled solution-oriented budgetary management",
+        "title": "Multi-channelled budgetary management",
         "image": "https://pixabay.com/get/gec11f9d928f162eba28b4f79077a7f619b6c24109b5089dd083034ab3f3f5214b256f93c65766b92a111dde8bfecf2f36e2c241ace1b1c7969e986ec84203588_1280.jpg",
         "description": "nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis",
         "difficulty": "Hard",
@@ -524,7 +524,7 @@ const Quizzes = [
         "id": 43,
         "title": "Ameliorated actuating service-desk",
         "image": "https://pixabay.com/get/g649fa7e256366267af3c1930ab0155b4462a882497ea2ef8f5b6cde7d04104ad47e0d7b09f0ac27fd7ad4039336dc08b6c63dca8c503702960a499c5a5d5c881_1280.jpg",
-        "description": "habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget",
+        "description": "habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget",
         "difficulty": "Easy",
         "creator": 42,
         "questions": "nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed",

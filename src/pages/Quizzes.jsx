@@ -12,7 +12,7 @@ const Quizzes = ({ match: { params }, history }) => {
     const { currentUser } = useAuth()
 
     return (
-        <div className=" font-body text-center grid grid-cols-6 pt-3">
+        <div className="font-body text-center grid grid-cols-6 pt-3">
 
             <div className="col-span-1" >
 

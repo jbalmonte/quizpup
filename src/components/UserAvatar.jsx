@@ -1,6 +1,5 @@
 import React from 'react'
 
-// @ts-ignore
 const UserAvatar = ({ onClick = undefined, size = 12, fSize = "", className = "", user }) => {
 
     return (

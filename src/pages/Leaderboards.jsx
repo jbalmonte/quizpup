@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import UserAvatar from '../components/UserAvatar'
 
 const Leaderboards = () => {
+
+    useEffect(() => window.scrollTo(0, 0), [])
+
     const top3 = {
         1: "text-white bg-yellow-400 rounded-full",
         2: "text-gray-50 bg-gray-400 rounded-full",

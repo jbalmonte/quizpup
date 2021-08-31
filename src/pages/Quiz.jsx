@@ -9,14 +9,15 @@ import apiFunc from "../services/api"
 import Quizzes from "../db/Quizzes"
 import Users from "../db/Users"
 import { getDateDiff } from "../services/getDateDiff"
+import Reviews from "../db/Reviews"
 
 const Quiz = ({ match: { params } }) => {
     const id = params.id
     const history = useHistory()
     const quiz = apiFunc(Quizzes).fetchById(+id)
     const user = apiFunc(Users).fetchById(quiz.creator)
+    const reviews = apiFunc(Reviews).fetchById(+id).reviews
 
-    console.log('INSIDE SINGLE QUIZ', user)
     const badge = {
         Easy: 'bg-yellow-500',
         Medium: 'bg-blue-600',
@@ -26,14 +27,15 @@ const Quiz = ({ match: { params } }) => {
     return (
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full">
 
-            <div className="col-span-2 ">
-                <div className="shadow bg-gray-50 rounded-md  pt-8 px-8 pb-6 font-body fixed top-20 " style={{ width: "50.5rem" }}>
-                    <img src="/images/mountain.jpg" alt="Mountain" className="h-64 mb-4 rounded-md object-cover w-full" />
+            <div className="col-span-2">
+                <div className="shadow bg-gray-50 rounded-md pt-6 px-6 pb-4 font-body fixed top-20 " style={{ width: "50.5rem" }}>
+                    <img src={quiz.image} alt={quiz.title} className="h-64 mb-4 rounded-md object-cover w-full" />
 
-                    <div className="flex justify-between items-center">
-
-                        <h1 className="text-4xl font-semibold font-header ">{quiz.title}</h1>
-                        <div className={`${badge[quiz.difficulty]} rounded-full px-3 py-1 text-gray-50`}><span>{quiz.difficulty}</span></div>
+                    <div className="flex items-center justify-between mb-5">
+                        <h1 className="text-4xl font-semibold font-header">{quiz.title.replace(/(^|\s|-)\w/g, m => m.toUpperCase())}</h1>
+                        <div className={`${badge[quiz.difficulty]} text-right rounded-full px-3 py-1 text-gray-50`}>
+                            <span>{quiz.difficulty}</span>
+                        </div>
                     </div>
                     <div className="flex items-end p-0 mt-4 mb-6">
                         <UserAvatar size={10} fSize="text-sm" user={user} />
@@ -56,7 +58,7 @@ const Quiz = ({ match: { params } }) => {
                         </div>
 
 
-                        <button onClick={() => history.push('/takeQuiz/1')} className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg p-1 px-2">
+                        <button onClick={() => history.push('/takeQuiz/1')} className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg py-1 px-2">
                             <BsPen className="inline-flex mr-1  text-lg" />
                             <span>
                                 Take Quiz
@@ -81,7 +83,8 @@ const Quiz = ({ match: { params } }) => {
                 </div>
 
                 {
-                    [...Array(20)].map((_, i) => <Review key={i + 1} />)
+                    reviews.map((review, i) =>
+                        <Review key={i + 1} userReview={review} quizDateCreated={quiz.dateCreated} quizDateDiff={getDateDiff(quiz.dateCreated)} />)
                 }
 
             </div>

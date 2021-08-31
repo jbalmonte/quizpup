@@ -17,11 +17,13 @@ const Card = ({ quiz: { id, title, description, image, difficulty, creator, over
 
             <img src={`${image}`} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
 
-            <div className="h-full ml-5 flex flex-col justify-evenly w-2/3  pr-3">
-                <h1 className="text-xl pt-2 pb-1 font-medium pointer-events-none">{title}</h1>
+            <div className="h-full ml-5 flex flex-col justify-evenly w-2/3  pr-5">
+                <h1 className="text-xl pt-2 pb-1 font-medium pointer-events-none">
+                    {title.replace(/(^|\s|-)\w/g, m => m.toUpperCase())}
+                </h1>
                 <p className="text-xs text-gray-500 pb-1 pointer-events-none">
 
-                    {description.replace(/^(.{1,140})((\W\w.{1,})|$)/, (_, a, b) => `${a} ${b && '...'}`)}
+                    {description.replace(/^(.{1,157})((\W\w.{1,})|$)/, (_, a, b) => `${a} ${b && '...'}`)}
                 </p>
 
                 <div className=" flex justify-between items-end py-1">
@@ -45,11 +47,7 @@ const Card = ({ quiz: { id, title, description, image, difficulty, creator, over
                     </div>
 
                 </div>
-                {/* <div className={`pointer-events-none h-5 w-14 shadow-lg absolute left-0 z-10 top-0 flex items-center justify-center text-xs text-gray-50 ${difficulty !== 'Medium' && 'tracking-wider'} ${badge[difficulty]}`}>
-                    <span className="">
-                        {difficulty}
-                    </span>
-                </div> */}
+
             </div>
 
 
