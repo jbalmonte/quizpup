@@ -12,11 +12,11 @@ const Quizzes = ({ match: { params }, history }) => {
     const { currentUser } = useAuth()
 
     return (
-        <div className=" font-body text-center grid grid-cols-5 pt-3">
+        <div className=" font-body text-center grid grid-cols-6 pt-3">
 
             <div className="col-span-1" >
 
-                <div className="fixed left-3" style={{ width: "16.5rem" }}>
+                <div className="fixed left-3" style={{ width: "14.5rem" }}>
 
                     <button onClick={() => history.push("/createQuiz")} className="bg-green-300 hover:bg-secondary-200 hover:shadow-md rounded-lg h-14 flex items-center justify-evenly px-1 shadow transition-colors duration-500 ease-linear">
                         <UserAvatar size={10} fSize="text-sm" user={currentUser} />
@@ -25,57 +25,55 @@ const Quizzes = ({ match: { params }, history }) => {
                         <IoAddCircleSharp className="text-2xl text-green-600" />
                     </button>
 
-
-
                     <div className=" py-5 text-base">
                         <ul className="text-center">
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2  border-r-4 border-green-500">
-                                <IoHome />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  border-r-4 border-green-500">
+                                <IoHome className="text-secondary-100" />
                                 <span className="ml-3">
                                     Home Feed
                                 </span>
                             </li>
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2  ">
-                                <IoDocumentTextSharp />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
+                                <IoDocumentTextSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     My Works
                                 </span>
                             </li>
 
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2   ">
-                                <IoDocumentSharp />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2   ">
+                                <IoDocumentSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Drafts
                                 </span>
                             </li>
 
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2  ">
-                                <FaHistory />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
+                                <FaHistory className="text-secondary-100" />
                                 <span className="ml-3">
                                     History
                                 </span>
                             </li>
 
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2  border-b border-gray-300">
-                                <IoTrashBinSharp />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  border-b border-gray-300">
+                                <IoTrashBinSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Trash
                                 </span>
                             </li>
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2  mt-3">
-                                <IoSettingsSharp />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  mt-3">
+                                <IoSettingsSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Settings
                                 </span>
                             </li>
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2 ">
-                                <IoInformationCircleSharp />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2 ">
+                                <IoInformationCircleSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     About
                                 </span>
                             </li>
-                            <li className="flex items-center py-2 hover:bg-green-300 px-2 ">
-                                <IoMailSharp />
+                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2 ">
+                                <IoMailSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Contact
                                 </span>
@@ -95,9 +93,8 @@ const Quizzes = ({ match: { params }, history }) => {
 
             </div >
 
-            <div className="col-span-4 mx-10">
+            <div className="col-span-5 mx-10 mb-5">
                 <Categories history={history} />
-
 
                 <Route exact path="/quizzes" component={QuizByCategory} />
                 <Route exact path="/quizzes/:category" component={QuizByCategory} />

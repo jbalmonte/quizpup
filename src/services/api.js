@@ -1,10 +1,10 @@
 export default function api(Collections) {
     return {
         create: (col) => {
+
             Collections.push(col)
         },
         fetchById: id => {
-            console.log(id, typeof id)
             return Collections.find(col => col.id === id)
         },
 

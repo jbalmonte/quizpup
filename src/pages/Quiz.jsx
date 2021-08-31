@@ -16,6 +16,7 @@ const Quiz = ({ match: { params } }) => {
     const quiz = apiFunc(Quizzes).fetchById(+id)
     const user = apiFunc(Users).fetchById(quiz.creator)
 
+    console.log('INSIDE SINGLE QUIZ', user)
     const badge = {
         Easy: 'bg-yellow-500',
         Medium: 'bg-blue-600',

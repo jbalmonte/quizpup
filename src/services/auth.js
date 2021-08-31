@@ -1,5 +1,4 @@
 import Users from '../db/Users'
-import User from '../models/User'
 
 class Auth {
   constructor() {
@@ -14,7 +13,8 @@ class Auth {
       result.status = 400
       result.message = 'Email is already taken'
     }
-    else Users.push(new User(email, fullName, password))
+    // @ts-ignore
+    else Users.push({ email, fullName, password })
 
     return new Promise(resolve => setTimeout(() => resolve(result), 5000))
   }
