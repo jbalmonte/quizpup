@@ -1,20 +1,31 @@
+// @ts-nocheck
 
 import React, { useEffect, useRef } from 'react'
 import CountUp from 'react-countup'
 import Confetti from 'react-confetti'
 import { useHistory } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
+import Users from '../db/Users'
+import api from '../services/api'
 
-const QuizResult = () => {
+const QuizResult = ({ totalItems, totalPoints, correctAnswers }) => {
     const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()
     const history = useHistory()
+
+    const { currentUser, setCurrentUser } = useAuth()
+
+    const handleEnd = () => {
+        //update both currentUser and in our db
+        setCurrentUser({ ...currentUser, QPoints: currentUser.QPoints + totalPoints })
+        api(Users).update(currentUser.id, { QPoints: currentUser.QPoints + totalPoints })
+    }
+
     useEffect(() => {
-        // @ts-ignore
         scoreRef?.current.classList.remove('hidden')
         setTimeout(() => {
             if (pointRef.current && scoreRef.current) {
-                // @ts-ignore
                 pointRef.current.classList.remove('hidden')
             }
         }, 3000);
@@ -42,17 +53,28 @@ const QuizResult = () => {
                             <div className="items-center flex flex-col" >
                                 <p className="text-7xl">
                                     {
-                                        <CountUp start={0} end={15} delay={0.5} duration={2.5} />
+                                        <CountUp
+                                            start={0}
+                                            end={correctAnswers}
+                                            delay={0.5}
+                                            duration={2.5} />
                                     }
                                 </p>
                                 <div className="w-full h-2 bg-yellow-500" >
                                 </div>
-                                <p className="text-7xl">15</p>
+                                <p className="text-7xl">{totalItems}</p>
                             </div>
                         </div>
                     </div>
                     <h2 className=" self-center text-secondary-100 hidden" ref={pointRef}>
-                        <span className=" text-5xl">+<CountUp start={0} end={15} delay={3.5} duration={3} /></span>
+                        <span className=" text-5xl">+
+                            <CountUp
+                                start={0}
+                                end={totalPoints}
+                                delay={3.5}
+                                duration={3}
+                                onEnd={handleEnd}
+                            /></span>
                         <span className="ml-3 text-3xl my-auto">QPoints</span>
                     </h2>
                 </div>
@@ -63,7 +85,14 @@ const QuizResult = () => {
                     </button>
                 </div>
 
-                <Confetti width={700} height={700} numberOfPieces={50} />
+                <Confetti
+                    width={700}
+                    height={700}
+                    numberOfPieces={100}
+                    colors={
+                        totalPoints === 0 ?
+                            ['red'] :
+                            ['#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50', '#8BC34A', '#CDDC39', '#FFEB3B', '#FFC107', '#FF9800', '#FF5722', '#795548']} />
             </div>
         </div>
     )

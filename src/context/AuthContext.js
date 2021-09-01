@@ -37,6 +37,7 @@ export function AuthContextProvider({ children }) {
 
     }
 
+
     const logout = () => {
         setCurrentUser(null)
         setIsAuthenticated(false)
@@ -46,6 +47,7 @@ export function AuthContextProvider({ children }) {
         <AuthContext.Provider
             value={{
                 currentUser,
+                setCurrentUser,
                 register,
                 login,
                 logout,

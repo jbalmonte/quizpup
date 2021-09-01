@@ -6,26 +6,6 @@ const Quizzes = [
         "description": `In a modern world, math such as applied mathematics is not only relevant, it's crucial. Applied mathematics is the branches of mathematics that are involved in the study of the physical, biological, or sociological world. The idea of applied math is to create a group of methods that solve problems. `,
         "difficulty": 'Medium',
         "creator": 1,
-        "questions": [
-            {
-                " itemNumber": 1,
-                "question": 'This sequence is formed by adding the the preceeding two numbers, starting with 0 and 1.',
-                "choices": ['Patterns', 'Fibonacci Sequence', 'Exponential Growth Model', 'Sequence'],
-                "correctAnswer": 'Fibonacci Sequence'
-            },
-            {
-                "itemNumber": 2,
-                "question": 'To be able to solve a problem, understanding what the problem asks for is very important.',
-                "choices": ['Carry out the plan', 'Devise a plan', 'Review the solution', 'Understand the problem'],
-                "correctAnswer": 'Understand the problem'
-            },
-            {
-                "itemNumber": 3,
-                "question": 'Once a plan has been devised it must be carried out.',
-                "choices": ['Carry out the plan', 'Devise a plan', 'Review the solution', 'Understand the problem'],
-                "correctAnswer": 'Carry out the plan'
-            },
-        ],
         "dateCreated": '1/1/2021',
         "overallRating": { average: 4.9, count: 125 }
     }, {
@@ -35,10 +15,7 @@ const Quizzes = [
         "description": "non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis",
         "difficulty": "Hard",
         "creator": 49,
-        "questions": "lectus pellentesque at nulla suspendisse potenti cras in purus eu magna vulputate luctus cum sociis",
         "dateCreated": "3/29/2021",
-        "average": 2.4,
-        "count": 130,
         "overallRating": { average: 2.4, count: 130 }
     }, {
         "id": 3,
@@ -47,10 +24,7 @@ const Quizzes = [
         "description": "est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien",
         "difficulty": "Hard",
         "creator": 17,
-        "questions": "pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel enim sit",
         "dateCreated": "3/31/2021",
-        "average": 4.4,
-        "count": 73,
         "overallRating": { average: 4.4, count: 73 }
     }, {
         "id": 4,
@@ -59,10 +33,7 @@ const Quizzes = [
         "description": "id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam",
         "difficulty": "Easy",
         "creator": 16,
-        "questions": "amet nulla quisque arcu libero rutrum ac lobortis vel dapibus",
         "dateCreated": "3/12/2021",
-        "average": 4.5,
-        "count": 40,
         "overallRating": { average: 4.5, count: 40 }
     }, {
         "id": 5,
@@ -71,10 +42,7 @@ const Quizzes = [
         "description": "in consequat ut nulla sed accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec vitae",
         "difficulty": "Hard",
         "creator": 13,
-        "questions": "mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor",
         "dateCreated": "11/8/2020",
-        "average": 2.4,
-        "count": 13,
         "overallRating": { average: 2.4, count: 13 }
     }, {
         "id": 6,
@@ -83,10 +51,7 @@ const Quizzes = [
         "description": "vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum",
         "difficulty": "Easy",
         "creator": 34,
-        "questions": "mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id nisl",
         "dateCreated": "2/19/2021",
-        "average": 2.7,
-        "count": 71,
         "overallRating": { average: 2.7, count: 71 }
     }, {
         "id": 7,
@@ -95,10 +60,7 @@ const Quizzes = [
         "description": "gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada",
         "difficulty": "Hard",
         "creator": 5,
-        "questions": "vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc",
         "dateCreated": "3/3/2021",
-        "average": 3.9,
-        "count": 23,
         "overallRating": { average: 3.9, count: 23 }
     }, {
         "id": 8,
@@ -107,10 +69,7 @@ const Quizzes = [
         "description": "sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum",
         "difficulty": "Hard",
         "creator": 8,
-        "questions": "tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim",
         "dateCreated": "3/17/2021",
-        "average": 3.1,
-        "count": 109,
         "overallRating": { average: 3.1, count: 109 }
     }, {
         "id": 9,
@@ -119,10 +78,7 @@ const Quizzes = [
         "description": "lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede",
         "difficulty": "Easy",
         "creator": 14,
-        "questions": "donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum",
         "dateCreated": "12/11/2020",
-        "average": 1.5,
-        "count": 14,
         "overallRating": { average: 1.5, count: 14 }
     }, {
         "id": 10,
@@ -131,10 +87,7 @@ const Quizzes = [
         "description": "rutrum neque aenean auctor gravida sem praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi",
         "difficulty": "Medium",
         "creator": 3,
-        "questions": "semper est quam pharetra magna ac consequat metus sapien ut nunc vestibulum ante ipsum primis in faucibus orci luctus et",
         "dateCreated": "3/1/2021",
-        "average": 1.3,
-        "count": 115,
         "overallRating": { average: 1.3, count: 115 }
     }, {
         "id": 11,
@@ -143,10 +96,7 @@ const Quizzes = [
         "description": "pellentesque ultrices mattis odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla",
         "difficulty": "Medium",
         "creator": 33,
-        "questions": "adipiscing elit proin risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in",
         "dateCreated": "5/17/2021",
-        "average": 1.4,
-        "count": 91,
         "overallRating": { average: 1.4, count: 91 }
     }, {
         "id": 12,
@@ -155,10 +105,7 @@ const Quizzes = [
         "description": "vel nulla eget eros elementum pellentesque quisque porta volutpat erat quisque erat eros viverra eget congue eget semper rutrum nulla nunc purus phasellus",
         "difficulty": "Hard",
         "creator": 4,
-        "questions": "montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa",
         "dateCreated": "4/16/2021",
-        "average": 2.8,
-        "count": 22,
         "overallRating": { average: 2.8, count: 22 }
     }, {
         "id": 13,
@@ -167,10 +114,7 @@ const Quizzes = [
         "description": "at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed magna at nunc commodo placerat praesent blandit",
         "difficulty": "Medium",
         "creator": 7,
-        "questions": "massa quis augue luctus tincidunt nulla mollis molestie lorem quisque",
         "dateCreated": "1/19/2021",
-        "average": 3.3,
-        "count": 130,
         "overallRating": { average: 3.3, count: 130 }
     }, {
         "id": 14,
@@ -179,10 +123,7 @@ const Quizzes = [
         "description": "pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit amet sem fusce",
         "difficulty": "Hard",
         "creator": 32,
-        "questions": "diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum",
         "dateCreated": "3/8/2021",
-        "average": 4.7,
-        "count": 9,
         "overallRating": { average: 4.7, count: 9 }
     }, {
         "id": 15,
@@ -191,10 +132,7 @@ const Quizzes = [
         "description": "nulla nisl nunc nisl duis bibendum felis sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa",
         "difficulty": "Easy",
         "creator": 9,
-        "questions": "sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit",
         "dateCreated": "1/24/2021",
-        "average": 2.5,
-        "count": 148,
         "overallRating": { average: 2.5, count: 148 }
     }, {
         "id": 16,
@@ -203,10 +141,7 @@ const Quizzes = [
         "description": "interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at velit eu",
         "difficulty": "Medium",
         "creator": 11,
-        "questions": "rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat",
         "dateCreated": "5/24/2021",
-        "average": 4.1,
-        "count": 94,
         "overallRating": { average: 4.1, count: 94 }
     }, {
         "id": 17,
@@ -215,10 +150,7 @@ const Quizzes = [
         "description": "aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce",
         "difficulty": "Hard",
         "creator": 42,
-        "questions": "vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris eget massa",
         "dateCreated": "6/30/2021",
-        "average": 4.3,
-        "count": 88,
         "overallRating": { average: 4.3, count: 88 }
     }, {
         "id": 18,
@@ -227,10 +159,7 @@ const Quizzes = [
         "description": "ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at",
         "difficulty": "Easy",
         "creator": 5,
-        "questions": "risus praesent lectus vestibulum quam sapien varius ut blandit non interdum in",
         "dateCreated": "10/12/2020",
-        "average": 2.0,
-        "count": 58,
         "overallRating": { average: 2.0, count: 58 }
     }, {
         "id": 19,
@@ -239,10 +168,7 @@ const Quizzes = [
         "description": "fusce congue diam id ornare imperdiet sapien urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat",
         "difficulty": "Easy",
         "creator": 26,
-        "questions": "sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus",
         "dateCreated": "10/8/2020",
-        "average": 2.7,
-        "count": 76,
         "overallRating": { average: 2.7, count: 76 }
     }, {
         "id": 20,
@@ -251,10 +177,7 @@ const Quizzes = [
         "description": "neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus",
         "difficulty": "Easy",
         "creator": 43,
-        "questions": "primis in faucibus orci luctus et ultrices posuere cubilia curae duis faucibus accumsan odio",
         "dateCreated": "3/26/2021",
-        "average": 4.5,
-        "count": 11,
         "overallRating": { average: 4.5, count: 11 }
     }, {
         "id": 21,
@@ -263,10 +186,7 @@ const Quizzes = [
         "description": "aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a odio in hac habitasse platea dictumst maecenas ut",
         "difficulty": "Easy",
         "creator": 38,
-        "questions": "dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum",
         "dateCreated": "7/3/2021",
-        "average": 4.9,
-        "count": 59,
         "overallRating": { average: 4.9, count: 59 }
     }, {
         "id": 22,
@@ -275,10 +195,7 @@ const Quizzes = [
         "description": "lobortis est phasellus sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi",
         "difficulty": "Hard",
         "creator": 34,
-        "questions": "posuere cubilia curae duis faucibus accumsan odio curabitur convallis duis consequat dui",
         "dateCreated": "10/3/2020",
-        "average": 1.4,
-        "count": 114,
         "overallRating": { average: 1.4, count: 114 }
     }, {
         "id": 23,
@@ -287,10 +204,7 @@ const Quizzes = [
         "description": "feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce congue diam id ornare imperdiet sapien urna pretium nisl ut",
         "difficulty": "Hard",
         "creator": 24,
-        "questions": "diam cras pellentesque volutpat dui maecenas tristique est et tempus semper est",
         "dateCreated": "8/14/2021",
-        "average": 4.4,
-        "count": 30,
         "overallRating": { average: 4.4, count: 30 }
     }, {
         "id": 24,
@@ -299,10 +213,7 @@ const Quizzes = [
         "description": "quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra",
         "difficulty": "Hard",
         "creator": 12,
-        "questions": "mi in porttitor pede justo eu massa donec dapibus duis",
         "dateCreated": "12/18/2020",
-        "average": 4.7,
-        "count": 102,
         "overallRating": { average: 4.7, count: 102 }
     }, {
         "id": 25,
@@ -311,10 +222,7 @@ const Quizzes = [
         "description": "nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus",
         "difficulty": "Easy",
         "creator": 14,
-        "questions": "porttitor pede justo eu massa donec dapibus duis at velit eu est congue elementum",
         "dateCreated": "11/25/2020",
-        "average": 4.1,
-        "count": 55,
         "overallRating": { average: 4.1, count: 55 }
     }, {
         "id": 26,
@@ -323,10 +231,7 @@ const Quizzes = [
         "description": "erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut tellus nulla ut",
         "difficulty": "Medium",
         "creator": 11,
-        "questions": "sed interdum venenatis turpis enim blandit mi in porttitor pede justo eu massa donec dapibus duis at",
         "dateCreated": "5/16/2021",
-        "average": 3.9,
-        "count": 9,
         "overallRating": { average: 3.9, count: 9 }
     }, {
         "id": 27,
@@ -335,10 +240,7 @@ const Quizzes = [
         "description": "aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna",
         "difficulty": "Easy",
         "creator": 50,
-        "questions": "eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui",
         "dateCreated": "10/2/2020",
-        "average": 3.4,
-        "count": 25,
         "overallRating": { average: 3.4, count: 25 }
     }, {
         "id": 28,
@@ -347,10 +249,7 @@ const Quizzes = [
         "description": "dui vel nisl duis ac nibh fusce lacus purus aliquet at feugiat non pretium quis lectus suspendisse potenti in eleifend quam a",
         "difficulty": "Hard",
         "creator": 13,
-        "questions": "diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed",
         "dateCreated": "1/1/2021",
-        "average": 2.6,
-        "count": 46,
         "overallRating": { average: 2.6, count: 46 }
     }, {
         "id": 29,
@@ -359,10 +258,7 @@ const Quizzes = [
         "description": "augue quam sollicitudin vitae consectetuer eget rutrum at lorem integer tincidunt ante vel ipsum praesent blandit lacinia erat vestibulum sed",
         "difficulty": "Easy",
         "creator": 42,
-        "questions": "amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor duis mattis egestas metus aenean fermentum donec ut mauris",
         "dateCreated": "12/1/2020",
-        "average": 2.3,
-        "count": 32,
         "overallRating": { average: 2.3, count: 32 }
     }, {
         "id": 30,
@@ -371,10 +267,7 @@ const Quizzes = [
         "description": "nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque viverra pede ac diam cras",
         "difficulty": "Hard",
         "creator": 10,
-        "questions": "nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur",
         "dateCreated": "2/20/2021",
-        "average": 3.2,
-        "count": 35,
         "overallRating": { average: 3.2, count: 35 }
     }, {
         "id": 31,
@@ -383,10 +276,7 @@ const Quizzes = [
         "description": "elementum nullam varius nulla facilisi cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum",
         "difficulty": "Medium",
         "creator": 20,
-        "questions": "non lectus aliquam sit amet diam in magna bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt",
         "dateCreated": "4/25/2021",
-        "average": 2.5,
-        "count": 25,
         "overallRating": { average: 2.5, count: 25 }
     }, {
         "id": 32,
@@ -395,10 +285,7 @@ const Quizzes = [
         "description": "praesent blandit nam nulla integer pede justo lacinia eget tincidunt eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare",
         "difficulty": "Easy",
         "creator": 21,
-        "questions": "eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque quam turpis",
         "dateCreated": "8/24/2021",
-        "average": 3.5,
-        "count": 59,
         "overallRating": { average: 3.5, count: 59 }
     }, {
         "id": 33,
@@ -407,10 +294,7 @@ const Quizzes = [
         "description": "nisl nunc rhoncus dui vel sem sed sagittis nam congue risus semper porta volutpat quam pede lobortis ligula sit amet eleifend pede libero quis",
         "difficulty": "Hard",
         "creator": 8,
-        "questions": "id sapien in sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate",
         "dateCreated": "8/22/2021",
-        "average": 2.8,
-        "count": 104,
         "overallRating": { average: 2.8, count: 104 }
     }, {
         "id": 34,
@@ -419,10 +303,7 @@ const Quizzes = [
         "description": "arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam",
         "difficulty": "Medium",
         "creator": 28,
-        "questions": "eros viverra eget congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam",
         "dateCreated": "2/12/2021",
-        "average": 2.0,
-        "count": 63,
         "overallRating": { average: 2.0, count: 63 }
     }, {
         "id": 35,
@@ -431,10 +312,7 @@ const Quizzes = [
         "description": "velit eu est congue elementum in hac habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat fermentum justo",
         "difficulty": "Hard",
         "creator": 36,
-        "questions": "luctus tincidunt nulla mollis molestie lorem quisque ut erat curabitur",
         "dateCreated": "3/20/2021",
-        "average": 1.3,
-        "count": 143,
         "overallRating": { average: 1.3, count: 143 }
     }, {
         "id": 36,
@@ -443,10 +321,7 @@ const Quizzes = [
         "description": "vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis",
         "difficulty": "Hard",
         "creator": 20,
-        "questions": "nulla elit ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus curabitur",
         "dateCreated": "8/7/2021",
-        "average": 1.6,
-        "count": 18,
         "overallRating": { average: 1.6, count: 18 }
     }, {
         "id": 37,
@@ -455,10 +330,7 @@ const Quizzes = [
         "description": "arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis justo in hac habitasse platea dictumst etiam faucibus",
         "difficulty": "Easy",
         "creator": 20,
-        "questions": "felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc",
         "dateCreated": "7/20/2021",
-        "average": 1.2,
-        "count": 95,
         "overallRating": { average: 1.2, count: 95 }
     }, {
         "id": 38,
@@ -467,10 +339,7 @@ const Quizzes = [
         "description": "diam vitae quam suspendisse potenti nullam porttitor lacus at turpis donec posuere metus vitae ipsum aliquam non mauris morbi non lectus",
         "difficulty": "Medium",
         "creator": 16,
-        "questions": "bibendum imperdiet nullam orci pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem",
         "dateCreated": "2/19/2021",
-        "average": 4.1,
-        "count": 25,
         "overallRating": { average: 4.1, count: 25 }
     }, {
         "id": 39,
@@ -479,10 +348,7 @@ const Quizzes = [
         "description": "eget tempus vel pede morbi porttitor lorem id ligula suspendisse ornare consequat lectus in est risus auctor sed tristique in tempus sit",
         "difficulty": "Hard",
         "creator": 23,
-        "questions": "neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis",
         "dateCreated": "2/26/2021",
-        "average": 2.6,
-        "count": 94,
         "overallRating": { average: 2.6, count: 94 }
     }, {
         "id": 40,
@@ -491,10 +357,7 @@ const Quizzes = [
         "description": "et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean auctor gravida",
         "difficulty": "Medium",
         "creator": 44,
-        "questions": "sit amet erat nulla tempus vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac",
         "dateCreated": "6/25/2021",
-        "average": 4.0,
-        "count": 9,
         "overallRating": { average: 4.0, count: 9 }
     }, {
         "id": 41,
@@ -503,10 +366,7 @@ const Quizzes = [
         "description": "nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu libero rutrum ac lobortis vel",
         "difficulty": "Easy",
         "creator": 41,
-        "questions": "at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci",
         "dateCreated": "1/6/2021",
-        "average": 4.2,
-        "count": 137,
         "overallRating": { average: 4.2, count: 137 }
     }, {
         "id": 42,
@@ -515,10 +375,7 @@ const Quizzes = [
         "description": "dis parturient montes nascetur ridiculus mus vivamus vestibulum sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus",
         "difficulty": "Easy",
         "creator": 12,
-        "questions": "donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed vestibulum sit amet cursus",
         "dateCreated": "6/3/2021",
-        "average": 5.0,
-        "count": 40,
         "overallRating": { average: 5.0, count: 40 }
     }, {
         "id": 43,
@@ -527,10 +384,7 @@ const Quizzes = [
         "description": "habitasse platea dictumst morbi vestibulum velit id pretium iaculis diam erat justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget",
         "difficulty": "Easy",
         "creator": 42,
-        "questions": "nisi volutpat eleifend donec ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus sed",
         "dateCreated": "4/27/2021",
-        "average": 2.4,
-        "count": 9,
         "overallRating": { average: 2.4, count: 9 }
     }, {
         "id": 44,
@@ -539,10 +393,7 @@ const Quizzes = [
         "description": "erat fermentum justo nec condimentum neque sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris",
         "difficulty": "Medium",
         "creator": 18,
-        "questions": "ac nulla sed vel enim sit amet nunc viverra dapibus nulla suscipit ligula in lacus",
         "dateCreated": "11/17/2020",
-        "average": 3.8,
-        "count": 137,
         "overallRating": { average: 3.8, count: 137 }
     }, {
         "id": 45,
@@ -551,10 +402,7 @@ const Quizzes = [
         "description": "arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur",
         "difficulty": "Easy",
         "creator": 40,
-        "questions": "luctus nec molestie sed justo pellentesque viverra pede ac diam cras",
         "dateCreated": "3/6/2021",
-        "average": 3.2,
-        "count": 94,
         "overallRating": { average: 3.2, count: 94 }
     }, {
         "id": 46,
@@ -563,10 +411,7 @@ const Quizzes = [
         "description": "sapien placerat ante nulla justo aliquam quis turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor",
         "difficulty": "Easy",
         "creator": 48,
-        "questions": "pede lobortis ligula sit amet eleifend pede libero quis orci nullam molestie nibh in lectus pellentesque at nulla suspendisse potenti",
         "dateCreated": "1/16/2021",
-        "average": 2.6,
-        "count": 9,
         "overallRating": { average: 2.6, count: 9 }
     }, {
         "id": 47,
@@ -575,10 +420,7 @@ const Quizzes = [
         "description": "mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis ac nibh",
         "difficulty": "Easy",
         "creator": 1,
-        "questions": "turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante vivamus tortor",
         "dateCreated": "8/7/2021",
-        "average": 3.1,
-        "count": 10,
         "overallRating": { average: 3.1, count: 10 }
     }, {
         "id": 48,
@@ -587,10 +429,7 @@ const Quizzes = [
         "description": "convallis nulla neque libero convallis eget eleifend luctus ultricies eu nibh quisque id justo sit amet sapien dignissim vestibulum vestibulum",
         "difficulty": "Medium",
         "creator": 24,
-        "questions": "ultrices aliquet maecenas leo odio condimentum id luctus nec molestie",
         "dateCreated": "11/23/2020",
-        "average": 2.1,
-        "count": 66,
         "overallRating": { average: 2.1, count: 66 }
     }, {
         "id": 49,
@@ -599,10 +438,7 @@ const Quizzes = [
         "description": "non mi integer ac neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus in sagittis dui vel nisl duis",
         "difficulty": "Easy",
         "creator": 29,
-        "questions": "nonummy maecenas tincidunt lacus at velit vivamus vel nulla eget eros",
         "dateCreated": "11/13/2020",
-        "average": 1.3,
-        "count": 99,
         "overallRating": { average: 1.3, count: 99 }
     }, {
         "id": 50,
@@ -611,10 +447,7 @@ const Quizzes = [
         "description": "a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec",
         "difficulty": "Easy",
         "creator": 20,
-        "questions": "sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel",
         "dateCreated": "3/18/2021",
-        "average": 1.8,
-        "count": 108,
         "overallRating": { average: 1.8, count: 108 }
     }]
 

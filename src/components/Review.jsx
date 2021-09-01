@@ -51,7 +51,7 @@ const Review = ({ userReview, quizDateCreated, quizDateDiff }) => {
 
             <div className="ml-10 mt-3 flex items-end">
                 <BiUpvote className="mr-1 mb-1 text-green-400" />
-                <span className="text-sm mr-3">{rand(0, 999)}</span>
+                <span className="text-sm mr-3">{rand(999)}</span>
                 <BiDownvote className="mr-1 mb-1 text-gray-400" />
                 <span className="text-sm"></span>
             </div>

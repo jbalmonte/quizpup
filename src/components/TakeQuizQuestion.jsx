@@ -1,33 +1,41 @@
 // @ts-nocheck
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import { MdNavigateNext } from 'react-icons/md'
 
-const TakeQuizQuestion = ({ question: { item, question, choices }, next }) => {
+const TakeQuizQuestion = ({ question: { item, question, choices, totalQuestions }, next }) => {
     const selected = useRef()
+    const [answer, setAnswer] = useState('')
+
     const handleNext = () => {
         selected.current.classList.remove('answer')
         selected.current = null
-        next()
+        let temp = answer
+        setAnswer('')
+        next(temp)
     }
+
     const toggleAnswer = e => {
-        if (selected.current) selected.current.classList.remove('answer')
+        if (selected.current) {
+            selected.current.classList.remove('answer')
+        }
         e.target.classList.toggle('answer')
         selected.current = e.target
+        setAnswer(selected.current.textContent)
     }
     return (
 
         <div className="col-span-2 border-purple-600 text-secondary-200 bg-gray-50 rounded-md border pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>
 
-            <div className="flex justify-between items-center">
-                <div className="flex items-center">
+            <div className="flex justify-center">
+                <div className="flex">
                     <div className="rounded-full bg-quaternary w-12 shadow h-12 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
                         <span className="mr-1">Q</span>
                         <span>{item}</span>
                     </div>
 
-                    <h1 className="text-4xl font-serif text-purple-800 font-medium">{question}</h1>
+                    <h1 className="w-11/12 text-4xl font-serif text-purple-800 font-medium">{question}</h1>
                 </div>
-                <p>{item}/15</p>
+                <p className="ml-4">{item}/{totalQuestions}</p>
             </div>
 
             <div className="grid grid-cols-1 m-10 gap-2 w-1/2 mx-auto">
@@ -44,11 +52,10 @@ const TakeQuizQuestion = ({ question: { item, question, choices }, next }) => {
                     })
 
                 }
-
-
             </div>
-            <div className="text-right hover:text-green-600">
-                <button onClick={handleNext} className="border border-primary hover:border-green-600 text-secondary-200 py-1 pl-2 transition-colors duration-150 ease-linear rounded-lg hover:bg-green-600 hover:text-gray-50">
+
+            <div className='text-right'>
+                <button onClick={handleNext} disabled={!answer} className={`${!answer && 'invisible'} border border-primary hover:bg-green-600 hover:text-gray-50 hover:border-green-500 text-secondary-200 py-1 pl-2 transition-all duration-150 ease-linear rounded-lg `}>
                     <span>Next</span>
                     <MdNavigateNext className="inline-flex text-2xl self-start items-start" />
                 </button>

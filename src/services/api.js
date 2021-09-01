@@ -1,24 +1,23 @@
 export default function api(Collections) {
     return {
-        create: (col) => {
+        create: (item) => {
 
-            Collections.push(col)
+            Collections.push(item)
         },
         fetchById: id => {
-            return Collections.find(col => col.id === id)
+            return Collections.find(item => item.id === id)
         },
 
         fetchAll: () => {
             return Collections
         },
 
-        update: (id, newFields) => {
-            let collection = Collections.find(col => col.id === id)
-            collection = { ...newFields }
-            return collection
+        update: (id, fields) => {
+            let index = Collections.findIndex(item => item.id === id)
+            Collections[index] = { ...Collections[index], ...fields }
         },
         destroy: id => {
-            Collections.splice(Collections.findIndex(col => col.id === id), 1)
+            Collections.splice(Collections.findIndex(item => item.id === id), 1)
         }
     }
 }

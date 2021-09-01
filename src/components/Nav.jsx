@@ -60,12 +60,12 @@ function Nav() {
                         </ul>
                     </div>
 
-                    <div className="w-1/3   inline-flex justify-end">
+                    <div className="w-1/3 inline-flex justify-end">
 
                         {
                             isAuthenticated ?
                                 <div className="pl-5 flex rounded-full items-center justify-evenly bg-gray-600 ">
-                                    <span className="p-2 text-xl font-medium">
+                                    <span id="QPoints" className="p-2 text-xl font-medium">
                                         {currentUser.QPoints}
                                     </span>
                                     <UserAvatar onClick={e => menuDrawerRef.current.classList.toggle('hidden')} user={currentUser} />
