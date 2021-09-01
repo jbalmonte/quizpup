@@ -1,4 +1,5 @@
-import React from 'react'
+// @ts-nocheck
+import React, { useState } from 'react'
 import { Route } from 'react-router-dom'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
@@ -8,8 +9,8 @@ import Categories from '../components/Categories'
 import { useAuth } from '../context/AuthContext'
 
 const Quizzes = ({ match: { params }, history }) => {
-    // @ts-ignore
     const { currentUser } = useAuth()
+    const [searchText, setSearchText] = useState('')
 
     return (
         <div className="font-body text-center grid grid-cols-6 pt-3">
@@ -94,10 +95,10 @@ const Quizzes = ({ match: { params }, history }) => {
             </div >
 
             <div className="col-span-5 mx-10 mb-5">
-                <Categories history={history} />
 
-                <Route exact path="/quizzes" component={QuizByCategory} />
-                <Route exact path="/quizzes/:category" component={QuizByCategory} />
+                <Categories searchText={searchText} setSearchText={setSearchText} />
+                <Route exact path="/quizzes" render={props => <QuizByCategory searchText={searchText} {...props} />} />
+                <Route exact path="/quizzes/:category" render={props => <QuizByCategory searchText={searchText} {...props} />} />
 
 
             </div>

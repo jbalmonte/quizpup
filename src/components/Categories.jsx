@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
-const Categories = ({ history }) => {
+const Categories = ({ searchText, setSearchText }) => {
 
     const { pathname } = useLocation()
 
@@ -46,7 +46,7 @@ const Categories = ({ history }) => {
                     </button>
                 </span>
 
-                <input type="text" className="content-center text-base pr-4 pl-10 py-1 rounded-lg focus:outline-none focus:border-green-400 w-44 bg-gray-100 focus:text-gray-600" placeholder="Search" />
+                <input type="text" value={searchText} onChange={e => setSearchText(e.target.value)} className="content-center text-sm pr-4 pl-10 py-2 rounded-lg focus:outline-none focus:border-green-400 w-44 bg-gray-100 focus:text-gray-600" placeholder="Search" />
             </div>
         </div>
     )

@@ -15,7 +15,7 @@ const Quiz = ({ match: { params } }) => {
     const id = params.id
     const history = useHistory()
     const quiz = apiFunc(Quizzes).fetchById(+id)
-    const user = apiFunc(Users).fetchById(quiz.creator)
+    const user = apiFunc(Users).fetchById(quiz.creator.id)
     const reviews = apiFunc(Reviews).fetchById(+id).reviews
 
     const badge = {
@@ -40,12 +40,12 @@ const Quiz = ({ match: { params } }) => {
                     <div className="flex items-end p-0 mt-4 mb-6">
                         <UserAvatar size={10} fSize="text-sm" user={user} />
                         <div>
-                            <p className="ml-2 text-sm my-auto text-gray-600 pointer-events-none">{user.fullName}</p>
+                            <p className="ml-2 text-sm my-auto text-gray-600 pointer-events-none">{quiz.creator.fullName}</p>
                             <p className="ml-2 text-sm my-auto text-gray-400 pointer-events-none">{getDateDiff(quiz.dateCreated)}</p>
                         </div>
                     </div>
 
-                    <p className="text-secondary-100">{quiz.description}</p>
+                    <p className="text-secondary-100">{quiz.description.replace(/^./, m => m.toUpperCase())}</p>
 
                     <div className="flex mt-2 justify-between items-center">
 

@@ -10,12 +10,12 @@ const Card = ({ quiz: { id, title, description, image, difficulty, creator, over
 
     const history = useHistory()
 
-    const user = Users.find(user => user.id === creator)
+    const user = Users.find(user => user.id === creator.id)
 
     return (
         <div onClick={() => history.push(`/quizzes/${id}`)} className="relative overflow-hidden h-48 bg-gray-50 shadow-sm hover:shadow-md text-secondary-200 flex font-body rounded-lg text-left col-span-1 w-full">
 
-            <img src={`${image}`} alt="Mountain" className="bg-cover w-1/3 overflow-hidden z-0" />
+            <img src={`${image}`} alt={title} className="bg-cover w-1/3 overflow-hidden z-0" />
 
             <div className="h-full ml-5 flex flex-col justify-evenly w-2/3  pr-5">
                 <h1 className="text-xl pt-2 pb-1 font-medium pointer-events-none">
@@ -23,14 +23,14 @@ const Card = ({ quiz: { id, title, description, image, difficulty, creator, over
                 </h1>
                 <p className="text-xs text-gray-500 pb-1 pointer-events-none">
 
-                    {description.replace(/^(.{1,157})((\W\w.{1,})|$)/, (_, a, b) => `${a} ${b && '...'}`)}
+                    {description.replace(/^(.{1,157})((\W\w.{1,})|$)/, (_, a, b) => `${a[0].toUpperCase() + a.slice(1)} ${b && '...'}`)}
                 </p>
 
                 <div className=" flex justify-between items-end py-1">
                     <div className="flex items-end p-0">
                         <UserAvatar size={8} fSize="text-xs" user={user} />
                         <div>
-                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">{user.fullName}</p>
+                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">{creator.fullName}</p>
                             <p className="ml-2 my-auto text-xs text-gray-400 pointer-events-none">
                                 {getDateDiff(dateCreated)}
                             </p>

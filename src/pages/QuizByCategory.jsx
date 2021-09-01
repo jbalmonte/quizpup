@@ -1,12 +1,19 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import Card from '../components/Card'
 import Quizzes from '../db/Quizzes'
+import api from '../services/api'
 
-const QuizByCategory = ({ match: { params }, history }) => {
-
+const QuizByCategory = ({ searchText }) => {
+    // @ts-ignore
+    const { category } = useParams()
     return (
         <div className="category-content">
-            {Quizzes.map(quiz => <Card quiz={quiz} key={quiz.id} />)
+            {
+                api(Quizzes)
+                    .sortBy(category)
+                    .filter(quiz => new RegExp(searchText, "i").test(`${quiz.title} ${quiz.creator.fullName}`))
+                    .map(quiz => <Card quiz={quiz} key={quiz.id} />)
             }
         </div>
     )

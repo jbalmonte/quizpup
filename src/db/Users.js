@@ -3,7 +3,7 @@ const Users = [{
     "email": "joshua@gmail.com",
     "fullName": "Joshua Balmonte",
     "password": "12345",
-    "image": "",
+    "image": "/images/my_avatar.jpg",
     "QPoints": 1797,
     "bgColor": "bg-tertiary",
 }, {
@@ -11,7 +11,7 @@ const Users = [{
     "email": "hlanbertoni1@yahoo.com",
     "fullName": "Halli Lanbertoni",
     "password": "z8NR50ws2",
-    "image": "https://robohash.org/similiqueevenietsed.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/1",
     "QPoints": 7339,
     "bgColor": "bg-green-500",
 }, {
@@ -19,7 +19,7 @@ const Users = [{
     "email": "egurys2@meetup.com",
     "fullName": "Enos Gurys",
     "password": "0Q4qs9oSoTH",
-    "image": "https://robohash.org/atconsequaturquo.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/2",
     "QPoints": 15286,
     "bgColor": "bg-red-500",
 }, {
@@ -27,7 +27,7 @@ const Users = [{
     "email": "mpulfer3@kickstarter.com",
     "fullName": "Mersey Pulfer",
     "password": "FDshWjyGkAw",
-    "image": "https://robohash.org/quiautemnihil.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/3",
     "QPoints": 2397,
     "bgColor": "bg-gray-500",
 }, {
@@ -35,7 +35,7 @@ const Users = [{
     "email": "rinstock4@ucla.edu",
     "fullName": "Ravi Instock",
     "password": "1Tq1IZtT",
-    "image": "https://robohash.org/dolorpariaturomnis.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/4",
     "QPoints": 5955,
     "bgColor": "bg-pink-300",
 }, {
@@ -43,7 +43,7 @@ const Users = [{
     "email": "marndell5@earthlink.net",
     "fullName": "Mariska Arndell",
     "password": "ah7wwLH3ogFI",
-    "image": "https://robohash.org/voluptasquaequi.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/5",
     "QPoints": 1950,
     "bgColor": "bg-purple-500",
 }, {
@@ -51,7 +51,7 @@ const Users = [{
     "email": "bdavidovitch6@surveymonkey.com",
     "fullName": "Beryl Davidovitch",
     "password": "fqw2gUkchR",
-    "image": "https://robohash.org/mollitiaquiaquae.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/6",
     "QPoints": 2429,
     "bgColor": "bg-green-300",
 }, {
@@ -59,7 +59,7 @@ const Users = [{
     "email": "nlukianov7@yahoo.com",
     "fullName": "Natividad Lukianov",
     "password": "8HBu90o",
-    "image": "https://robohash.org/estconsequaturveniam.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/7",
     "QPoints": 12451,
     "bgColor": "bg-quaternary",
 }, {
@@ -67,7 +67,7 @@ const Users = [{
     "email": "qmosdall8@macromedia.com",
     "fullName": "Quincey Mosdall",
     "password": "XxuarX",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/888",
     "QPoints": 15040,
     "bgColor": "bg-purple-300",
 }, {
@@ -75,7 +75,7 @@ const Users = [{
     "email": "sseivwright9@liveinternet.ru",
     "fullName": "Schuyler Seivwright",
     "password": "9vdf5U",
-    "image": "https://robohash.org/quosautdolores.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/999",
     "QPoints": 18655,
     "bgColor": "bg-gray-500",
 }, {
@@ -83,7 +83,7 @@ const Users = [{
     "email": "ltwitteya@amazonaws.com",
     "fullName": "Latrena Twittey",
     "password": "lmTTZ5J5",
-    "image": "https://robohash.org/placeatiustoculpa.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/101",
     "QPoints": 3620,
     "bgColor": "bg-purple-500",
 }, {
@@ -91,7 +91,7 @@ const Users = [{
     "email": "jrittmeyerb@nih.gov",
     "fullName": "Jessa Rittmeyer",
     "password": "21LjtKAOV7",
-    "image": "https://robohash.org/quasinobisdolor.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/1197",
     "QPoints": 18427,
     "bgColor": "bg-gray-500",
 }, {
@@ -99,7 +99,7 @@ const Users = [{
     "email": "csaerc@cornell.edu",
     "fullName": "Cookie Saer",
     "password": "qmQV1kcs",
-    "image": "https://robohash.org/quistemporerepudiandae.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/112",
     "QPoints": 16629,
     "bgColor": "bg-purple-300",
 }, {
@@ -107,7 +107,7 @@ const Users = [{
     "email": "ahatfulld@gov.uk",
     "fullName": "Abner Hatfull",
     "password": "aGbRvmd",
-    "image": "https://robohash.org/quidemrerumut.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/113",
     "QPoints": 10999,
     "bgColor": "bg-gray-300",
 }, {
@@ -115,7 +115,7 @@ const Users = [{
     "email": "bbauntone@dyndns.org",
     "fullName": "Blake Baunton",
     "password": "cp8Ix15HTs",
-    "image": "https://robohash.org/dolorconsequaturdignissimos.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/194",
     "QPoints": 15109,
     "bgColor": "bg-gray-500",
 }, {
@@ -123,7 +123,7 @@ const Users = [{
     "email": "ktucknuttf@jimdo.com",
     "fullName": "Kliment Tucknutt",
     "password": "S8AuTF9",
-    "image": "https://robohash.org/ipsamrationedolor.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/185",
     "QPoints": 1092,
     "bgColor": "bg-gray-300",
 }, {
@@ -131,7 +131,7 @@ const Users = [{
     "email": "bdaynterg@livejournal.com",
     "fullName": "Barbara Daynter",
     "password": "Mdho5ZJLBtvn",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/116",
     "QPoints": 16105,
     "bgColor": "bg-tertiary",
 }, {
@@ -139,7 +139,7 @@ const Users = [{
     "email": "bmackeeverh@nationalgeographic.com",
     "fullName": "Bathsheba MacKeever",
     "password": "cQJXIIpMmPB",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/157",
     "QPoints": 9603,
     "bgColor": "bg-tertiary",
 }, {
@@ -147,7 +147,7 @@ const Users = [{
     "email": "ehuggeni@reuters.com",
     "fullName": "Ezechiel Huggen",
     "password": "ik2Rvn",
-    "image": "https://robohash.org/enimquaeratut.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/18",
     "QPoints": 15847,
     "bgColor": "bg-gray-500",
 }, {
@@ -155,7 +155,7 @@ const Users = [{
     "email": "dscarthj@alexa.com",
     "fullName": "Delmer Scarth",
     "password": "uSoxFHHoRs",
-    "image": "https://robohash.org/commodicumnihil.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/19",
     "QPoints": 964,
     "bgColor": "bg-purple-500",
 }, {
@@ -163,7 +163,7 @@ const Users = [{
     "email": "clathleiffurek@google.cn",
     "fullName": "Carmen Lathleiffure",
     "password": "GEt90s",
-    "image": "https://robohash.org/autdistinctiovel.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/20",
     "QPoints": 7362,
     "bgColor": "bg-gray-400",
 }, {
@@ -171,7 +171,7 @@ const Users = [{
     "email": "kmougenell@mtv.com",
     "fullName": "Kenon Mougenel",
     "password": "JW9vJZqLilRs",
-    "image": "https://robohash.org/quoetquod.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/21",
     "QPoints": 4405,
     "bgColor": "bg-red-500",
 }, {
@@ -179,7 +179,7 @@ const Users = [{
     "email": "gjentetm@uiuc.edu",
     "fullName": "Glyn Jentet",
     "password": "7OqkLv0dq",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/22",
     "QPoints": 19836,
     "bgColor": "bg-tertiary",
 }, {
@@ -187,7 +187,7 @@ const Users = [{
     "email": "tsidonn@amazon.com",
     "fullName": "Teri Sidon",
     "password": "Gb7fjypIN",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/23",
     "QPoints": 7993,
     "bgColor": "bg-tertiary",
 }, {
@@ -195,7 +195,7 @@ const Users = [{
     "email": "mvaletto@bbb.org",
     "fullName": "Margret Valett",
     "password": "QBHzuEr9MVEj",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/24",
     "QPoints": 4283,
     "bgColor": "bg-tertiary",
 }, {
@@ -203,7 +203,7 @@ const Users = [{
     "email": "hollivierp@omniture.com",
     "fullName": "Hewett Ollivier",
     "password": "EphqOi",
-    "image": "https://robohash.org/atquisdolor.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/25",
     "QPoints": 2629,
     "bgColor": "bg-red-500",
 }, {
@@ -211,7 +211,7 @@ const Users = [{
     "email": "amccrearyq@angelfire.com",
     "fullName": "Alfreda McCreary",
     "password": "ZXLA2pd7Y",
-    "image": "https://robohash.org/doloremquenecessitatibusest.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/26",
     "QPoints": 10813,
     "bgColor": "bg-gray-500",
 }, {
@@ -219,7 +219,7 @@ const Users = [{
     "email": "jreinertr@ycombinator.com",
     "fullName": "Joanna Reinert",
     "password": "jniu407E",
-    "image": "https://robohash.org/consequaturconsecteturratione.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/27",
     "QPoints": 16375,
     "bgColor": "bg-purple-500",
 }, {
@@ -227,7 +227,7 @@ const Users = [{
     "email": "ofanes@phoca.cz",
     "fullName": "Orsola Fane",
     "password": "iDNu6guVly",
-    "image": "https://robohash.org/ipsaquisquam.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/28",
     "QPoints": 8590,
     "bgColor": "bg-purple-500",
 }, {
@@ -235,7 +235,7 @@ const Users = [{
     "email": "mglanzt@newyorker.com",
     "fullName": "Morie Glanz",
     "password": "79I6F0Q0ze",
-    "image": "https://robohash.org/maximeutsed.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/29",
     "QPoints": 11699,
     "bgColor": "bg-gray-500",
 }, {
@@ -243,7 +243,7 @@ const Users = [{
     "email": "condrau@skype.com",
     "fullName": "Cindee Ondra",
     "password": "Wko15K",
-    "image": "https://robohash.org/dictasintporro.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/30",
     "QPoints": 14981,
     "bgColor": "bg-gray-500",
 }, {
@@ -251,7 +251,7 @@ const Users = [{
     "email": "pmerigonv@elegantthemes.com",
     "fullName": "Paola Merigon",
     "password": "PbzISab90",
-    "image": "https://robohash.org/perferendisquibusdamet.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/31",
     "QPoints": 4230,
     "bgColor": "bg-gray-500",
 }, {
@@ -259,7 +259,7 @@ const Users = [{
     "email": "ecorhardw@amazon.com",
     "fullName": "Elana Corhard",
     "password": "1pDFv9JYKfJt",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/32",
     "QPoints": 874,
     "bgColor": "bg-red-400",
 }, {
@@ -267,7 +267,7 @@ const Users = [{
     "email": "teratx@nifty.com",
     "fullName": "Teddy Erat",
     "password": "af4Rt6erDo",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/333",
     "QPoints": 18092,
     "bgColor": "bg-pink-400",
 }, {
@@ -275,7 +275,7 @@ const Users = [{
     "email": "dferaghy@walmart.com",
     "fullName": "Danyette Feragh",
     "password": "nrtQ1AM",
-    "image": "https://robohash.org/corruptiharumhic.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/34",
     "QPoints": 2412,
     "bgColor": "bg-gray-400",
 }, {
@@ -283,7 +283,7 @@ const Users = [{
     "email": "kcheesez@nasa.gov",
     "fullName": "Kettie Cheese",
     "password": "yNKohWi",
-    "image": "https://robohash.org/quosetcum.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/35",
     "QPoints": 5384,
     "bgColor": "bg-gray-500",
 }, {
@@ -291,7 +291,7 @@ const Users = [{
     "email": "stuckwell10@desdev.cn",
     "fullName": "Shelby Tuckwell",
     "password": "ytHoAR",
-    "image": "https://robohash.org/voluptaseosprovident.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/36",
     "QPoints": 6799,
     "bgColor": "bg-green-500",
 }, {
@@ -299,7 +299,7 @@ const Users = [{
     "email": "swoolf11@jugem.jp",
     "fullName": "Shanie Woolf",
     "password": "EsmbRnRC",
-    "image": "https://robohash.org/ullamcorruptidolores.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/37",
     "QPoints": 19055,
     "bgColor": "bg-pink-500",
 }, {
@@ -307,7 +307,7 @@ const Users = [{
     "email": "riredale12@skyrock.com",
     "fullName": "Roseanne Iredale",
     "password": "zUXQrbws",
-    "image": "https://robohash.org/distinctioperferendisqui.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/38",
     "QPoints": 3697,
     "bgColor": "bg-green-300",
 }, {
@@ -315,7 +315,7 @@ const Users = [{
     "email": "mbleddon13@devhub.com",
     "fullName": "Mitchell Bleddon",
     "password": "uJPQT6GYbEjo",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/391",
     "QPoints": 10219,
     "bgColor": "bg-gray-400",
 }, {
@@ -323,7 +323,7 @@ const Users = [{
     "email": "cmaccaffrey14@unesco.org",
     "fullName": "Cecily MacCaffrey",
     "password": "abw1tOVV",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/401",
     "QPoints": 19312,
     "bgColor": "bg-pink-400",
 }, {
@@ -331,7 +331,7 @@ const Users = [{
     "email": "rmurney15@de.vu",
     "fullName": "Renault Murney",
     "password": "yzFLENaJZ",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/412",
     "QPoints": 7081,
     "bgColor": "bg-pink-400",
 }, {
@@ -339,7 +339,7 @@ const Users = [{
     "email": "mnel16@imdb.com",
     "fullName": "Maxy Nel",
     "password": "6HpSDa8bA",
-    "image": "https://robohash.org/quiamagnamrepudiandae.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/421",
     "QPoints": 16151,
     "bgColor": "bg-gray-300",
 }, {
@@ -347,7 +347,7 @@ const Users = [{
     "email": "jknock17@tinypic.com",
     "fullName": "Jorge Knock",
     "password": "qtt5Mc",
-    "image": "https://robohash.org/aliasessecommodi.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/431",
     "QPoints": 5763,
     "bgColor": "bg-red-500",
 }, {
@@ -355,7 +355,7 @@ const Users = [{
     "email": "ohulls18@indiatimes.com",
     "fullName": "Osmond Hulls",
     "password": "B5gqgLS4",
-    "image": "https://robohash.org/doloreoccaecatialias.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/441",
     "QPoints": 3140,
     "bgColor": "bg-red-300",
 }, {
@@ -363,7 +363,7 @@ const Users = [{
     "email": "jgonthier19@foxnews.com",
     "fullName": "Johannah Gonthier",
     "password": "uN2RoEE",
-    "image": "https://robohash.org/dolorutunde.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/45",
     "QPoints": 16991,
     "bgColor": "bg-purple-400",
 }, {
@@ -371,7 +371,7 @@ const Users = [{
     "email": "bshortt1a@woothemes.com",
     "fullName": "Becca Shortt",
     "password": "SXtXfmRT",
-    "image": "https://robohash.org/asperioresrerumest.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/46",
     "QPoints": 6835,
     "bgColor": "bg-red-400",
 }, {
@@ -379,7 +379,7 @@ const Users = [{
     "email": "gconti1b@unblog.fr",
     "fullName": "Gage Conti",
     "password": "nEvvas5tZP",
-    "image": "https://robohash.org/necessitatibusevenietvoluptas.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/47",
     "QPoints": 14379,
     "bgColor": "bg-purple-500",
 }, {
@@ -387,7 +387,7 @@ const Users = [{
     "email": "qhearst1c@jimdo.com",
     "fullName": "Quintilla Hearst",
     "password": "jIRiZMEbcdM",
-    "image": "https://robohash.org/voluptatumutet.png?size=50x50&set=set1",
+    "image": "https://avatars2.githubusercontent.com/u/120",
     "QPoints": 13682,
     "bgColor": "bg-red-500",
 }, {
@@ -395,7 +395,7 @@ const Users = [{
     "email": "tbeardsley1d@economist.com",
     "fullName": "Toiboid Beardsley",
     "password": "KUdhkq",
-    "image": null,
+    "image": "https://avatars2.githubusercontent.com/u/49",
     "QPoints": 19487,
     "bgColor": "bg-pink-400",
 }]

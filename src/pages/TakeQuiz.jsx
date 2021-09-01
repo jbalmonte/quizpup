@@ -8,7 +8,6 @@ import QuizResult from '../components/QuizResult'
 import Questions from '../db/Questions'
 import api from '../services/api'
 import Quizzes from '../db/Quizzes'
-import Users from '../db/Users'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 
@@ -17,7 +16,6 @@ const TakeQuiz = () => {
     // @ts-ignore
     const { id } = useParams()
     const quiz = api(Quizzes).fetchById(+id)
-    const creatorFullName = api(Users).fetchById(+quiz.creator).fullName
     const questions = api(Questions).fetchById(+id).questions
 
     const difficultyPoints = {
@@ -35,6 +33,7 @@ const TakeQuiz = () => {
         setState(prev => prev + 1)
     }
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     useEffect(() => setCurrentQuestion(questions[state]), [state])
 
 
@@ -87,7 +86,7 @@ const TakeQuiz = () => {
                                         <FcIdea className="mr-1" />
                                         <span>  Created by: </span></div>
                                 </td>
-                                <td className="py-1 pl-2 text-gray-500">  {creatorFullName}</td>
+                                <td className="py-1 pl-2 text-gray-500">  {quiz.creator.fullName}</td>
                             </tr>
 
                             <tr>
