@@ -17,7 +17,6 @@ function QuizByCategory({ searchText }) {
         }, 3000);
     }, [])
 
-    console.log('CATEGORY: ', category)
     return (
         <div className="category-content">
             {

@@ -1,8 +1,11 @@
+import { generateQuizID } from '../services/idGenerator'
+
 export default function api(Collections, Users) {
     return {
-        create: (item) => {
-
+        create: (obj) => {
+            const item = { id: generateQuizID(), ...obj }
             Collections.push(item)
+            return item
         },
         fetchById: id => {
             return Collections.find(item => item.id === id)

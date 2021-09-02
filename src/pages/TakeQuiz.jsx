@@ -45,7 +45,7 @@ const TakeQuiz = () => {
                     <TakeQuizQuestion
                         question={
                             {
-                                item: state + 1,
+                                item: state < questions.length - 1 ? state + 1 : state,
                                 ...currentQuestion,
                                 totalQuestions: questions.length
                             }}

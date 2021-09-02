@@ -98,7 +98,7 @@ const Quizzes = ({ match: { params }, history }) => {
 
                 <Categories searchText={searchText} setSearchText={setSearchText} />
                 <Route exact path="/quizzes" render={props => <QuizByCategory searchText={searchText} {...props} />} />
-                <Route exact path="/quizzes/:category" render={props => <QuizByCategory searchText={searchText} {...props} />} />
+                <Route exact path="/quizzes/:category" component={props => <QuizByCategory searchText={searchText} {...props} />} />
 
 
             </div>

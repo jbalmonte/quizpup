@@ -6,13 +6,13 @@ const TYPES = {
 function* generateID(type) {
     switch (type) {
         case TYPES.USER: {
-            let i = 0
+            let i = 50
             while (1) {
                 yield i += 1
             }
         }
         case TYPES.QUIZ: {
-            let i = 0
+            let i = 50
             while (1) {
                 yield i += 1
             }
