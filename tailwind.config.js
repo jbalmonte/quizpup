@@ -15,7 +15,8 @@ module.exports = {
       fontFamily: {
         logo: ['Lobster'],
         header: ['Montserrat'],
-        body: ['Roboto']
+        body: ['Nunito Sans'],
+        body2: ['Roboto']
       },
       height: {
         semiScreen: 'calc(100vh - 4rem)',

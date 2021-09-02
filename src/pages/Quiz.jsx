@@ -25,14 +25,14 @@ const Quiz = ({ match: { params } }) => {
     }
 
     return (
-        <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full">
+        <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full font-body">
 
             <div className="col-span-2">
-                <div className="shadow bg-gray-50 rounded-md pt-6 px-6 pb-4 font-body fixed top-20 " style={{ width: "50.5rem" }}>
+                <div className="shadow bg-gray-50 rounded-md pt-6 px-6 pb-4 fixed top-20 " style={{ width: "50.5rem" }}>
                     <img src={quiz.image} alt={quiz.title} className="h-64 mb-4 rounded-md object-cover w-full" />
 
                     <div className="flex items-center justify-between mb-5">
-                        <h1 className="text-4xl font-semibold font-header">{quiz.title.replace(/(^|\s|-)\w/g, m => m.toUpperCase())}</h1>
+                        <h1 className="text-4xl font-bold">{quiz.title.replace(/(^|\s|-)\w/g, m => m.toUpperCase())}</h1>
                         <div className={`${badge[quiz.difficulty]} text-right rounded-full px-3 py-1 text-gray-50`}>
                             <span>{quiz.difficulty}</span>
                         </div>
