@@ -1,9 +1,8 @@
 // @ts-nocheck
-
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import auth from '../services/auth'
-import { setLocalStorage, getLocalStorage } from '../util/localStorage'
+import { setLocalStorage, getLocalStorage } from '../utils/localStorage'
 
 const AuthContext = React.createContext(0);
 

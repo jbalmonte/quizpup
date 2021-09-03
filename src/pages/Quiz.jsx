@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom"
 import api from "../services/api"
 import Quizzes from "../db/Quizzes"
 import Users from "../db/Users"
-import { getDateDiff } from "../util/getDateDiff"
+import { getDateDiff } from "../utils/getDateDiff"
 import Reviews from "../db/Reviews"
 
 function Quiz({ match: { params } }) {

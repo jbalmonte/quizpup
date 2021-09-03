@@ -22,6 +22,7 @@ function TakeQuizQuestion({ question: { item, question, choices, totalQuestions 
         selected.current = e.target
         setAnswer(selected.current.textContent)
     }
+
     return (
 
         <div className="col-span-2 border-purple-600 text-secondary-200 bg-gray-50 rounded-md border pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>

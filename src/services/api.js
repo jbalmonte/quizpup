@@ -1,4 +1,4 @@
-import { generateQuizID } from '../util/idGenerator'
+import { generateQuizID } from '../utils/idGenerator'
 
 export default function api(Collections) {
     return {

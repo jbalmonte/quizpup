@@ -4,7 +4,7 @@ import Users from '../db/Users'
 import UserAvatar from './UserAvatar'
 import { FaStar } from "react-icons/fa"
 import { useHistory } from "react-router-dom"
-import { getDateDiff } from "../util/getDateDiff"
+import { getDateDiff } from "../utils/getDateDiff"
 
 
 function Card({ quiz: { id, title, description, image, difficulty, creator, overallRating, dateCreated } }) {

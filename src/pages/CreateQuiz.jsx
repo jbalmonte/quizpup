@@ -19,8 +19,7 @@ function CreateQuiz() {
     const title = useRef()
     const description = useRef()
 
-    const [questionCount, setQuestionCount] = useState(1)
-
+    const [questionElements, setQuestionElements] = useState(1)
     const questions = useRef([])
     const [difficulty, setDifficulty] = useState()
 
@@ -42,7 +41,6 @@ function CreateQuiz() {
 
         history.push('/quizzes')
     }
-
 
     return (
         <div className="py-3 ">
@@ -86,8 +84,10 @@ function CreateQuiz() {
 
                         <div className="my-2 pt-4 flex justify-around  border-t ">
                             <span className="font-medium text-secondary-200 tracking-wide uppercase mr-4">Questions: </span>
-
-                            <button onClick={() => setQuestionCount(prev => prev + 1)} type="button" className="ml-12 text-sm font-medium hover:text-green-600 hover:bg-gray-50 rounded-md transform hover:scale-105">
+                            <button
+                                type="button"
+                                onClick={() => setQuestionElements(prev => prev + 1)}
+                                className="ml-12 text-sm font-medium hover:text-green-600 hover:bg-gray-50 rounded-md transform hover:scale-105">
                                 <IoAdd className="inline-flex text-lg mr-1" />
                                 <span >
                                     Add Question
@@ -95,8 +95,15 @@ function CreateQuiz() {
                             </button>
                         </div>
                         {
-                            [...new Array(questionCount)].map((_, i) => <Question key={i} questionCount={i + 1} questions={questions} />)
+                            [...new Array(questionElements)].map((_, i) =>
+                                <Question
+                                    key={i}
+                                    questionID={i + 1}
+                                    questions={questions}
+                                />
+                            )
                         }
+
                         <button type="submit" className="button font-semibold text-primary my-4 shadow-sm">Publish</button>
 
 

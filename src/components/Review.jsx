@@ -5,7 +5,7 @@ import { FaStar } from "react-icons/fa"
 import Users from "../db/Users"
 import UserAvatar from "./UserAvatar"
 import api from '../services/api'
-import { getDateDiff } from "../util/getDateDiff"
+import { getDateDiff } from "../utils/getDateDiff"
 
 function Review({ userReview, quizDateCreated, quizDateDiff }) {
 

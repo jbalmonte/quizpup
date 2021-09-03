@@ -1,5 +1,4 @@
 // @ts-nocheck
-
 import React, { useEffect, useRef } from 'react'
 import CountUp from 'react-countup'
 import Confetti from 'react-confetti'
@@ -8,7 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import Users from '../db/Users'
 import api from '../services/api'
 
-function QuizResult({ totalItems, totalPoints, correctAnswers }) {
+function QuizResult({ totalItems, totalPoints, answer }) {
     const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()
@@ -55,7 +54,7 @@ function QuizResult({ totalItems, totalPoints, correctAnswers }) {
                                     {
                                         <CountUp
                                             start={0}
-                                            end={correctAnswers}
+                                            end={answer}
                                             delay={0.5}
                                             duration={2.5} />
                                     }
