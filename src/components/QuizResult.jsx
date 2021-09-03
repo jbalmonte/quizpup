@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import Users from '../db/Users'
 import api from '../services/api'
 
-function QuizResult({ totalItems, totalPoints, answer }) {
+function QuizResult({ totalItems, totalPoints, correctAnswers }) {
     const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()
@@ -54,7 +54,7 @@ function QuizResult({ totalItems, totalPoints, answer }) {
                                     {
                                         <CountUp
                                             start={0}
-                                            end={answer}
+                                            end={correctAnswers}
                                             delay={0.5}
                                             duration={2.5} />
                                     }

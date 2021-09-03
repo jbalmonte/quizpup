@@ -27,7 +27,7 @@ function QuizByCategory({ searchText }) {
                     :
                     api(Quizzes)
                         .sortBy(category)
-                        .filter(quiz => new RegExp(searchText, "i").test(`${quiz.title} ${quiz.creator.fullName}`))
+                        .filter(quiz => new RegExp(searchText, "i").test(`${quiz.title} ${quiz.author.fullName}`))
                         .map(quiz => <Card quiz={quiz} key={quiz.id} />)
             }
         </div>

@@ -30,7 +30,7 @@ function CreateQuiz() {
             image: "https://source.unsplash.com/random/" + ~~(Math.random() * 1000),
             description: description.current.value,
             difficulty,
-            creator: { id: currentUser.id, fullName: currentUser.fullName, image: currentUser.image },
+            author: { id: currentUser.id, fullName: currentUser.fullName, image: currentUser.image },
             dateCreated: new Date(),
             overallRating: { average: 0, count: 0 }
         })

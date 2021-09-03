@@ -1,4 +1,4 @@
-
+// @ts-nocheck
 import React, { useState } from 'react'
 import { FcCalculator, FcClock, FcDocument, FcIdea, FcInfo } from 'react-icons/fc'
 import { AiOutlineNumber } from 'react-icons/ai'
@@ -10,13 +10,29 @@ import api from '../services/api'
 import Quizzes from '../db/Quizzes'
 import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
+import fetchQuestions from '../services/fetchQuestions'
+import ReactLoading from 'react-loading'
 
 
 function TakeQuiz() {
     // @ts-ignore
     const { id } = useParams()
     const quiz = api(Quizzes).fetchById(+id)
-    const questions = api(Questions).fetchById(+id).questions
+    const [loading, setLoading] = useState(false)
+    const [state, setState] = useState(0)
+    const [questions, setQuestions] = useState([])
+    const [currentQuestion, setCurrentQuestion] = useState()
+    const [totalPoints, setTotalPoints] = useState(0)
+
+    useEffect(() => {
+        setLoading(true)
+        async function getQuestions() {
+            setQuestions(+id === 1 ? api(Questions).fetchById(+id).questions : await fetchQuestions(quiz.title, quiz.difficulty))
+            setLoading(false)
+        }
+        getQuestions()
+        return () => setLoading(false)
+    }, [])
 
     const difficultyPoints = {
         'Easy': 1,
@@ -24,130 +40,151 @@ function TakeQuiz() {
         'Hard': 5
     }
 
-    const [state, setState] = useState(0)
-    const [currentQuestion, setCurrentQuestion] = useState(questions[state])
-    const [totalPoints, setTotalPoints] = useState(0)
 
     const next = (answer) => {
-        if (answer === currentQuestion.correctAnswer) setTotalPoints(prev => +prev + +(difficultyPoints[quiz.difficulty]))
+        if (answer === currentQuestion.answer) setTotalPoints(prev => +prev + +(difficultyPoints[quiz.difficulty]))
         setState(prev => prev + 1)
+
     }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    useEffect(() => setCurrentQuestion(questions[state]), [state])
+    useEffect(() => setCurrentQuestion(questions[state]), [state, questions])
 
 
     return (
+
+
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full place-content-center my-auto h-semiScreen">
-
             {
-                currentQuestion ?
-                    <TakeQuizQuestion
-                        question={
-                            {
-                                item: state < questions.length - 1 ? state + 1 : state,
-                                ...currentQuestion,
-                                totalQuestions: questions.length
-                            }}
-                        next={next} /> :
+                loading ?
+                    <div className="col-span-2 flex items-center justify-center border-purple-600 bg-gray-50 rounded-md border" style={{ width: "50.5rem" }}>
+                        <ReactLoading
+                            type="spin"
+                            height='5%'
+                            width='5%'
+                            color={"#334756"}
+                        />
+                    </div> :
 
-                    <QuizResult
-                        totalItems={questions.length}
-                        totalPoints={totalPoints}
-                        correctAnswers={totalPoints / difficultyPoints[quiz.difficulty]}
-                    />
+                    currentQuestion ?
+                        <TakeQuizQuestion
+                            question={currentQuestion}
+                            item={state < questions.length ? state + 1 : state}
+                            totalQuestions={questions.length}
+                            next={next}
+                        /> :
+
+                        <QuizResult
+                            totalItems={questions.length}
+                            totalPoints={totalPoints}
+                            correctAnswers={totalPoints / difficultyPoints[quiz.difficulty]}
+                        />
             }
 
+
             {
-                currentQuestion
-                &&
-                <div className="shadow h-full col-span-1 rounded-md bg-gray-50 p-5">
-                    <div className="flex items-baseline mb-8 justify-between">
-                        <h2 className="text-3xl  mr-2 font-semibold">Quiz Information</h2>
-                        <FcInfo className="text-2xl" />
-                    </div>
+                loading ?
+                    <div className="shadow h-full col-span-1 rounded-md bg-gray-50 p-5">
+                        <div className="h-96 w-full flex items-center justify-center p-0">
+                            <ReactLoading
+                                type="spin"
+                                height='11%'
+                                width='11%'
+                                color={"#334756"}
+                            />
+                        </div>
+                    </div> :
 
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <FcDocument className="mr-1" />
-                                        <span >  Title: </span>
-                                    </div>
-                                </td>
+                    currentQuestion
+                    &&
+                    <div className="shadow h-full col-span-1 rounded-md bg-gray-50 p-5">
+                        <div className="flex items-baseline mb-8 justify-between">
+                            <h2 className="text-3xl  mr-2 font-semibold">Quiz Information</h2>
+                            <FcInfo className="text-2xl" />
+                        </div>
 
-                                <td className="py-1 pl-2 text-gray-500">{quiz.title}</td>
-                            </tr>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td className="py-2">
+                                        <div className=" flex items-center ">
+                                            <FcDocument className="mr-1" />
+                                            <span >  Title: </span>
+                                        </div>
+                                    </td>
 
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <FcIdea className="mr-1" />
-                                        <span>  Created by: </span></div>
-                                </td>
-                                <td className="py-1 pl-2 text-gray-500">  {quiz.creator.fullName}</td>
-                            </tr>
+                                    <td className="py-2 pl-2 text-gray-500">{quiz.title}</td>
+                                </tr>
 
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <FaFistRaised className="mr-1 text-red-700" />
-                                        <span> Difficulty: </span>
-                                    </div>
-                                </td>
-                                <td className="py-1 pl-2 text-gray-500"> {quiz.difficulty} </td>
-                            </tr>
+                                <tr>
+                                    <td className="py-1">
+                                        <div className=" flex items-center ">
+                                            <FcIdea className="mr-1" />
+                                            <span>  Created by: </span></div>
+                                    </td>
+                                    <td className="py-1 pl-2 text-gray-500">  {quiz.author.fullName}</td>
+                                </tr>
 
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <AiOutlineNumber className="mr-1 text-green-500" />
-                                        <span>   of items: </span>
-                                    </div>
-                                </td>
-                                <td className="py-1 pl-2 text-gray-500">  {questions.length} </td>
-                            </tr>
+                                <tr>
+                                    <td className="py-1">
+                                        <div className=" flex items-center ">
+                                            <FaFistRaised className="mr-1 text-red-700" />
+                                            <span> Difficulty: </span>
+                                        </div>
+                                    </td>
+                                    <td className="py-1 pl-2 text-gray-500"> {quiz.difficulty} </td>
+                                </tr>
 
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <span className="mr-1 text-yellow-500 font-header text-base" >Q</span>
-                                        <span> Points per item: </span> </div>
-                                </td>
-                                <td className="py-1 pl-2 text-gray-500">
-                                    {difficultyPoints[quiz.difficulty]}
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td className="py-1">
+                                        <div className=" flex items-center ">
+                                            <AiOutlineNumber className="mr-1 text-green-500" />
+                                            <span>   of items: </span>
+                                        </div>
+                                    </td>
+                                    <td className="py-1 pl-2 text-gray-500">  {questions.length} </td>
+                                </tr>
 
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <FcClock className="mr-1 " />
-                                        <span> Estimated Time: </span>
-                                    </div>
-                                </td>
-                                <td className="py-1 pl-2 text-gray-500">
-                                    {`${questions.length <= 2 ? 'less than a minute' : Math.ceil((questions.length * 30) / 60) + ' minutes'}`}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="py-1">
-                                    <div className=" flex items-center ">
-                                        <FcCalculator className="mr-1 " />
-                                        <span> Total QPoints: </span>
-                                    </div>
-                                </td>
-                                <td className="py-1 pl-2 text-gray-500">
-                                    {questions.length * difficultyPoints[quiz.difficulty]}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                                <tr>
+                                    <td className="py-1">
+                                        <div className=" flex items-center ">
+                                            <span className="mr-1 text-yellow-500 font-header text-base" >Q</span>
+                                            <span> Points per item: </span> </div>
+                                    </td>
+                                    <td className="py-1 pl-2 text-gray-500">
+                                        {difficultyPoints[quiz.difficulty]}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td className="py-1">
+                                        <div className=" flex items-center ">
+                                            <FcClock className="mr-1 " />
+                                            <span> Estimated Time: </span>
+                                        </div>
+                                    </td>
+                                    <td className="py-1 pl-2 text-gray-500">
+                                        {`${questions.length <= 2 ? 'less than a minute' : Math.ceil((questions.length * 30) / 60) + ' minutes'}`}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="py-1">
+                                        <div className=" flex items-center ">
+                                            <FcCalculator className="mr-1 " />
+                                            <span> Total QPoints: </span>
+                                        </div>
+                                    </td>
+                                    <td className="py-1 pl-2 text-gray-500">
+                                        {questions.length * difficultyPoints[quiz.difficulty]}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div >
             }
+
         </div >
+
     )
 }
-
 export default TakeQuiz

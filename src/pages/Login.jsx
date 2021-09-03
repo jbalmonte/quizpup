@@ -88,7 +88,7 @@ function Login() {
                                     <div className="w-3/4 mx-auto flex justify-center items-center h-full text-center ">
                                         {
                                             loading ?
-                                                <ReactLoading type="spinningBubbles" height='50%' width='15%' color={"white"} className="mb-2" />
+                                                <ReactLoading type="spin" height='50%' width='15%' color={"white"} className="mb-2" />
                                                 :
                                                 <span className="mx-auto">
                                                     Sign in

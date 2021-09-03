@@ -7,11 +7,11 @@ import { useHistory } from "react-router-dom"
 import { getDateDiff } from "../utils/getDateDiff"
 
 
-function Card({ quiz: { id, title, description, image, difficulty, creator, overallRating, dateCreated } }) {
+function Card({ quiz: { id, title, description, image, author, overallRating, dateCreated } }) {
 
     const history = useHistory()
 
-    const user = Users.find(user => user.id === creator.id)
+    const user = Users.find(user => user.id === author.id)
 
     return (
 
@@ -31,7 +31,7 @@ function Card({ quiz: { id, title, description, image, difficulty, creator, over
                     <div className="flex items-end p-0">
                         <UserAvatar size={8} fSize="text-xs" user={user} />
                         <div>
-                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">{creator.fullName}</p>
+                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">{author.fullName}</p>
                             <p className="ml-2 my-auto text-xs text-gray-400 pointer-events-none">
                                 {getDateDiff(dateCreated)}
                             </p>
