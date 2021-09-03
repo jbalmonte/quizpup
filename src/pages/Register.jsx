@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext'
 import ReactLoading from 'react-loading'
 import Alert from '../components/Alert'
 
-const Register = () => {
+function Register() {
 
     const email = useRef()
     const fullName = useRef()

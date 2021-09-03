@@ -39,7 +39,7 @@ function Choice({ choices, handleAnswer, questionCount, choiceCount, correctAnsw
                 value={choice}
                 required
                 onChange={e => setChoice(e.target.value)}
-                type="text" placeholder="Choice"
+                type="text"
                 className=" text-base px-4 py-2 border border-gray-400 rounded-r-md focus:outline-none focus:border-green-400 w-11/12" />
             {
                 choiceCount > 2 &&

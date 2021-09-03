@@ -8,7 +8,7 @@ import { useAuth } from '../context/AuthContext'
 import Users from '../db/Users'
 import api from '../services/api'
 
-const QuizResult = ({ totalItems, totalPoints, correctAnswers }) => {
+function QuizResult({ totalItems, totalPoints, correctAnswers }) {
     const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()

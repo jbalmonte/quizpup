@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavLink, useLocation } from 'react-router-dom'
 
-const Categories = ({ searchText, setSearchText }) => {
+function Categories ({ searchText, setSearchText }){
 
     const { pathname } = useLocation()
 

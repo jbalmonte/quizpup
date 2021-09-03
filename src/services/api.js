@@ -1,6 +1,6 @@
-import { generateQuizID } from '../services/idGenerator'
+import { generateQuizID } from '../util/idGenerator'
 
-export default function api(Collections, Users) {
+export default function api(Collections) {
     return {
         create: (obj) => {
             const item = { id: generateQuizID(), ...obj }

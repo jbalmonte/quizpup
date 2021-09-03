@@ -4,10 +4,10 @@ import Users from '../db/Users'
 import UserAvatar from './UserAvatar'
 import { FaStar } from "react-icons/fa"
 import { useHistory } from "react-router-dom"
-import { getDateDiff } from "../services/getDateDiff"
+import { getDateDiff } from "../util/getDateDiff"
 
 
-const Card = ({ quiz: { id, title, description, image, difficulty, creator, overallRating, dateCreated } }) => {
+function Card({ quiz: { id, title, description, image, difficulty, creator, overallRating, dateCreated } }) {
 
     const history = useHistory()
 

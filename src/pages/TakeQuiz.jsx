@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 
 
-const TakeQuiz = () => {
+function TakeQuiz() {
     // @ts-ignore
     const { id } = useParams()
     const quiz = api(Quizzes).fetchById(+id)

@@ -7,6 +7,7 @@ import api from '../services/api'
 import Quizzes from '../db/Quizzes'
 import { useAuth } from '../context/AuthContext'
 import Questions from '../db/Questions'
+import Reviews from '../db/Reviews'
 
 
 
@@ -31,12 +32,15 @@ function CreateQuiz() {
             description: description.current.value,
             difficulty,
             creator: { id: currentUser.id, fullName: currentUser.fullName, image: currentUser.image },
-            dateCreated: new Date().toLocaleDateString(),
+            dateCreated: new Date(),
             overallRating: { average: 0, count: 0 }
         })
         const question = api(Questions).create({ id: quiz.id, questions: questions.current })
 
-        console.log(quiz, question)
+        const reviews = api(Reviews).create({ id: quiz.id, reviews: [] })
+        console.log(quiz, question, reviews)
+
+        history.push('/quizzes')
     }
 
 

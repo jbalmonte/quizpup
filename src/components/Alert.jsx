@@ -1,7 +1,7 @@
 import React from 'react'
 import { FcInfo } from 'react-icons/fc'
 
-const Alert = ({ type, message, setError = null, setSuccess = null }) => {
+function Alert ({ type, message, setError = null, setSuccess = null }) {
     const color = type === 'SUCCESS' ? 'green' : type === 'INFO' ? 'blue' : 'red'
     const handleClick = e => {
         setSuccess && setSuccess("")

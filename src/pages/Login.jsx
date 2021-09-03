@@ -6,7 +6,7 @@ import ReactLoading from 'react-loading'
 import { useAuth } from '../context/AuthContext'
 
 
-const Login = () => {
+function Login() {
 
     const { login } = useAuth()
     const email = useRef()

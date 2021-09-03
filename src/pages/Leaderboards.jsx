@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import UserAvatar from '../components/UserAvatar'
 
-const Leaderboards = () => {
+function Leaderboards() {
 
     useEffect(() => window.scrollTo(0, 0), [])
 

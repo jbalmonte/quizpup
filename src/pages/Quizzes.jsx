@@ -8,7 +8,7 @@ import QuizByCategory from './QuizByCategory'
 import Categories from '../components/Categories'
 import { useAuth } from '../context/AuthContext'
 
-const Quizzes = ({ match: { params }, history }) => {
+function Quizzes({ match: { params }, history }) {
     const { currentUser } = useAuth()
     const [searchText, setSearchText] = useState('')
 
@@ -96,9 +96,9 @@ const Quizzes = ({ match: { params }, history }) => {
 
             <div className="col-span-5 mx-10 mb-5">
 
+
                 <Categories searchText={searchText} setSearchText={setSearchText} />
-                <Route exact path="/quizzes" render={props => <QuizByCategory searchText={searchText} {...props} />} />
-                <Route exact path="/quizzes/:category" component={props => <QuizByCategory searchText={searchText} {...props} />} />
+                <Route exact path={["/quizzes", "/quizzes/:category"]} render={props => <QuizByCategory searchText={searchText} {...props} />} />
 
 
             </div>

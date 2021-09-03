@@ -5,18 +5,18 @@ import { FaStar } from "react-icons/fa"
 import { HiPencil } from 'react-icons/hi'
 import Review from "../components/Review"
 import { useHistory } from "react-router-dom"
-import apiFunc from "../services/api"
+import api from "../services/api"
 import Quizzes from "../db/Quizzes"
 import Users from "../db/Users"
-import { getDateDiff } from "../services/getDateDiff"
+import { getDateDiff } from "../util/getDateDiff"
 import Reviews from "../db/Reviews"
 
-const Quiz = ({ match: { params } }) => {
+function Quiz({ match: { params } }) {
     const id = params.id
     const history = useHistory()
-    const quiz = apiFunc(Quizzes).fetchById(+id)
-    const user = apiFunc(Users).fetchById(quiz.creator.id)
-    const reviews = apiFunc(Reviews).fetchById(+id).reviews
+    const quiz = api(Quizzes).fetchById(+id)
+    const user = api(Users).fetchById(quiz.creator.id)
+    const reviews = api(Reviews).fetchById(+id).reviews
 
     const badge = {
         Easy: 'bg-yellow-500',

@@ -4,10 +4,10 @@ import { BiDownvote, BiUpvote } from "react-icons/bi"
 import { FaStar } from "react-icons/fa"
 import Users from "../db/Users"
 import UserAvatar from "./UserAvatar"
-import apiFunc from '../services/api'
-import { getDateDiff } from "../services/getDateDiff"
+import api from '../services/api'
+import { getDateDiff } from "../util/getDateDiff"
 
-const Review = ({ userReview, quizDateCreated, quizDateDiff }) => {
+function Review({ userReview, quizDateCreated, quizDateDiff }) {
 
     //randomizer
     const rand = n => ~~(Math.random() * n)
@@ -25,7 +25,7 @@ const Review = ({ userReview, quizDateCreated, quizDateDiff }) => {
         'years': d.setFullYear(d.getMonth() + rand(12))
     }
 
-    const user = apiFunc(Users).fetchById(userReview.userId)
+    const user = api(Users).fetchById(userReview.userId)
     return (
         <div className="px-5 py-1 ">
 

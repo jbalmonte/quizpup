@@ -8,14 +8,16 @@ import api from '../services/api'
 function QuizByCategory({ searchText }) {
     // @ts-ignore
     const { category } = useParams()
-
     const [loading, setLoading] = useState(true)
+
 
     useEffect(() => {
         setTimeout(() => {
             setLoading(false)
-        }, 3000);
+        }, 5000);
+        return () => setLoading(false)
     }, [])
+
 
     return (
         <div className="category-content">

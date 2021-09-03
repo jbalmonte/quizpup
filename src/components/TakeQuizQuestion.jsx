@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 import { MdNavigateNext } from 'react-icons/md'
 
-const TakeQuizQuestion = ({ question: { item, question, choices, totalQuestions }, next }) => {
+function TakeQuizQuestion({ question: { item, question, choices, totalQuestions }, next }) {
     const selected = useRef()
     const [answer, setAnswer] = useState('')
 

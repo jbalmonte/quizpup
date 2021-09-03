@@ -1,6 +1,6 @@
 import React from 'react'
 
-const UserAvatar = ({ onClick = undefined, size = 12, fSize = "", className = "", user }) => {
+function UserAvatar({ onClick = undefined, size = 12, fSize = "", className = "", user }) {
 
     return (
         <div className={`h-${size} w-${size} overflow-hidden ${user?.bgColor} rounded-full text-center cursor-pointer text-gray-50 font-header flex items-center justify-center ${className}`} onClick={onClick}>
