@@ -37,7 +37,7 @@ function Choice({ id, choices, questionID, choicesCount, handleAnswer, handleDel
                     choicesCount > 2 &&
                     <span
                         className="absolute block bg-white opacity-0 text-gray-600 hover:opacity-100 text-3xl top-2 right-2 z-20"
-                        onClick={handleDeleteChoice(id)}>
+                        onClick={handleDeleteChoice(id, choice)}>
                         <RiCloseFill />
                     </span>
                 }

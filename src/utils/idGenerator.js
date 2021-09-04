@@ -6,7 +6,7 @@ const TYPES = {
 function* generateID(type) {
     switch (type) {
         case TYPES.USER: {
-            let i = 50
+            let i = 100
             while (1) {
                 yield i += 1
             }

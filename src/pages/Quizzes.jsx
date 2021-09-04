@@ -1,16 +1,14 @@
 // @ts-nocheck
-import React, { useState } from 'react'
+import React from 'react'
 import { Route } from 'react-router-dom'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
 import UserAvatar from '../components/UserAvatar'
 import QuizByCategory from './QuizByCategory'
-import Categories from '../components/Categories'
 import { useAuth } from '../context/AuthContext'
 
 function Quizzes({ match: { params }, history }) {
     const { currentUser } = useAuth()
-    const [searchText, setSearchText] = useState('')
 
     return (
         <div className="font-body text-center grid grid-cols-6 pt-3">
@@ -96,11 +94,10 @@ function Quizzes({ match: { params }, history }) {
 
             <div className="col-span-5 mx-10 mb-5">
 
-
-                <Categories searchText={searchText} setSearchText={setSearchText} />
-                <Route exact path={["/quizzes", "/quizzes/:category"]} render={props => <QuizByCategory searchText={searchText} {...props} />} />
-
-
+                <Route
+                    exact
+                    path={["/quizzes", "/quizzes/:category"]}
+                    component={props => <QuizByCategory {...props} />} />
             </div>
 
 
