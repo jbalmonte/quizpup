@@ -65,10 +65,10 @@ function Nav() {
                         {
                             isAuthenticated ?
                                 <div className="pl-5 ml-16 flex rounded-full items-center justify-evenly bg-gray-600 ">
-                                    <span id="QPoints" className="p-1 text-xl">
+                                    <span id="QPoints" className="p-1 text-xl mr-2">
                                         {currentUser.QPoints}
                                     </span>
-                                    <UserAvatar size={10} onClick={e => menuDrawerRef.current.classList.toggle('hidden')} user={currentUser} />
+                                    <UserAvatar size={10} onClick={() => menuDrawerRef.current.classList.toggle('hidden')} user={currentUser} />
                                 </div>
                                 : (
                                     <div>

@@ -30,7 +30,10 @@ function Login() {
     }
 
     //When the login redirected to quizzes page, unmount the loading component
-    useEffect(() => () => setLoading(false), [])
+    useEffect(() => {
+        setTimeout(() => setSuccess(''), 5000)
+        return () => setLoading(false)
+    }, [])
 
     return (
         <div className="bg-no-repeat bg-cover bg-center relative font-body" >
@@ -51,11 +54,13 @@ function Login() {
                         <form className="space-y-4" onSubmit={handleSubmit}>
 
                             {
-                                success ? <Alert type='SUCCESS' message={success} setSuccess={setSuccess} /> :
+                                success ?
+                                    <Alert type='SUCCESS' message={success} setSuccess={setSuccess} /> :
                                     <Alert
                                         type={error ? 'ERROR' : 'INFO'}
-                                        message={error || 'Please fill out all the fields'}
+                                        message={error || 'Enter the required credentials'}
                                         setError={error && setError} />
+
                             }
 
                             <div className="space-y-2">

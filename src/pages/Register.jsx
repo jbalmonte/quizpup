@@ -56,7 +56,7 @@ function Register() {
                             {
                                 error ?
                                     <Alert type='ERROR' message={error} setError={setError} /> :
-                                    <Alert type='INFO' message="Please fill out all the fields" />
+                                    <Alert type='INFO' message="Enter the required credentials" />
 
                             }
                             <div className="space-y-1">
@@ -88,7 +88,7 @@ function Register() {
 
                                         {
                                             loading ?
-                                                <ReactLoading type="spinningBubbles" height='50%' width='15%' color={"white"} className="mb-2" />
+                                                <ReactLoading type="spin" height='50%' width='15%' color={"white"} className="mb-2" />
                                                 :
                                                 <span className="mx-auto">
                                                     Sign up

@@ -3,9 +3,20 @@ import Users from '../db/Users'
 class Auth {
   constructor() {
     this.authenticated = false;
+    this._BG_COLORS = [
+      'bg-red-500',
+      'bg-red-600',
+      'bg-red-700',
+      'bg-pink-500',
+      'bg-pink-600',
+      'bg-pink-700',
+      'bg-purple-500',
+      'bg-purple-600',
+      'bg-purple-700'
+    ]
   }
 
-  register(email, fullName, password) {
+  register(id, email, fullName, password) {
     const result = { status: 200, message: null }
 
     // @ts-ignore
@@ -13,8 +24,20 @@ class Auth {
       result.status = 400
       result.message = 'Email is already taken'
     }
-    // @ts-ignore
-    else Users.push({ email, fullName, password })
+
+    else {
+      const bgColor = this._BG_COLORS[~~(Math.random() * 14)]
+      console.log(bgColor, ~~(Math.random() * 14))
+      Users.push({
+        id,
+        email,
+        fullName,
+        password,
+        QPoints: 0,
+        image: "",
+        bgColor
+      })
+    }
 
     return new Promise(resolve => setTimeout(() => resolve(result), 5000))
   }

@@ -24,7 +24,6 @@ export default function api(Collections) {
         },
         sortBy: type => {
             switch (type) {
-                case 'all': return Collections
                 case 'hot': return Collections.sort((a, b) => b.overallRating.count - a.overallRating.count).slice(0, 25)
                 case 'new': return Collections.sort((a, b) => new Date(b.dateCreated).getTime() - new Date(a.dateCreated).getTime()).slice(0, 25)
                 case 'best': return Collections.sort((a, b) => b.overallRating.average - a.overallRating.average).slice(0, 25)

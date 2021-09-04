@@ -14,12 +14,11 @@ function Card({ quiz: { id, title, description, image, author, overallRating, da
     const user = Users.find(user => user.id === author.id)
 
     return (
-
         <div onClick={() => history.push(`/quizzes/${id}`)} className="relative overflow-hidden h-48 bg-gray-50 shadow-sm hover:shadow-md text-secondary-200 flex rounded-lg text-left col-span-1 w-full">
             <img src={`${image}`} alt={title} className="bg-cover w-1/3 overflow-hidden z-0" />
 
             <div className="h-full ml-5 flex flex-col justify-evenly w-2/3  pr-5">
-                <h1 className="text-xl pt-2 pb-1 font-bold pointer-events-none">
+                <h1 className="text-xl pt-2 font-bold pointer-events-none">
                     {title.replace(/(^|\s|-)\w/g, m => m.toUpperCase())}
                 </h1>
                 <p className="text-xs text-gray-500 pb-1 pointer-events-none">

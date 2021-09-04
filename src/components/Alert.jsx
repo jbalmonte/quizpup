@@ -1,7 +1,7 @@
 import React from 'react'
 import { FcInfo } from 'react-icons/fc'
 
-function Alert ({ type, message, setError = null, setSuccess = null }) {
+function Alert({ type, message, setError = null, setSuccess = null }) {
     const color = type === 'SUCCESS' ? 'green' : type === 'INFO' ? 'blue' : 'red'
     const handleClick = e => {
         setSuccess && setSuccess("")
@@ -11,7 +11,7 @@ function Alert ({ type, message, setError = null, setSuccess = null }) {
 
     return (
         <div className={`bg-${color}-100 border border-${color}-300 text-${color}-500 px-4 rounded relative`} role="alert" >
-            <span className="block sm:inline pointer-events-none">{message || 'anyTextHere'}</span>
+            <span className="block sm:inline pointer-events-none">{message}</span>
             <span className="absolute top-0 bottom-0 right-0 px-4" >
                 {
                     type === 'INFO' ? <FcInfo className="h-6" /> :

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import UserAvatar from '../components/UserAvatar'
+import Users from '../db/Users'
 
 function Leaderboards() {
 
@@ -10,6 +11,8 @@ function Leaderboards() {
         2: "text-gray-50 bg-gray-400 rounded-full",
         3: "text-gray-50 bg-yellow-800 rounded-full"
     }
+
+
     return (
         <div className="grid grid-cols-2 gap-6 ">
 
@@ -29,25 +32,26 @@ function Leaderboards() {
                         </thead>
                         <tbody>
                             {
-                                [...Array(50)].map((_, i) => (
-                                    <tr key={i + 1}>
-                                        <td className="border border-primary p-3 text-center">
-                                            <div className={`${i < 3 && top3[i + 1]}`}>
-                                                {i + 1}
-                                            </div>
-                                        </td>
-                                        <td className="p-1 ml-5 border-primary border">
-                                            <div className="flex items-center justify-center">
-                                                <UserAvatar size={8} fSize="text-xs" />
-                                                <span className="ml-3 inline-block">
-                                                    Joshua C. Balmonte
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td className="border border-primary p-1 text-center">15000</td>
-                                    </tr>
-                                ))
-
+                                Users
+                                    .sort((a, b) => b.QPointsWeek - a.QPointsWeek)
+                                    .map((user, i) => (
+                                        <tr key={i + 1}>
+                                            <td className="border border-primary p-3 text-center">
+                                                <div className={`${i < 3 && top3[i + 1]}`}>
+                                                    {i + 1}
+                                                </div>
+                                            </td>
+                                            <td className="p-1 ml-5 border-primary border">
+                                                <div className="ml-3 flex items-center justify-start">
+                                                    <UserAvatar size={8} fSize="text-xs" user={user} />
+                                                    <span className="ml-3 inline-block">
+                                                        {user.fullName}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td className="border border-primary p-1 text-center">{user.QPointsWeek}</td>
+                                        </tr>
+                                    ))
 
                             }
                         </tbody>
@@ -72,24 +76,26 @@ function Leaderboards() {
                         </thead>
                         <tbody>
                             {
-                                [...Array(50)].map((_, i) => (
-                                    <tr key={i + 1}>
-                                        <td className="border border-primary p-3 text-center">
-                                            <div className={`${i < 3 && top3[i + 1]}`}>
-                                                {i + 1}
-                                            </div>
-                                        </td>
-                                        <td className="p-1 ml-5 border-primary border">
-                                            <div className="flex items-center justify-center">
-                                                <UserAvatar size={8} fSize="text-xs" />
-                                                <span className="ml-3 inline-block">
-                                                    Joshua C. Balmonte
-                                                </span>
-                                            </div>
-                                        </td>
-                                        <td className="border border-primary p-1 text-center">15000</td>
-                                    </tr>
-                                ))
+                                Users
+                                    .sort((a, b) => b.QPoints - a.QPoints)
+                                    .map((user, i) => (
+                                        <tr key={i + 1}>
+                                            <td className="border border-primary p-3 text-center">
+                                                <div className={`${i < 3 && top3[i + 1]}`}>
+                                                    {i + 1}
+                                                </div>
+                                            </td>
+                                            <td className="p-1 ml-5 border-primary border">
+                                                <div className="ml-3 flex items-center justify-start">
+                                                    <UserAvatar size={8} fSize="text-xs" user={user} />
+                                                    <span className="ml-3 inline-block">
+                                                        {user.fullName}
+                                                    </span>
+                                                </div>
+                                            </td>
+                                            <td className="border border-primary p-1 text-center">{user.QPoints}</td>
+                                        </tr>
+                                    ))
 
 
                             }

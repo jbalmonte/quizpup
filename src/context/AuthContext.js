@@ -2,6 +2,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom';
 import auth from '../services/auth'
+import { generateUserID } from '../utils/idGenerator';
 import { setLocalStorage, getLocalStorage } from '../utils/localStorage'
 
 const AuthContext = React.createContext(0);
@@ -16,7 +17,8 @@ export function AuthContextProvider({ children }) {
     useEffect(() => setLocalStorage('isAuthenticated', isAuthenticated), [isAuthenticated])
 
     const register = async (email, fullName, password) => {
-        const { status, message } = await auth.register(email, fullName, password)
+        const id = generateUserID()
+        const { status, message } = await auth.register(id, email, fullName, password)
 
         if (status === 200) history.push({ pathname: '/login', state: { message: 'Account created. Please login' } })
         else throw new Error(message)
