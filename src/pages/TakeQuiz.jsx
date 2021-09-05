@@ -73,7 +73,7 @@ function TakeQuiz() {
                         /> :
 
                         <QuizResult
-                            quizID={id}
+                            quiz={quiz}
                             totalItems={questions.length}
                             totalPoints={totalPoints}
                             correctAnswers={totalPoints / difficultyPoints[quiz.difficulty]}

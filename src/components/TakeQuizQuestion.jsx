@@ -49,8 +49,8 @@ function TakeQuizQuestion({ item, question: { question, choices }, totalQuestion
                             </div>
                         )
                     })
-
                 }
+
             </div>
 
             <div className='text-right'>
@@ -60,8 +60,6 @@ function TakeQuizQuestion({ item, question: { question, choices }, totalQuestion
                 </button>
             </div>
         </div>
-
-
     )
 }
 

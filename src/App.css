@@ -39,5 +39,5 @@ body{
 }
 
 .active-side-nav {
-    @apply border-r-4 border-green-500
+    @apply border-r-4 border-green-500 pointer-events-none
 }

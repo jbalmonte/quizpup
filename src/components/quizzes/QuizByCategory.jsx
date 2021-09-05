@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Card from '../Card'
@@ -5,12 +6,14 @@ import CardSkeleton from '../CardSkeleton'
 import Categories from '../Categories'
 import Quizzes from '../../db/Quizzes'
 import api from '../../services/api'
+import { useAuth } from '../../context/AuthContext'
 
 function QuizByCategory() {
-    // @ts-ignore
     const { category } = useParams()
+    const { currentUser } = useAuth()
     const [loading, setLoading] = useState(true)
     const [searchText, setSearchText] = useState('')
+    const quizHistoryIDs = (currentUser?.quizHistory || []).map(q => +q.id)
 
     useEffect(() => {
         setTimeout(() => {
@@ -29,7 +32,8 @@ function QuizByCategory() {
                         :
                         api(Quizzes)
                             .sortBy(category)
-                            .filter(quiz => new RegExp(searchText, "i").test(`${quiz.title} ${quiz.author.fullName}`))
+                            .filter(quiz => !quizHistoryIDs.includes(+quiz.id) &&
+                                new RegExp(searchText, "i").test(`${quiz.title} ${quiz.author.fullName} ${quiz.difficulty}`))
                             .map(quiz => <Card quiz={quiz} key={quiz.id} />)
                 }
             </div>

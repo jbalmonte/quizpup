@@ -62,7 +62,7 @@ function Quizzes({ history }) {
                                     Trash
                                 </span>
                             </NavLink>
-                            <hr className="z-30 bg-gray-800" />
+                            <hr className="z-30 bg-gray-400 w-58" style={{ height: "1.5px" }} />
                             <NavLink to="/settings" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  mt-3">
                                 <IoSettingsSharp className="text-secondary-100" />
                                 <span className="ml-3">

@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext'
 import Users from '../db/Users'
 import api from '../services/api'
 
-function QuizResult({ quizID, totalItems, totalPoints, correctAnswers }) {
+function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
     const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()
@@ -19,12 +19,24 @@ function QuizResult({ quizID, totalItems, totalPoints, correctAnswers }) {
     const handleEnd = () => {
         //update both currentUser and in our db
         const newQPoints = currentUser.QPoints + totalPoints
+        const date = new Date()
         setCurrentUser(
             myApi.update(currentUser.id,
                 {
                     QPoints: newQPoints,
                     QPointsWeek: newQPoints,
-                    quizHistory: [...(currentUser?.quizHistory || []), quizID]
+                    quizHistory: [...(currentUser?.quizHistory || []),
+                    {
+                        id: quiz.id,
+                        title: quiz.title,
+                        author: quiz.author.fullName,
+                        description: quiz.description,
+                        score: `${correctAnswers}/${totalItems}`,
+                        QPoints: totalPoints,
+                        date: date.toLocaleDateString(),
+                        time: date.toLocaleTimeString()
+                    }
+                    ]
                 }))
     }
 

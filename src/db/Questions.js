@@ -3,11 +3,6 @@ const Questions = [
         id: 1,
         questions: [
             {
-                "question": 'This sequence is ',
-                "choices": ['Patterns', 'Fibonacci Sequence', 'Exponential Growth Model', 'Sequence'],
-                "answer": 'Fibonacci Sequence'
-            },
-            {
                 "question": 'This sequence is formed by adding the preceeding two numbers, starting with 0 and 1.',
                 "choices": ['Patterns', 'Fibonacci Sequence', 'Exponential Growth Model', 'Sequence'],
                 "answer": 'Fibonacci Sequence'
