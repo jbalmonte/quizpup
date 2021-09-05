@@ -24,13 +24,11 @@ function TakeQuizQuestion({ item, question: { question, choices }, totalQuestion
     }
 
     return (
-
         <div className="col-span-2 border-purple-600 text-secondary-200 bg-gray-50 rounded-md border pt-8 px-8 pb-6 font-body" style={{ width: "50.5rem" }}>
-
-            <div className="flex justify-center">
-                <div className="flex">
-                    <div className="rounded-full bg-quaternary w-12 shadow h-12 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
-                        <span className="mr-1">Q</span>
+            <div className="flex justify-between">
+                <div className="flex w-full h-full">
+                    <div className="rounded-full bg-quaternary w-12 h-12 font-header font-medium items-center flex justify-center text-gray-50 mr-5">
+                        <span>Q</span>
                         <span>{item}</span>
                     </div>
 

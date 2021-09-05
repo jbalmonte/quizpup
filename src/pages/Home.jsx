@@ -17,6 +17,7 @@ function Home() {
                 </Link>
             </div>
             <img src="/images/bg_landing.svg" alt="BG" className="bg-cover w-1/3 " />
+
         </main >
 
     )

@@ -1,6 +1,6 @@
 import { generateQuizID } from '../utils/idGenerator'
 
-export default function api(Collections) {
+export default function api(Collections, Users) {
     return {
         create: (obj) => {
             const item = { id: generateQuizID(), ...obj }
@@ -16,8 +16,9 @@ export default function api(Collections) {
         },
 
         update: (id, fields) => {
-            let index = Collections.findIndex(item => item.id === id)
+            const index = Collections.findIndex(item => item.id === id)
             Collections[index] = { ...Collections[index], ...fields }
+            return Collections[index]
         },
         destroy: id => {
             Collections.splice(Collections.findIndex(item => item.id === id), 1)
@@ -29,7 +30,7 @@ export default function api(Collections) {
                 case 'best': return Collections.sort((a, b) => b.overallRating.average - a.overallRating.average).slice(0, 25)
                 default: return Collections;
             }
-        }
+        },
     }
 }
 

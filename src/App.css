@@ -27,7 +27,7 @@ body{
 }
 
 .category {
-    @apply rounded-md px-3 flex items-center h-4/5 hover:bg-green-600 hover:text-gray-50 transition-colors ease-in-out duration-500
+    @apply rounded-md px-3 flex font-semibold uppercase items-center h-4/5 hover:bg-green-600 hover:text-gray-50 transition-colors ease-in-out duration-500
 }
 
 .category-content {
@@ -36,4 +36,8 @@ body{
 
 .answer {
     @apply bg-gradient-to-r from-green-600 via-purple-600 to-red-500  border-secondary-100 text-white shadow-sm
+}
+
+.active-side-nav {
+    @apply border-r-4 border-green-500
 }

@@ -1,13 +1,16 @@
-// @ts-nocheck
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch, NavLink } from 'react-router-dom'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
 import UserAvatar from '../components/UserAvatar'
-import QuizByCategory from './QuizByCategory'
+import QuizByCategory from '../components/quizzes/QuizByCategory'
 import { useAuth } from '../context/AuthContext'
+import MyWorks from '../components/quizzes/MyWorks'
+import Drafts from '../components/quizzes/Drafts'
+import History from '../components/quizzes/History'
 
-function Quizzes({ match: { params }, history }) {
+function Quizzes({ history }) {
+    // @ts-ignore
     const { currentUser } = useAuth()
 
     return (
@@ -21,62 +24,63 @@ function Quizzes({ match: { params }, history }) {
                         <UserAvatar size={8} fSize="text-xs" user={currentUser} />
                         <input type="text" className="input w-8/12 border h-8 bg-gray-100" disabled
                             placeholder="Create a quiz..." />
-                        <IoAddCircleSharp className="text-2xl text-green-600" />
+                        <IoAddCircleSharp className="text-2xl text-green-500" />
                     </button>
 
                     <div className=" py-5 text-base">
                         <ul className="text-center">
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  border-r-4 border-green-500">
+                            <NavLink to="/quizzes" exact activeClassName="active-side-nav" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
                                 <IoHome className="text-secondary-100" />
                                 <span className="ml-3">
                                     Home Feed
                                 </span>
-                            </li>
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
+                            </NavLink>
+                            <NavLink to="/quizzes/myWorks" activeClassName="active-side-nav" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
                                 <IoDocumentTextSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     My Works
                                 </span>
-                            </li>
+                            </NavLink>
 
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2   ">
+                            <NavLink to="/quizzes/drafts" activeClassName="active-side-nav" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2   ">
                                 <IoDocumentSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Drafts
                                 </span>
-                            </li>
+                            </NavLink>
 
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
+                            <NavLink to="/quizzes/history" activeClassName="active-side-nav" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  ">
                                 <FaHistory className="text-secondary-100" />
                                 <span className="ml-3">
                                     History
                                 </span>
-                            </li>
+                            </NavLink>
 
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  border-b border-gray-300">
+                            <NavLink to="/quizzes/trash" activeClassName="active-side-nav" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2">
                                 <IoTrashBinSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Trash
                                 </span>
-                            </li>
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  mt-3">
+                            </NavLink>
+                            <hr className="z-30 bg-gray-800" />
+                            <NavLink to="/settings" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  mt-3">
                                 <IoSettingsSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Settings
                                 </span>
-                            </li>
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2 ">
+                            </NavLink>
+                            <NavLink to="/about" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2 ">
                                 <IoInformationCircleSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     About
                                 </span>
-                            </li>
-                            <li className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2 ">
+                            </NavLink>
+                            <NavLink to="/contact" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2 ">
                                 <IoMailSharp className="text-secondary-100" />
                                 <span className="ml-3">
                                     Contact
                                 </span>
-                            </li>
+                            </NavLink>
 
                         </ul >
                         <div className="mt-36 text-center text-gray-500 text-xs">
@@ -94,10 +98,16 @@ function Quizzes({ match: { params }, history }) {
 
             <div className="col-span-5 mx-10 mb-5">
 
-                <Route
-                    exact
-                    path={["/quizzes", "/quizzes/:category"]}
-                    component={props => <QuizByCategory {...props} />} />
+                <Switch>
+                    <Route exact path="/quizzes/myWorks" component={MyWorks} />
+                    <Route exact path="/quizzes/drafts" component={Drafts} />
+                    <Route exact path="/quizzes/history" component={History} />
+                    <Route
+                        exact
+                        path={["/quizzes", "/quizzes/:category"]}
+                        component={props => <QuizByCategory {...props} />} />
+                </Switch>
+
             </div>
 
 

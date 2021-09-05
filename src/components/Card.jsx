@@ -5,11 +5,13 @@ import UserAvatar from './UserAvatar'
 import { FaStar } from "react-icons/fa"
 import { useHistory } from "react-router-dom"
 import { getDateDiff } from "../utils/getDateDiff"
+import { useAuth } from '../context/AuthContext'
 
 
 function Card({ quiz: { id, title, description, image, author, overallRating, dateCreated } }) {
 
     const history = useHistory()
+    const { currentUser } = useAuth()
 
     const user = Users.find(user => user.id === author.id)
 
@@ -30,7 +32,8 @@ function Card({ quiz: { id, title, description, image, author, overallRating, da
                     <div className="flex items-end p-0">
                         <UserAvatar size={8} fSize="text-xs" user={user} />
                         <div>
-                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">{author.fullName}</p>
+                            <p className="ml-2 my-auto text-xs text-gray-600 pointer-events-none">
+                                {author.id === currentUser.id ? 'You' : author.fullName}</p>
                             <p className="ml-2 my-auto text-xs text-gray-400 pointer-events-none">
                                 {getDateDiff(dateCreated)}
                             </p>

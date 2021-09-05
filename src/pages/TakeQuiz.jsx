@@ -52,8 +52,6 @@ function TakeQuiz() {
 
 
     return (
-
-
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full place-content-center my-auto h-semiScreen">
             {
                 loading ?
@@ -75,6 +73,7 @@ function TakeQuiz() {
                         /> :
 
                         <QuizResult
+                            quizID={id}
                             totalItems={questions.length}
                             totalPoints={totalPoints}
                             correctAnswers={totalPoints / difficultyPoints[quiz.difficulty]}

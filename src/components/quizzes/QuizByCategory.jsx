@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Card from '../components/Card'
-import CardSkeleton from '../components/CardSkeleton'
-import Categories from '../components/Categories'
-import Quizzes from '../db/Quizzes'
-import api from '../services/api'
+import Card from '../Card'
+import CardSkeleton from '../CardSkeleton'
+import Categories from '../Categories'
+import Quizzes from '../../db/Quizzes'
+import api from '../../services/api'
 
 function QuizByCategory() {
     // @ts-ignore
@@ -18,8 +18,6 @@ function QuizByCategory() {
         }, 3000);
         return () => setLoading(false)
     }, [])
-
-
 
     return (
         <>

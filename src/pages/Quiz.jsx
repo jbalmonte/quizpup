@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from "react"
 import UserAvatar from "../components/UserAvatar"
 import Review from "../components/Review"
@@ -10,10 +11,13 @@ import { BsPen } from 'react-icons/bs'
 import { FaStar } from "react-icons/fa"
 import { getDateDiff } from "../utils/getDateDiff"
 import { HiPencil } from 'react-icons/hi'
+import { useAuth } from "../context/AuthContext"
 
 function Quiz({ match: { params } }) {
     const id = params.id
     const history = useHistory()
+    const { currentUser } = useAuth()
+
     const quiz = api(Quizzes).fetchById(+id)
     const user = api(Users).fetchById(quiz.author.id)
     const reviews = api(Reviews).fetchById(+id)?.reviews || []
@@ -55,15 +59,17 @@ function Quiz({ match: { params } }) {
                             )
                         </div>
 
-
-                        <button
-                            onClick={() => history.push(`/takeQuiz/${id}`)}
-                            className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg py-1 px-2">
-                            <BsPen className="inline-flex mr-1  text-lg" />
-                            <span>
-                                Take Quiz
-                            </span>
-                        </button>
+                        {
+                            currentUser.id !== user.id &&
+                            <button
+                                onClick={() => history.push(`/takeQuiz/${id}`)}
+                                className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg py-1 px-2">
+                                <BsPen className="inline-flex mr-1  text-lg" />
+                                <span>
+                                    Take Quiz
+                                </span>
+                            </button>
+                        }
 
                     </div>
 
@@ -74,16 +80,22 @@ function Quiz({ match: { params } }) {
                 <div className="flex text-secondary-100 justify-between items-center mr-5">
                     <h2 className="text-3xl mb-1">Reviews</h2>
 
+
                     <button className="flex cursor-pointer hover:text-primary hover:underline">
                         <HiPencil />
                         <span className="text-sm ml-1">Add Review</span>
                     </button>
+
                 </div>
 
                 {
                     reviews.length ?
                         reviews.map((review, i) =>
-                            <Review key={i + 1} userReview={review} quizDateCreated={quiz.dateCreated} quizDateDiff={getDateDiff(quiz.dateCreated)} />)
+                            <Review
+                                key={i + 1}
+                                userReview={review}
+                                quizDateCreated={quiz.dateCreated}
+                                quizDateDiff={getDateDiff(quiz.dateCreated)} />)
                         :
                         <div className="my-10 items-center w-80 mx-auto" style={{ height: "59.5vh" }}>
                             <img src="/images/no_data.svg" alt="No Data" className="" />

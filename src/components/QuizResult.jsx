@@ -7,18 +7,25 @@ import { useAuth } from '../context/AuthContext'
 import Users from '../db/Users'
 import api from '../services/api'
 
-function QuizResult({ totalItems, totalPoints, correctAnswers }) {
+function QuizResult({ quizID, totalItems, totalPoints, correctAnswers }) {
     const resultRef = useRef()
     const pointRef = useRef()
     const scoreRef = useRef()
     const history = useHistory()
 
     const { currentUser, setCurrentUser } = useAuth()
+    const myApi = api(Users)
 
     const handleEnd = () => {
         //update both currentUser and in our db
-        setCurrentUser({ ...currentUser, QPoints: currentUser.QPoints + totalPoints })
-        api(Users).update(currentUser.id, { QPoints: currentUser.QPoints + totalPoints })
+        const newQPoints = currentUser.QPoints + totalPoints
+        setCurrentUser(
+            myApi.update(currentUser.id,
+                {
+                    QPoints: newQPoints,
+                    QPointsWeek: newQPoints,
+                    quizHistory: [...(currentUser?.quizHistory || []), quizID]
+                }))
     }
 
     useEffect(() => {
@@ -85,9 +92,9 @@ function QuizResult({ totalItems, totalPoints, correctAnswers }) {
                 </div>
 
                 <Confetti
-                    width={700}
+                    width={800}
                     height={700}
-                    numberOfPieces={100}
+                    numberOfPieces={200}
                     colors={
                         totalPoints === 0 ?
                             ['red'] :

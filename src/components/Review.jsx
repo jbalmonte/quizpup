@@ -18,8 +18,8 @@ function Review({ userReview, quizDateCreated, quizDateDiff }) {
     const dict = {
         'Just now': newDate,
         'day': d.setDate(d.getHours() + rand(24)),
-        'days': d.setDate(d.getDay() + rand(max)),
-        'month': d.setDate(d.getDay() + rand(30)),
+        'days': d.setDate(d.getDate() + rand(max)),
+        'month': d.setDate(d.getDate() + rand(30)),
         'months': d.setMonth(d.getMonth() + rand(max)),
         'year': d.setFullYear(d.getFullYear() + rand(max)),
         'years': d.setFullYear(d.getMonth() + rand(12))
