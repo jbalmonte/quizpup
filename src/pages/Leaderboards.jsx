@@ -96,8 +96,6 @@ function Leaderboards() {
                                             <td className="border border-primary p-1 text-center">{user.QPoints}</td>
                                         </tr>
                                     ))
-
-
                             }
                         </tbody>
                     </table>

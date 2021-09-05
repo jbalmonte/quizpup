@@ -3,21 +3,39 @@ import React from "react"
 import Users from '../db/Users'
 import UserAvatar from './UserAvatar'
 import { FaStar } from "react-icons/fa"
+import { IoTrashBinOutline } from "react-icons/io5"
 import { useHistory } from "react-router-dom"
 import { getDateDiff } from "../utils/getDateDiff"
 import { useAuth } from '../context/AuthContext'
+import Quizzes from "../db/Quizzes"
+import api from "../services/api"
 
 
-function Card({ quiz: { id, title, description, image, author, overallRating, dateCreated } }) {
-
+function Card({ quiz, hasDeleteComponent = false }) {
+    const { id, title, description, image, author, overallRating, dateCreated } = quiz
     const history = useHistory()
-    const { currentUser } = useAuth()
+    const { currentUser, setCurrentUser } = useAuth()
 
     const user = Users.find(user => user.id === author.id)
+
+    const handleDelete = e => {
+        e.stopPropagation()
+        setCurrentUser({
+            ...currentUser,
+            quizzes: currentUser.quizzes.filter(q => q.id !== quiz.id),
+            trash: [...(currentUser?.trash || []), { quiz, dateDeleted: new Date().toLocaleDateString() }]
+        })
+        api(Quizzes).destroy(id)
+    }
 
     return (
         <div onClick={() => history.push(`/quizzes/${id}`)} className="relative overflow-hidden h-48 bg-gray-50 shadow-sm hover:shadow-md text-secondary-200 flex rounded-lg text-left col-span-1 w-full">
             <img src={`${image}`} alt={title} className="bg-cover w-1/3 overflow-hidden z-0" />
+
+            {
+                hasDeleteComponent &&
+                <IoTrashBinOutline className="absolute top-5 right-5 text-2xl opacity-0 hover:opacity-100" onClick={handleDelete} />
+            }
 
             <div className="h-full ml-5 flex flex-col justify-evenly w-2/3  pr-5">
                 <h1 className="text-xl pt-2 font-bold pointer-events-none">

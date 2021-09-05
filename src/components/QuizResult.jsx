@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import CountUp from 'react-countup'
 import Confetti from 'react-confetti'
 import { useHistory } from 'react-router-dom'
@@ -14,6 +14,7 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
     const history = useHistory()
 
     const { currentUser, setCurrentUser } = useAuth()
+    const { animationEnded, setAnimationEnded } = useState(false)
     const myApi = api(Users)
 
     const handleEnd = () => {
@@ -38,6 +39,7 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
                     }
                     ]
                 }))
+        setAnimationEnded(true)
     }
 
     useEffect(() => {
@@ -47,7 +49,7 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
                 pointRef.current.classList.remove('hidden')
             }
         }, 3000);
-
+        return () => setAnimationEnded(true)
     }, [])
 
     return (
@@ -98,9 +100,12 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
                 </div>
 
                 <div className="text-right mt-5">
-                    <button onClick={() => history.push("/quizzes")} className=" border  text-green-600 border-green-600 p-2 rounded-lg hover:bg-green-500 hover:text-white">
-                        Back to Home
-                    </button>
+                    {
+                        !animationEnded &&
+                        <button onClick={() => history.push("/quizzes")} className=" border  text-green-600 border-green-600 p-2 rounded-lg hover:bg-green-500 hover:text-white">
+                            Back to Home
+                        </button>
+                    }
                 </div>
 
                 <Confetti

@@ -8,6 +8,7 @@ import { useAuth } from '../context/AuthContext'
 import MyWorks from '../components/quizzes/MyWorks'
 import Drafts from '../components/quizzes/Drafts'
 import History from '../components/quizzes/History'
+import Trash from '../components/quizzes/Trash'
 
 function Quizzes({ history }) {
     // @ts-ignore
@@ -62,7 +63,7 @@ function Quizzes({ history }) {
                                     Trash
                                 </span>
                             </NavLink>
-                            <hr className="z-30 bg-gray-400 w-58" style={{ height: "1.5px" }} />
+                            <hr className="z-30 bg-gray-400 w-11/12" style={{ height: "1.5px" }} />
                             <NavLink to="/settings" className="cursor-pointer flex items-center py-2 hover:bg-green-300 px-2  mt-3">
                                 <IoSettingsSharp className="text-secondary-100" />
                                 <span className="ml-3">
@@ -92,8 +93,6 @@ function Quizzes({ history }) {
                     </div >
                 </div >
 
-
-
             </div >
 
             <div className="col-span-5 mx-10 mb-5">
@@ -102,6 +101,7 @@ function Quizzes({ history }) {
                     <Route exact path="/quizzes/myWorks" component={MyWorks} />
                     <Route exact path="/quizzes/drafts" component={Drafts} />
                     <Route exact path="/quizzes/history" component={History} />
+                    <Route exact path="/quizzes/trash" component={Trash} />
                     <Route
                         exact
                         path={["/quizzes", "/quizzes/:category"]}

@@ -1,5 +1,5 @@
 
-export default function Drafts() {
+export default function About() {
     return (
         <div className="h-full w-full text-center py-4 text-secondary-200">
             <img src="/images/working_late.svg" alt="Under Development" className="h-96 mx-auto" />

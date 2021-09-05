@@ -21,7 +21,9 @@ export default function api(Collections, Users) {
             return Collections[index]
         },
         destroy: id => {
-            Collections.splice(Collections.findIndex(item => item.id === id), 1)
+            let index = Collections.findIndex(item => item.id === id)
+            Collections.splice(index, 1)
+            console.log(Collections[index], index)
         },
         sortBy: type => {
             switch (type) {
