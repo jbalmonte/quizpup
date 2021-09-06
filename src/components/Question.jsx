@@ -19,7 +19,8 @@ function Question({ questionID, questions }) {
         setAnswer(answer)
     }
 
-    const handleDeleteChoice = (id, choice) => e => {
+
+    const handleDeleteChoice = (id, choice) => {
         if (choice === answer) setAnswer("")
         setChoiceElements(choiceElements.filter(el => el.id !== id))
     }

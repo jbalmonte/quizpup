@@ -1,5 +1,5 @@
 const Users = [
-    { "id": 1, "email": "joshua@gmail.com", "fullName": "Joshua Balmonte", "password": "12345", "image": "/images/my_avatar.jpg", "QPoints": 25000, "bgColor": "bg-tertiary", "QPointsWeek": 8550, "quizzes": [{ "id": 37 }, { "id": 42 }, { "id": 55 }, { "id": 79 }] },
+    { "id": 1, "email": "joshua@gmail.com", "fullName": "Joshua Balmonte", "password": "12345", "image": "/images/my_avatar.jpg", "QPoints": 25420, "bgColor": "bg-tertiary", "QPointsWeek": 8550, "quizzes": [{ "id": 37 }, { "id": 42 }, { "id": 55 }, { "id": 79 }] },
     { "id": 2, "email": "hlanbertoni1@yahoo.com", "fullName": "Halli Lanbertoni", "password": "z8NR50ws2", "image": "https://avatars2.githubusercontent.com/u/1", "QPoints": 7339, "bgColor": "bg-green-500", "QPointsWeek": 2990, "quizzes": [{ "id": 17 }, { "id": 72 }] },
     { "id": 3, "email": "egurys2@meetup.com", "fullName": "Enos Gurys", "password": "0Q4qs9oSoTH", "image": "https://avatars2.githubusercontent.com/u/2", "QPoints": 15286, "bgColor": "bg-red-500", "QPointsWeek": 122, "quizzes": [{ "id": 90 }, { "id": 94 }] },
     { "id": 4, "email": "mpulfer3@kickstarter.com", "fullName": "Mersey Pulfer", "password": "FDshWjyGkAw", "image": "https://avatars2.githubusercontent.com/u/3", "QPoints": 2397, "bgColor": "bg-gray-500", "QPointsWeek": 741, "quizzes": [] },

@@ -1,4 +1,3 @@
-import Users from '../db/Users'
 
 class Auth {
   constructor() {
@@ -16,10 +15,9 @@ class Auth {
     ]
   }
 
-  register(id, email, fullName, password, setUsers) {
+  register(id, email, fullName, password, Users, setUsers) {
     const result = { status: 200, message: null }
 
-    // @ts-ignore
     if (Users.find(user => user.email === email)) {
       result.status = 400
       result.message = 'Email is already taken'
@@ -41,7 +39,7 @@ class Auth {
     return new Promise(resolve => setTimeout(() => resolve(result), 5000))
   }
 
-  login(email, password) {
+  login(email, password, Users) {
     let message = ""
     // @ts-ignore
     const user = Users.find(user => user.email === email && user.password === password)

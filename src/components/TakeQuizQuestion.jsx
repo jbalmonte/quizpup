@@ -23,6 +23,7 @@ function TakeQuizQuestion({ item, question: { question, choices }, correctAnswer
     }
 
 
+    console.log(item, question, choices, correctAnswer, totalQuestions)
 
     const toggleAnswer = e => {
         if (!disabled) {

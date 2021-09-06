@@ -9,7 +9,7 @@ import { useAuth } from '../context/AuthContext'
 
 function CreateQuiz() {
 
-    const { currentUser, setQuizzes, setQuestions, setReviews } = useAuth()
+    const { currentUser, setCurrentUser, Quizzes, setQuizzes, setQuestions, setReviews } = useAuth()
     const history = useHistory()
 
     const title = useRef()
@@ -21,7 +21,9 @@ function CreateQuiz() {
 
     const handleSubmit = e => {
         e.preventDefault()
+
         const quiz = api().create({
+            id: Math.max(...Quizzes.map(q => q.id)) + 1,
             title: title.current.value,
             image: "https://source.unsplash.com/random/" + ~~(Math.random() * 1000),
             description: description.current.value,
@@ -33,9 +35,10 @@ function CreateQuiz() {
         const question = api().create({ id: quiz.id, questions: questions.current }, setQuestions)
 
         const reviews = api().create({ id: quiz.id, reviews: [] }, setReviews)
-        console.log(quiz, question, reviews)
+        setCurrentUser(prev => ({ ...prev, quizzes: [...prev.quizzes, { id: quiz.id }] }));
+        console.log(JSON.stringify(quiz), '\n', JSON.stringify(question), '\n', JSON.stringify(reviews))
 
-        history.push('/quizzes')
+        //   history.push('/quizzes')
     }
 
     return (

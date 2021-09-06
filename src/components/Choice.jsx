@@ -8,7 +8,13 @@ function Choice({ id, choices, questionID, choicesCount, handleAnswer, handleDel
     const [choice, setChoice] = useState("")
     const radioRef = useRef()
 
-    useEffect(() => { choices.current[choicesCount - 1] = choice }, [choice])
+    useEffect(() => {
+        if (choice.length) choices.current[id - 1] = choice
+
+        return () => choices.current = choices.current.filter(c => c !== choice)
+
+    }, [choice])
+
     useEffect(() => radioRef?.current.checked && handleAnswer(choice), [choice])
 
 
@@ -37,7 +43,12 @@ function Choice({ id, choices, questionID, choicesCount, handleAnswer, handleDel
                     choicesCount > 2 &&
                     <span
                         className="absolute block bg-white opacity-0 text-gray-600 hover:opacity-100 text-3xl top-2 right-2 z-20"
-                        onClick={handleDeleteChoice(id, choice)}>
+                        onClick={() => {
+                            let choiceCopy = choice
+                            setChoice("")
+                            handleDeleteChoice(id, choiceCopy)
+                        }
+                        }>
                         <RiCloseFill />
                     </span>
                 }

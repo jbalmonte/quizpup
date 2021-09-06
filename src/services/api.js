@@ -1,9 +1,8 @@
-import { generateQuizID } from '../utils/idGenerator'
 
 export default function api(Collections) {
     return {
         create: (obj, setState) => {
-            const item = { id: generateQuizID(), ...obj }
+            const item = { ...obj }
             setState(prev => [...prev, { ...item }])
             return item
         },

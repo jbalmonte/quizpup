@@ -8,7 +8,7 @@ export default function MyWorks() {
     return (
         <>
             {
-                currentUser.quizzes.length ?
+                currentUser?.quizzes?.length ?
 
                     <div className="grid grid-cols-2 gap-4">
                         {

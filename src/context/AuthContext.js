@@ -8,6 +8,7 @@ import { setLocalStorage, getLocalStorage } from '../utils/localStorage'
 
 const AuthContext = React.createContext(0);
 
+
 export function AuthContextProvider({ children }) {
     const [currentUser, setCurrentUser] = useState(() => getLocalStorage('currentUser', null))
     const [Quizzes, setQuizzes] = useState(() => getLocalStorage('Quizzes', []))
@@ -17,12 +18,24 @@ export function AuthContextProvider({ children }) {
     const [isAuthenticated, setIsAuthenticated] = useState(() => getLocalStorage('isAuthenticated', false))
 
     const history = useHistory()
-
     useEffect(() => {
         //update both currentUser and Users in our localStorage
         setLocalStorage('currentUser', currentUser)
         setUsers(prev => [...(prev || []).map(u => u.id === currentUser ? currentUser : u)])
     }, [currentUser])
+
+    useEffect(() => {
+        //if there is no data fetched in our localStorage, initialize it with hard coded data from our db
+        if (!Users.length) {
+            async function init() {
+                setQuizzes(await (await import('../db/Quizzes')).default)
+                setUsers(await (await import('../db/Users')).default)
+                setQuestions(await (await import('../db/Questions')).default)
+                setReviews(await (await import('../db/Reviews')).default)
+            }
+            init()
+        }
+    }, [])
 
     useEffect(() => setLocalStorage('isAuthenticated', isAuthenticated), [isAuthenticated])
     useEffect(() => setLocalStorage('Quizzes', Quizzes), [Quizzes])
@@ -30,26 +43,22 @@ export function AuthContextProvider({ children }) {
     useEffect(() => setLocalStorage('Questions', Questions), [Questions])
     useEffect(() => setLocalStorage('Reviews', Reviews), [Reviews])
 
+
     const register = async (email, fullName, password) => {
         const id = generateUserID()
-        const { status, message } = await auth.register(id, email, fullName, password, setUsers)
+        const { status, message } = await auth.register(id, email, fullName, password, Users, setUsers)
 
         if (status === 200) history.push({ pathname: '/login', state: { message: 'Account created. Please login' } })
         else throw new Error(message)
-
     }
 
-    const login = async (username, password) => {
+    const login = async (email, password) => {
 
-        const { user, message } = await auth.login(username, password)
+        const { user, message } = await auth.login(email, password, Users)
 
         if (user) {
             setCurrentUser(user)
             setIsAuthenticated(true)
-            setQuizzes(await (await import('../db/Quizzes')).default)
-            setUsers(await (await import('../db/Users')).default)
-            setQuestions(await (await import('../db/Questions')).default)
-            setReviews(await (await import('../db/Reviews')).default)
             history.push('/quizzes')
         }
         else throw new Error(message)
@@ -58,11 +67,11 @@ export function AuthContextProvider({ children }) {
 
 
     const logout = () => {
+        // setQuizzes(null)
+        // setUsers(null)
+        // setQuestions(null)
+        // setReviews(null)
         setCurrentUser(null)
-        setQuizzes(null)
-        setUsers(null)
-        setQuestions(null)
-        setReviews(null)
         setIsAuthenticated(false)
     }
 

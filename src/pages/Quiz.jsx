@@ -33,7 +33,7 @@ function Quiz() {
     return (
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full font-body">
             <div className="col-span-2">
-                <div className="shadow bg-gray-50 rounded-md pt-6 px-6 pb-4 fixed top-20" style={{ width: "50.5rem", height: "83.5vh" }}>
+                <div className="shadow bg-gray-50 rounded-md pt-6 px-6 pb-4 fixed top-20" style={{ width: "50.5rem", maxHeight: "85vh" }}>
                     <img src={quiz.image} alt={quiz.title} className="h-64 mb-4 rounded-md object-cover w-full" />
 
                     <div className="flex items-center justify-between mb-5">
@@ -52,10 +52,10 @@ function Quiz() {
                         </div>
                     </div>
 
-                    <p className="text-secondary-100">{quiz.description.replace(/^./, m => m.toUpperCase())}</p>
+                    <p className="text-secondary-100 mb-2">{quiz.description.replace(/^./, m => m.toUpperCase())}</p>
 
-                    <div className="flex mt-2 justify-between items-end">
-                        <div className="flex items-center">
+                    <div className="flex h-10  mb-3 justify-between items-end">
+                        <div className="flex items-baseline">
                             <FaStar className={`mr-1 text-yellow-400 cursor-pointer`} />
                             <span className="mr-2">{quiz.overallRating.average}</span>
                             (
@@ -64,10 +64,11 @@ function Quiz() {
                         </div>
 
                         {
-                            currentUser.id !== user.id &&
+                            //currentUser.id !== user.id &&
                             <button
                                 onClick={() => history.push(`/takeQuiz/${id}`)}
                                 className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg py-1 px-2">
+
                                 <BsPen className="inline-flex mr-1  text-lg" />
                                 <span>
                                     Take Quiz
@@ -101,7 +102,7 @@ function Quiz() {
                                 quizDateCreated={quiz.dateCreated}
                                 quizDateDiff={getDateDiff(quiz.dateCreated)} />)
                         :
-                        <div className="my-10 items-center w-80 mx-auto" style={{ height: "59.5vh" }}>
+                        <div className="my-10 items-center w-80 mx-auto" style={{ height: "60.5vh" }}>
                             <img src="/images/no_data.svg" alt="No Data" className="" />
                             <span className="flex justify-center mt-5">
                                 No Reviews to Display

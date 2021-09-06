@@ -18,16 +18,19 @@ function TakeQuiz() {
 
     const { id } = useParams()
     const quiz = api(Quizzes).fetchById(+id)
+
     const [loading, setLoading] = useState(false)
     const [state, setState] = useState(0)
     const [questions, setQuestions] = useState([])
     const [currentQuestion, setCurrentQuestion] = useState()
     const [totalPoints, setTotalPoints] = useState(0)
 
+    console.log('ID', id, 'QUIZZES', quiz)
+
     useEffect(() => {
         setLoading(true)
         async function getQuestions() {
-            setQuestions(+id === 1 ? api(Questions).fetchById(+id).questions : await fetchQuestions(quiz.title, quiz.difficulty))
+            setQuestions(id > 1 && id <= 100 ? await fetchQuestions(quiz.title, quiz.difficulty) : api(Questions).fetchById(+id).questions)
             setLoading(false)
         }
         getQuestions()
