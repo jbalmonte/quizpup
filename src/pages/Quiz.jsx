@@ -2,7 +2,7 @@
 import React from "react"
 import UserAvatar from "../components/UserAvatar"
 import Review from "../components/Review"
-import { useHistory } from "react-router-dom"
+import { useHistory, useParams } from "react-router-dom"
 import api from "../services/api"
 import Reviews from "../db/Reviews"
 import { BsPen } from 'react-icons/bs'
@@ -10,13 +10,17 @@ import { FaStar } from "react-icons/fa"
 import { getDateDiff } from "../utils/getDateDiff"
 import { HiPencil } from 'react-icons/hi'
 import { useAuth } from "../context/AuthContext"
+import Page404 from './Page404'
 
-function Quiz({ match: { params } }) {
-    const id = params.id
+function Quiz() {
+    const { id } = useParams()
     const history = useHistory()
     const { currentUser, Quizzes, Users } = useAuth()
 
     const quiz = api(Quizzes).fetchById(+id)
+
+    if (!quiz) return <Page404 />
+
     const user = api(Users).fetchById(quiz.author.id)
     const reviews = api(Reviews).fetchById(+id)?.reviews || []
 

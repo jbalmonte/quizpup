@@ -1,4 +1,4 @@
-import { Home, Quizzes, Leaderboards, Login, Register, CreateQuiz, Quiz, TakeQuiz, Account, Settings, About, Contact } from './pages';
+import { Home, Quizzes, Leaderboards, Login, Register, CreateQuiz, Quiz, TakeQuiz, Account, Settings, About, Contact, Page404 } from './pages';
 import Nav from './components/Nav'
 import { Route, Switch } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext';
@@ -12,8 +12,8 @@ function App() {
       <Nav />
       <Switch>
         <Route path="/" exact component={Home} />
-        <PrivateRoute path="/quizzes/:id(\d+)" component={Quiz} />
         <PrivateRoute path="/quizzes/:category(all|hot|new|best)" component={Quizzes} />
+        <PrivateRoute path="/quizzes/:id(\d+)" component={Quiz} />
         <PrivateRoute path="/quizzes" component={Quizzes} />
         <PrivateRoute path="/createQuiz" exact component={CreateQuiz} />
         <PrivateRoute path="/takeQuiz/:id" exact component={TakeQuiz} />
@@ -24,6 +24,7 @@ function App() {
         <Route path="/contact" exact component={Contact} />
         <PublicRoute path="/login" exact component={Login} />
         <PublicRoute path="/register" exact component={Register} />
+        <Route path="*" component={Page404} />
       </Switch>
     </AuthContextProvider>
   );

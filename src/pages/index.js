@@ -10,3 +10,4 @@ export { default as Settings } from "./Settings";
 export { default as About } from "./About";
 export { default as Account } from "./Account";
 export { default as Contact } from "./Contact";
+export { default as Page404 } from "./Page404";
