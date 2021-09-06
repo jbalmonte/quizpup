@@ -1,22 +1,20 @@
 // @ts-nocheck
 import React from "react"
-import Users from '../db/Users'
 import UserAvatar from './UserAvatar'
 import { FaStar } from "react-icons/fa"
 import { IoTrashBinOutline } from "react-icons/io5"
 import { useHistory } from "react-router-dom"
 import { getDateDiff } from "../utils/getDateDiff"
 import { useAuth } from '../context/AuthContext'
-import Quizzes from "../db/Quizzes"
-import api from "../services/api"
+import api from '../services/api'
 
 
 function Card({ quiz, hasDeleteComponent = false }) {
     const { id, title, description, image, author, overallRating, dateCreated } = quiz
     const history = useHistory()
-    const { currentUser, setCurrentUser } = useAuth()
+    const { currentUser, setCurrentUser, setQuizzes, Quizzes, Users } = useAuth()
 
-    const user = Users.find(user => user.id === author.id)
+    const user = api(Users).fetchById(author.id)
 
     const handleDelete = e => {
         e.stopPropagation()
@@ -25,7 +23,7 @@ function Card({ quiz, hasDeleteComponent = false }) {
             quizzes: currentUser.quizzes.filter(q => q.id !== quiz.id),
             trash: [...(currentUser?.trash || []), { quiz, dateDeleted: new Date().toLocaleDateString() }]
         })
-        api(Quizzes).destroy(id)
+        setQuizzes(Quizzes.filter(q => q.id !== quiz.id))
     }
 
     return (

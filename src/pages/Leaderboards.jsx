@@ -1,10 +1,12 @@
+// @ts-nocheck
 import React, { useEffect } from 'react'
 import UserAvatar from '../components/UserAvatar'
-import Users from '../db/Users'
+import { useAuth } from '../context/AuthContext'
 
 function Leaderboards() {
 
     useEffect(() => window.scrollTo(0, 0), [])
+    const { Users } = useAuth()
 
     const top3 = {
         1: "text-white bg-yellow-400 rounded-full",

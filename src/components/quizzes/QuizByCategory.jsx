@@ -4,16 +4,16 @@ import { useParams } from 'react-router-dom'
 import Card from '../Card'
 import CardSkeleton from '../CardSkeleton'
 import Categories from '../Categories'
-import Quizzes from '../../db/Quizzes'
 import api from '../../services/api'
 import { useAuth } from '../../context/AuthContext'
 
 function QuizByCategory() {
     const { category } = useParams()
-    const { currentUser } = useAuth()
+    const { currentUser, Quizzes } = useAuth()
     const [loading, setLoading] = useState(true)
     const [searchText, setSearchText] = useState('')
     const quizHistoryIDs = (currentUser?.quizHistory || []).map(q => +q.id)
+
 
     useEffect(() => {
         setTimeout(() => {

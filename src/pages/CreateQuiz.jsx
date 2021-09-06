@@ -4,16 +4,12 @@ import { IoAdd, IoArrowBackOutline } from 'react-icons/io5'
 import { useHistory } from 'react-router-dom'
 import Question from '../components/Question'
 import api from '../services/api'
-import Quizzes from '../db/Quizzes'
 import { useAuth } from '../context/AuthContext'
-import Questions from '../db/Questions'
-import Reviews from '../db/Reviews'
-
 
 
 function CreateQuiz() {
 
-    const { currentUser } = useAuth()
+    const { currentUser, setQuizzes, setQuestions, setReviews } = useAuth()
     const history = useHistory()
 
     const title = useRef()
@@ -25,18 +21,18 @@ function CreateQuiz() {
 
     const handleSubmit = e => {
         e.preventDefault()
-        const quiz = api(Quizzes).create({
+        const quiz = api().create({
             title: title.current.value,
             image: "https://source.unsplash.com/random/" + ~~(Math.random() * 1000),
             description: description.current.value,
             difficulty,
             author: { id: currentUser.id, fullName: currentUser.fullName, image: currentUser.image },
             dateCreated: new Date(),
-            overallRating: { average: 0, count: 0 }
-        })
-        const question = api(Questions).create({ id: quiz.id, questions: questions.current })
+            overallRating: { average: 0, count: 0 },
+        }, setQuizzes)
+        const question = api().create({ id: quiz.id, questions: questions.current }, setQuestions)
 
-        const reviews = api(Reviews).create({ id: quiz.id, reviews: [] })
+        const reviews = api().create({ id: quiz.id, reviews: [] }, setReviews)
         console.log(quiz, question, reviews)
 
         history.push('/quizzes')

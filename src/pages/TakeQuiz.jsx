@@ -1,21 +1,21 @@
 // @ts-nocheck
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FcCalculator, FcClock, FcDocument, FcIdea, FcInfo } from 'react-icons/fc'
 import { AiOutlineNumber } from 'react-icons/ai'
 import { FaFistRaised } from 'react-icons/fa'
 import TakeQuizQuestion from '../components/TakeQuizQuestion'
 import QuizResult from '../components/QuizResult'
-import Questions from '../db/Questions'
 import api from '../services/api'
-import Quizzes from '../db/Quizzes'
 import { useParams } from 'react-router-dom'
-import { useEffect } from 'react'
 import fetchQuestions from '../services/fetchQuestions'
 import ReactLoading from 'react-loading'
+import { useAuth } from '../context/AuthContext'
 
 
 function TakeQuiz() {
-    // @ts-ignore
+
+    const { Quizzes, Questions } = useAuth()
+
     const { id } = useParams()
     const quiz = api(Quizzes).fetchById(+id)
     const [loading, setLoading] = useState(false)
@@ -45,7 +45,6 @@ function TakeQuiz() {
     const next = (answer) => {
         if (answer === currentQuestion.answer) setTotalPoints(prev => +prev + +(difficultyPoints[quiz.difficulty]))
         setState(prev => prev + 1)
-
     }
 
     useEffect(() => setCurrentQuestion(questions[state]), [state, questions])

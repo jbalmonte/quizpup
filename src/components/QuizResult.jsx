@@ -4,8 +4,6 @@ import CountUp from 'react-countup'
 import Confetti from 'react-confetti'
 import { useHistory } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
-import Users from '../db/Users'
-import api from '../services/api'
 
 function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
     const resultRef = useRef()
@@ -14,40 +12,36 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
     const history = useHistory()
 
     const { currentUser, setCurrentUser } = useAuth()
-    const { animationEnded, setAnimationEnded } = useState(false)
-    const myApi = api(Users)
+    const [animationEnded, setAnimationEnded] = useState(false)
 
     const handleEnd = () => {
-        //update both currentUser and in our db
         const newQPoints = currentUser.QPoints + totalPoints
         const date = new Date()
         setCurrentUser(
-            myApi.update(currentUser.id,
+            {
+                ...currentUser,
+                QPoints: newQPoints,
+                QPointsWeek: newQPoints,
+                quizHistory: [...(currentUser?.quizHistory || []),
                 {
-                    QPoints: newQPoints,
-                    QPointsWeek: newQPoints,
-                    quizHistory: [...(currentUser?.quizHistory || []),
-                    {
-                        id: quiz.id,
-                        title: quiz.title,
-                        author: quiz.author.fullName,
-                        description: quiz.description,
-                        score: `${correctAnswers}/${totalItems}`,
-                        QPoints: totalPoints,
-                        date: date.toLocaleDateString(),
-                        time: date.toLocaleTimeString()
-                    }
-                    ]
-                }))
+                    id: quiz.id,
+                    title: quiz.title,
+                    author: quiz.author.fullName,
+                    description: quiz.description,
+                    score: `${correctAnswers}/${totalItems}`,
+                    QPoints: totalPoints,
+                    date: date.toLocaleDateString(),
+                    time: date.toLocaleTimeString()
+                }
+                ]
+            });
         setAnimationEnded(true)
     }
 
     useEffect(() => {
         scoreRef?.current.classList.remove('hidden')
         setTimeout(() => {
-            if (pointRef.current && scoreRef.current) {
-                pointRef.current.classList.remove('hidden')
-            }
+            if (pointRef.current && scoreRef.current) pointRef.current.classList.remove('hidden')
         }, 3000);
         return () => setAnimationEnded(true)
     }, [])
@@ -101,7 +95,7 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
 
                 <div className="text-right mt-5">
                     {
-                        !animationEnded &&
+                        animationEnded &&
                         <button onClick={() => history.push("/quizzes")} className=" border  text-green-600 border-green-600 p-2 rounded-lg hover:bg-green-500 hover:text-white">
                             Back to Home
                         </button>

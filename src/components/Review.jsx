@@ -2,12 +2,14 @@
 import React from "react"
 import { BiDownvote, BiUpvote } from "react-icons/bi"
 import { FaStar } from "react-icons/fa"
-import Users from "../db/Users"
 import UserAvatar from "./UserAvatar"
 import api from '../services/api'
 import { getDateDiff } from "../utils/getDateDiff"
+import { useAuth } from "../context/AuthContext"
 
 function Review({ userReview, quizDateCreated, quizDateDiff }) {
+
+    const { Users } = useAuth()
 
     //randomizer
     const rand = n => ~~(Math.random() * n)

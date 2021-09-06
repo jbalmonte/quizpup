@@ -3,8 +3,6 @@ import React from "react"
 import UserAvatar from "../components/UserAvatar"
 import Review from "../components/Review"
 import { useHistory } from "react-router-dom"
-import Quizzes from "../db/Quizzes"
-import Users from "../db/Users"
 import api from "../services/api"
 import Reviews from "../db/Reviews"
 import { BsPen } from 'react-icons/bs'
@@ -16,7 +14,7 @@ import { useAuth } from "../context/AuthContext"
 function Quiz({ match: { params } }) {
     const id = params.id
     const history = useHistory()
-    const { currentUser } = useAuth()
+    const { currentUser, Quizzes, Users } = useAuth()
 
     const quiz = api(Quizzes).fetchById(+id)
     const user = api(Users).fetchById(quiz.author.id)
@@ -43,7 +41,9 @@ function Quiz({ match: { params } }) {
                     <div className="flex items-end p-0 mt-4 mb-6">
                         <UserAvatar size={10} fSize="text-sm" user={user} />
                         <div>
-                            <p className="ml-2 text-sm my-auto text-gray-600 pointer-events-none">{quiz.author.fullName}</p>
+                            <p className="ml-2 text-sm my-auto text-gray-600 pointer-events-none">
+                                {quiz.author.id === currentUser.id ? 'You' : quiz.author.fullName}
+                            </p>
                             <p className="ml-2 text-sm my-auto text-gray-400 pointer-events-none">{getDateDiff(quiz.dateCreated)}</p>
                         </div>
                     </div>

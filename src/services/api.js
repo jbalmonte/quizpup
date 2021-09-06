@@ -1,30 +1,16 @@
 import { generateQuizID } from '../utils/idGenerator'
 
-export default function api(Collections, Users) {
+export default function api(Collections) {
     return {
-        create: (obj) => {
+        create: (obj, setState) => {
             const item = { id: generateQuizID(), ...obj }
-            Collections.push(item)
+            setState(prev => [...prev, { ...item }])
             return item
         },
         fetchById: id => {
             return Collections.find(item => item.id === id)
         },
 
-        fetchAll: () => {
-            return Collections
-        },
-
-        update: (id, fields) => {
-            const index = Collections.findIndex(item => item.id === id)
-            Collections[index] = { ...Collections[index], ...fields }
-            return Collections[index]
-        },
-        destroy: id => {
-            let index = Collections.findIndex(item => item.id === id)
-            Collections.splice(index, 1)
-            console.log(Collections[index], index)
-        },
         sortBy: type => {
             switch (type) {
                 case 'hot': return Collections.sort((a, b) => b.overallRating.count - a.overallRating.count).slice(0, 25)

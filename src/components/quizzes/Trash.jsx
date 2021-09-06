@@ -1,20 +1,19 @@
 // @ts-nocheck
 import React from 'react'
 import { useAuth } from '../../context/AuthContext'
-import Quizzes from '../../db/Quizzes'
 import api from '../../services/api'
 
 
 export default function Trash() {
 
-    const { currentUser, setCurrentUser } = useAuth()
+    const { currentUser, setCurrentUser, setQuizzes } = useAuth()
 
     const handleDelete = id => {
         setCurrentUser({ ...currentUser, trash: currentUser.trash.filter(({ quiz }) => quiz.id !== id) })
     }
 
     const handleRecover = q => {
-        api(Quizzes).create(q)
+        api().create(q, setQuizzes)
         setCurrentUser({
             ...currentUser,
             trash: currentUser.trash.filter(({ quiz }) => quiz.id !== q.id),
@@ -62,7 +61,7 @@ export default function Trash() {
                                                     Recover
                                                 </button>
                                             </td>
-                                            <td className="h-full text-center p-2">
+                                            <td className="h-full text-center py-2 pr-4 pl-2">
                                                 <button onClick={() => handleDelete(+quiz.id)} className="border inline-flex font-semibold rounded-md  py-1 px-2 border-red-500 hover:bg-red-500 hover:text-gray-50">
                                                     Delete
                                                 </button>

@@ -31,7 +31,7 @@ export default function History() {
 
                                 currentUser.quizHistory.map(q => {
                                     return (
-                                        <tr className="bg-gray-100 border-b border-gray-200">
+                                        <tr className="bg-gray-100 border-b border-gray-200" key={q.id}>
                                             <td className="p-4">
                                                 {q.title}
                                             </td>

@@ -1,11 +1,10 @@
 // @ts-nocheck
 import React from 'react'
-import Quizzes from '../../db/Quizzes'
 import Card from '../Card'
 import { useAuth } from '../../context/AuthContext'
 
 export default function MyWorks() {
-    const { currentUser } = useAuth()
+    const { currentUser, Quizzes } = useAuth()
     return (
         <>
             {

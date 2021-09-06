@@ -16,7 +16,7 @@ class Auth {
     ]
   }
 
-  register(id, email, fullName, password) {
+  register(id, email, fullName, password, setUsers) {
     const result = { status: 200, message: null }
 
     // @ts-ignore
@@ -27,8 +27,7 @@ class Auth {
 
     else {
       const bgColor = this._BG_COLORS[~~(Math.random() * 14)]
-      console.log(bgColor, ~~(Math.random() * 14))
-      Users.push({
+      setUsers(prev => [...prev, {
         id,
         email,
         fullName,
@@ -36,7 +35,7 @@ class Auth {
         QPoints: 0,
         image: "",
         bgColor
-      })
+      }])
     }
 
     return new Promise(resolve => setTimeout(() => resolve(result), 5000))
