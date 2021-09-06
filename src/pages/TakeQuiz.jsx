@@ -68,6 +68,7 @@ function TakeQuiz() {
                             question={currentQuestion}
                             item={state < questions.length ? state + 1 : state}
                             totalQuestions={questions.length}
+                            correctAnswer={currentQuestion.answer}
                             next={next}
                         /> :
 

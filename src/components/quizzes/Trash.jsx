@@ -36,8 +36,8 @@ export default function Trash() {
                                 <th className="py-1 px-2">Rating</th>
                                 <th className="py-1 px-2">Date Created</th>
                                 <th className="py-1 px-2">Date Deleted</th>
-                                <th className="py-1 px-2">Recover</th>
-                                <th className="py-1 px-2">Delete</th>
+                                <th className="py-1 px-2"></th>
+                                <th className="py-1 px-2"></th>
                             </tr>
                         </thead>
                         <tbody>

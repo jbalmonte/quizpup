@@ -105,7 +105,7 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
                 <Confetti
                     width={800}
                     height={700}
-                    numberOfPieces={200}
+                    numberOfPieces={150}
                     colors={
                         totalPoints === 0 ?
                             ['red'] :

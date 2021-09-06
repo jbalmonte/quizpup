@@ -38,6 +38,13 @@ body{
     @apply bg-gradient-to-r from-green-600 via-purple-600 to-red-500  border-secondary-100 text-white shadow-sm
 }
 
+.correct-answer {
+    @apply bg-gradient-to-t from-green-300 to-gray-100
+}
+.incorrect-answer {
+    @apply bg-gradient-to-t from-red-300 to-gray-100
+}
+
 .active-side-nav {
     @apply border-r-4 border-green-500 pointer-events-none
 }
