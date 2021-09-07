@@ -3,29 +3,25 @@
 import React, { useEffect, useRef, useState } from "react"
 import { RiCloseFill } from 'react-icons/ri'
 
-function Choice({ id, choices, questionID, choicesCount, handleAnswer, handleDeleteChoice }) {
+function Choice({ id, questionNumber, choicesCount, setAnswer, setChoices, handleDeleteChoice }) {
 
     const [choice, setChoice] = useState("")
     const radioRef = useRef()
 
     useEffect(() => {
-        if (choice.length) choices.current[id - 1] = choice
+        setChoices(prev => ({ ...prev, [id]: choice }))
+    }, [choice]);
 
-        return () => choices.current = choices.current.filter(c => c !== choice)
-
-    }, [choice])
-
-    useEffect(() => radioRef?.current.checked && handleAnswer(choice), [choice])
-
+    useEffect(() => radioRef?.current.checked && setAnswer(choice), [choice])
 
     return (
         <div className="text-center flex group">
             <span className="flex items-center leading-normal rounded-l-md border border-r-0 border-gray-400 px-3 whitespace-no-wrap text-secondary-100 ">
                 <input
                     type="radio"
-                    name={`q${questionID}`}
+                    name={`q${questionNumber}`}
                     className="w-4 h-4"
-                    onClick={e => handleAnswer(e.target.value)}
+                    onClick={e => setAnswer(e.target.value)}
                     value={choice}
                     ref={radioRef}
                     required

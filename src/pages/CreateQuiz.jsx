@@ -15,15 +15,25 @@ function CreateQuiz() {
     const title = useRef()
     const description = useRef()
 
-    const [questionElements, setQuestionElements] = useState(1)
-    const questions = useRef([])
+    const [quizQuestions, setQuizQuestions] = useState({})
+    const [questionElements, setQuestionElements] = useState([{ id: 0 }])
     const [difficulty, setDifficulty] = useState()
+
+
+    const handleDeleteQuestion = (id) => {
+        setQuizQuestions(prev => {
+            delete prev[id]
+            return prev
+        })
+        setQuestionElements(prev => prev.filter(q => q.id !== id))
+    }
+
 
     const handleSubmit = e => {
         e.preventDefault()
 
         const quiz = api().create({
-            id: Math.max(...Quizzes.map(q => q.id)) + 1,
+            id: Quizzes[Quizzes.length - 1].id + 1,
             title: title.current.value,
             image: "https://source.unsplash.com/random/" + ~~(Math.random() * 1000),
             description: description.current.value,
@@ -32,18 +42,18 @@ function CreateQuiz() {
             dateCreated: new Date(),
             overallRating: { average: 0, count: 0 },
         }, setQuizzes)
-        const question = api().create({ id: quiz.id, questions: questions.current }, setQuestions)
+        const question = api().create({ id: quiz.id, questions: Object.values(quizQuestions) }, setQuestions)
 
         const reviews = api().create({ id: quiz.id, reviews: [] }, setReviews)
         setCurrentUser(prev => ({ ...prev, quizzes: [...prev.quizzes, { id: quiz.id }] }));
-        console.log(JSON.stringify(quiz), '\n', JSON.stringify(question), '\n', JSON.stringify(reviews))
-
-        //   history.push('/quizzes')
+        //console.log(JSON.stringify(quiz), '\n', JSON.stringify(question), '\n', JSON.stringify(reviews))
+        console.log(JSON.stringify(question))
+        //history.push('/quizzes')
     }
 
     return (
         <div className="py-3 ">
-            <div className="bg-gray-50 w-1/2 border rounded-2xl mx-auto mb-5 py-3 px-5 relative">
+            <div className="bg-gray-50 w-1/2 border rounded-lg mx-auto mb-5 py-3 px-5 relative">
                 <button onClick={() => history.push("/quizzes")} className="absolute text-4xl text-secondary-100 top-6 rounded-full border border-opacity-0 border-gray-300  hover:border-opacity-100 transform hover:scale-105 hover:text-primary h-12 w-12 hover:bg-gray-200">
                     <IoArrowBackOutline className="m-auto" />
                 </button>
@@ -64,7 +74,7 @@ function CreateQuiz() {
 
                         <div className="my-4 ">
                             <label htmlFor="description" className="font-medium text-secondary-200 tracking-wide uppercase mr-5">Description: </label>
-                            <textarea ref={description} name="description" id="description" placeholder="Input the description here..." className="text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400 w-1/2 h-28" />
+                            <textarea required ref={description} name="description" id="description" placeholder="Input the description here..." className="text-base px-4 py-2 border  border-gray-300 rounded-lg focus:outline-none focus:border-green-400 w-1/2 h-28" />
                         </div>
 
                         <fieldset className="flex pl-2 mx-20 m-auto border h-24 mb-6" onChange={e => setDifficulty(e.target.value)}>
@@ -85,7 +95,7 @@ function CreateQuiz() {
                             <span className="font-medium text-secondary-200 tracking-wide uppercase mr-4">Questions: </span>
                             <button
                                 type="button"
-                                onClick={() => setQuestionElements(prev => prev + 1)}
+                                onClick={() => setQuestionElements(prev => [...prev, { id: prev[prev.length - 1].id + 1 }])}
                                 className="ml-12 text-sm font-medium hover:text-green-600 hover:bg-gray-50 rounded-md transform hover:scale-105">
                                 <IoAdd className="inline-flex text-lg mr-1" />
                                 <span >
@@ -94,11 +104,14 @@ function CreateQuiz() {
                             </button>
                         </div>
                         {
-                            [...new Array(questionElements)].map((_, i) =>
+                            questionElements.map(({ id }, i) =>
                                 <Question
-                                    key={i}
-                                    questionID={i + 1}
-                                    questions={questions}
+                                    key={id}
+                                    questionID={id}
+                                    questionNumber={i + 1}
+                                    questionsCount={questionElements.length}
+                                    setQuizQuestions={setQuizQuestions}
+                                    handleDeleteQuestion={handleDeleteQuestion}
                                 />
                             )
                         }
