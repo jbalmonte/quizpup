@@ -39,16 +39,15 @@ function CreateQuiz() {
             description: description.current.value,
             difficulty,
             author: { id: currentUser.id, fullName: currentUser.fullName, image: currentUser.image },
-            dateCreated: new Date(),
+            dateCreated: new Date().toLocaleString(),
             overallRating: { average: 0, count: 0 },
         }, setQuizzes)
-        const question = api().create({ id: quiz.id, questions: Object.values(quizQuestions) }, setQuestions)
-
-        const reviews = api().create({ id: quiz.id, reviews: [] }, setReviews)
+        api().create({ id: quiz.id, questions: Object.values(quizQuestions) }, setQuestions)
+        api().create({ id: quiz.id, reviews: [] }, setReviews)
         setCurrentUser(prev => ({ ...prev, quizzes: [...prev.quizzes, { id: quiz.id }] }));
         //console.log(JSON.stringify(quiz), '\n', JSON.stringify(question), '\n', JSON.stringify(reviews))
-        console.log(JSON.stringify(question))
-        //history.push('/quizzes')
+        //console.log(JSON.stringify(question))
+        history.push('/quizzes')
     }
 
     return (

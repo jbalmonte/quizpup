@@ -64,7 +64,7 @@ function Quiz() {
                         </div>
 
                         {
-                            //currentUser.id !== user.id &&
+                            currentUser.id !== user.id &&
                             <button
                                 onClick={() => history.push(`/takeQuiz/${id}`)}
                                 className="border border-primary hover:bg-primary hover:text-gray-50 transition-colors duration-200 ease-linear rounded-lg py-1 px-2">

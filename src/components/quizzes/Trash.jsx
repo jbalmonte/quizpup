@@ -6,7 +6,7 @@ import api from '../../services/api'
 
 export default function Trash() {
 
-    const { currentUser, setCurrentUser, setQuizzes } = useAuth()
+    const { currentUser, setCurrentUser, setQuizzes, setQuestions } = useAuth()
 
     const handleDelete = id => {
         setCurrentUser({ ...currentUser, trash: currentUser.trash.filter(({ quiz }) => quiz.id !== id) })
@@ -19,6 +19,7 @@ export default function Trash() {
             trash: currentUser.trash.filter(({ quiz }) => quiz.id !== q.id),
             quizzes: [...currentUser.quizzes, q]
         })
+        setQuestions(prev => [...prev, q])
     }
 
     return (
@@ -43,7 +44,7 @@ export default function Trash() {
                         <tbody>
 
                             {
-                                currentUser.trash.map(({ quiz }) => {
+                                currentUser.trash.map(({ quiz, dateDeleted }) => {
                                     return (
                                         <tr className="bg-gray-100 border-b border-gray-200" key={quiz.id}>
                                             <td className="p-4">
@@ -54,8 +55,8 @@ export default function Trash() {
                                             </td>
                                             <td className="p-3">{quiz.difficulty}</td>
                                             <td className="p-2">{quiz.overallRating.average}</td>
-                                            <td className="p-2">{quiz.dateCreated}</td>
-                                            <td className="p-2">{quiz.dateDeleted}</td>
+                                            <td className="p-2">{`${quiz.dateCreated}`}</td>
+                                            <td className="p-2">{dateDeleted}</td>
                                             <td className="h-full text-center p-2">
                                                 <button onClick={() => handleRecover(quiz)} className="border inline-flex my-auto font-semibold rounded-md  py-1 px-2 border-yellow-500 hover:bg-yellow-500 hover:text-gray-50">
                                                     Recover

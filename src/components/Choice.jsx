@@ -3,16 +3,14 @@
 import React, { useEffect, useRef, useState } from "react"
 import { RiCloseFill } from 'react-icons/ri'
 
-function Choice({ id, questionNumber, choicesCount, setAnswer, setChoices, handleDeleteChoice }) {
+function Choice({ id, questionNumber, choicesCount, setState, handleDeleteChoice }) {
 
     const [choice, setChoice] = useState("")
     const radioRef = useRef()
 
-    useEffect(() => {
-        setChoices(prev => ({ ...prev, [id]: choice }))
-    }, [choice]);
+    useEffect(() => setState(prev => ({ ...prev, choices: { ...prev.choices, [id]: choice } })), [choice]);
 
-    useEffect(() => radioRef?.current.checked && setAnswer(choice), [choice])
+    useEffect(() => radioRef?.current.checked && setState(prev => ({ ...prev, answer: choice })), [choice])
 
     return (
         <div className="text-center flex group">
@@ -21,7 +19,7 @@ function Choice({ id, questionNumber, choicesCount, setAnswer, setChoices, handl
                     type="radio"
                     name={`q${questionNumber}`}
                     className="w-4 h-4"
-                    onClick={e => setAnswer(e.target.value)}
+                    onClick={e => setState(prev => ({ ...prev, answer: e.target.value }))}
                     value={choice}
                     ref={radioRef}
                     required
@@ -39,12 +37,7 @@ function Choice({ id, questionNumber, choicesCount, setAnswer, setChoices, handl
                     choicesCount > 2 &&
                     <span
                         className="absolute block bg-white opacity-0 text-gray-600 hover:opacity-100 text-3xl top-2 right-2 z-20"
-                        onClick={() => {
-                            let choiceCopy = choice
-                            setChoice("")
-                            handleDeleteChoice(id, choiceCopy)
-                        }
-                        }>
+                        onClick={() => handleDeleteChoice(id, choice)}>
                         <RiCloseFill />
                     </span>
                 }

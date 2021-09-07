@@ -12,18 +12,19 @@ import api from '../services/api'
 function Card({ quiz, hasDeleteComponent = false }) {
     const { id, title, description, image, author, overallRating, dateCreated } = quiz
     const history = useHistory()
-    const { currentUser, setCurrentUser, setQuizzes, Quizzes, Users } = useAuth()
+    const { currentUser, setCurrentUser, setQuizzes, setQuestions, Users } = useAuth()
 
     const user = api(Users).fetchById(author.id)
 
     const handleDelete = e => {
         e.stopPropagation()
-        setCurrentUser({
-            ...currentUser,
+        setCurrentUser(prev => ({
+            ...prev,
             quizzes: currentUser.quizzes.filter(q => q.id !== quiz.id),
-            trash: [...(currentUser?.trash || []), { quiz, dateDeleted: new Date().toLocaleDateString() }]
-        })
-        setQuizzes(Quizzes.filter(q => q.id !== quiz.id))
+            trash: [...(currentUser?.trash || []), { quiz, dateDeleted: new Date().toLocaleString() }]
+        }))
+        setQuizzes(prev => prev.filter(q => q.id !== quiz.id))
+        setQuestions(prev => prev.filter(q => q.id !== quiz.id))
     }
 
     return (

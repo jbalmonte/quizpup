@@ -5,25 +5,31 @@ import Choice from "./Choice"
 
 function Question({ questionID, questionNumber, questionsCount, setQuizQuestions, handleDeleteQuestion }) {
 
-    const [choices, setChoices] = useState({})
-
     const [choiceElements, setChoiceElements] = useState([{ id: 0 }, { id: 1 }])
 
-    const [question, setQuestion] = useState("")
-    const [answer, setAnswer] = useState("")
+    // const [question, setQuestion] = useState("")
+    // const [answer, setAnswer] = useState("")
+    // const [choices, setChoices] = useState({})
+
+    const [state, setState] = useState({
+        question: "",
+        answer: "",
+        choices: {}
+    })
 
     useEffect(() => {
-        setQuizQuestions(prev => ({ ...prev, [questionID]: { question, answer, choices: Object.values(choices) } }))
+        setQuizQuestions(prev => ({ ...prev, [questionID]: { ...state, choices: Object.values(state.choices) } }))
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [question, answer, choices])
+    }, [state])
 
 
     const handleDeleteChoice = (id, choice) => {
-        if (choice === answer) setAnswer("")
-        setChoiceElements(choiceElements.filter(el => el.id !== id))
-        setChoices(prev => {
-            delete prev[id]
-            return prev
+        if (choice === state.answer) setState(prev => ({ ...prev, answer: "" }))
+        setChoiceElements(prev => prev.filter(el => el.id !== id))
+        setState(prev => {
+            const choices = { ...prev.choices }
+            delete choices[id]
+            return { ...prev, choices }
         })
     }
 
@@ -35,8 +41,8 @@ function Question({ questionID, questionNumber, questionsCount, setQuizQuestions
                     <label htmlFor={`question${questionNumber}`} className="bg-green-500 text-gray-50 flex items-center leading-normal rounded-l-lg border border-r-0 border-green-500 px-3 whitespace-no-wrap ">Q{questionNumber}</label>
                     <input
                         required
-                        value={question}
-                        onChange={e => setQuestion(e.target.value)}
+                        value={state.question}
+                        onChange={e => setState(prev => ({ ...prev, question: e.target.value }))}
                         type="text"
                         placeholder="Enter your question here"
                         className="text-base px-4 py-2 border border-l-0 border-gray-400 rounded-r-lg focus:outline-none focus:border-green-400 w-11/12"
@@ -67,16 +73,15 @@ function Question({ questionID, questionNumber, questionsCount, setQuizQuestions
                             key={id}
                             questionNumber={questionNumber}
                             choicesCount={choiceElements.length}
-                            setChoices={setChoices}
-                            setAnswer={setAnswer}
+                            setState={setState}
                             handleDeleteChoice={handleDeleteChoice}
                         />)
                 }
 
                 <div className="text-left mt-3 pt-1 h-full">
                     <p className="text-secondary-200 mb-2">Correct Answer: </p>
-                    <p className={`bg-${answer ? "yellow-500" : "tertiary"} text-white p-2 rounded-md shadow text-center`}>
-                        {answer || "Not Set"}
+                    <p className={`bg-${state.answer ? "yellow-500" : "tertiary"} text-white p-2 rounded-md shadow text-center`}>
+                        {state.answer || "Not Set"}
                     </p>
                 </div>
             </fieldset>
