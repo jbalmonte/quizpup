@@ -10,6 +10,7 @@ import { useParams } from 'react-router-dom'
 import fetchQuestions from '../services/fetchQuestions'
 import ReactLoading from 'react-loading'
 import { useAuth } from '../context/AuthContext'
+import { Page404 } from '../pages'
 
 
 function TakeQuiz() {
@@ -25,18 +26,21 @@ function TakeQuiz() {
     const [currentQuestion, setCurrentQuestion] = useState()
     const [totalPoints, setTotalPoints] = useState(0)
 
-    console.log('ID', id, 'QUIZZES', quiz)
 
     useEffect(() => {
         setLoading(true)
         async function getQuestions() {
-            setQuestions(id > 1 && id <= 100 ? await fetchQuestions(quiz.title, quiz.difficulty) : api(Questions).fetchById(+id).questions)
+            setQuestions(id > 1 && id <= 100 ? await fetchQuestions(quiz?.title, quiz?.difficulty) : api(Questions).fetchById(+id)?.questions)
             setLoading(false)
         }
         getQuestions()
         return () => setLoading(false)
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, []);
+
+    useEffect(() => setCurrentQuestion(questions?.[state]), [state, questions])
+
+    if (!quiz) return <Page404 />
 
     const difficultyPoints = {
         'Easy': 1,
@@ -50,10 +54,11 @@ function TakeQuiz() {
         setState(prev => prev + 1)
     }
 
-    useEffect(() => setCurrentQuestion(questions[state]), [state, questions])
+
 
 
     return (
+
         <div className="grid grid-cols-3 px-14 py-4 gap-5 text-primary w-full place-content-center my-auto h-semiScreen">
             {
                 loading ?
@@ -62,7 +67,7 @@ function TakeQuiz() {
                             type="spin"
                             height='5%'
                             width='5%'
-                            color={"#334756"}
+                            color={"#6D28D9"}
                         />
                     </div> :
 
@@ -92,7 +97,7 @@ function TakeQuiz() {
                                 type="spin"
                                 height='11%'
                                 width='11%'
-                                color={"#334756"}
+                                color={"#6D28D9"}
                             />
                         </div>
                     </div> :

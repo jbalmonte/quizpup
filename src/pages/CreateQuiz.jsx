@@ -33,7 +33,7 @@ function CreateQuiz() {
         e.preventDefault()
 
         const quiz = api().create({
-            id: Quizzes[Quizzes.length - 1].id + 1,
+            id: Math.max(...Quizzes.map(q => q.id)) + 1,
             title: title.current.value,
             image: "https://source.unsplash.com/random/" + ~~(Math.random() * 1000),
             description: description.current.value,
@@ -53,7 +53,7 @@ function CreateQuiz() {
     return (
         <div className="py-3 ">
             <div className="bg-gray-50 w-1/2 border rounded-lg mx-auto mb-5 py-3 px-5 relative">
-                <button onClick={() => history.push("/quizzes")} className="absolute text-4xl text-secondary-100 top-6 rounded-full border border-opacity-0 border-gray-300  hover:border-opacity-100 transform hover:scale-105 hover:text-primary h-12 w-12 hover:bg-gray-200">
+                <button onClick={() => history.push("/quizzes")} className="absolute text-4xl text-secondary-100 top-6 rounded-full border border-opacity-0 border-gray-200  hover:border-opacity-100 transform hover:scale-105 hover:text-primary h-12 w-12 hover:bg-gray-200">
                     <IoArrowBackOutline className="m-auto" />
                 </button>
 

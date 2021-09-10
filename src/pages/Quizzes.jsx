@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, NavLink } from 'react-router-dom'
+import { Route, Switch, NavLink, Redirect } from 'react-router-dom'
 import { FaHistory } from 'react-icons/fa'
 import { IoSettingsSharp, IoInformationCircleSharp, IoMailSharp, IoTrashBinSharp, IoDocumentSharp, IoDocumentTextSharp, IoHome, IoAddCircleSharp } from 'react-icons/io5'
 import UserAvatar from '../components/UserAvatar'
@@ -104,8 +104,9 @@ function Quizzes({ history }) {
                     <Route exact path="/quizzes/trash" component={Trash} />
                     <Route
                         exact
-                        path={["/quizzes", "/quizzes/:category"]}
+                        path={["/quizzes", "/quizzes/:category(all|hot|new|best)"]}
                         component={props => <QuizByCategory {...props} />} />
+                    <Route path="*" render={props => <Redirect to="/page404" />} />
                 </Switch>
 
             </div>
