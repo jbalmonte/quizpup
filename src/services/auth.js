@@ -31,6 +31,7 @@ class Auth {
         fullName,
         password,
         QPoints: 0,
+        QPointsWeek: 0,
         image: "",
         bgColor
       }])

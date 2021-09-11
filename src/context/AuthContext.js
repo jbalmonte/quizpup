@@ -21,7 +21,7 @@ export function AuthContextProvider({ children }) {
     useEffect(() => {
         //update both currentUser and Users in our localStorage
         setLocalStorage('currentUser', currentUser)
-        setUsers(prev => [...(prev || []).map(u => u.id === currentUser ? currentUser : u)])
+        setUsers(prev => [...(prev || []).map(u => u.id === currentUser.id ? currentUser : u)])
     }, [currentUser])
 
     useEffect(() => {

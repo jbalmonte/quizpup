@@ -15,13 +15,13 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
     const [animationEnded, setAnimationEnded] = useState(false)
 
     const handleEnd = () => {
-        const newQPoints = currentUser.QPoints + totalPoints
         const date = new Date()
         setCurrentUser(
-            {
-                ...currentUser,
-                QPoints: newQPoints,
-                QPointsWeek: newQPoints,
+            prev =>
+            ({
+                ...prev,
+                QPoints: prev.QPoints + totalPoints,
+                QPointsWeek: prev.QPointsWeek + totalPoints,
                 quizHistory: [...(currentUser?.quizHistory || []),
                 {
                     id: quiz.id,
@@ -34,7 +34,7 @@ function QuizResult({ quiz, totalItems, totalPoints, correctAnswers }) {
                     time: date.toLocaleTimeString()
                 }
                 ]
-            });
+            }));
         setAnimationEnded(true)
     }
 

@@ -5,10 +5,11 @@ import { useAuth } from '../../context/AuthContext'
 
 export default function MyWorks() {
     const { currentUser, Quizzes } = useAuth()
+
     return (
         <>
             {
-                currentUser?.quizzes?.length ?
+                currentUser?.quizzes?.length > 0 ?
 
                     <div className="grid grid-cols-2 gap-4">
                         {
